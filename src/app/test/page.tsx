@@ -1,3 +1,10 @@
-const Test = () => <h1>Test</h1>;
+import { Test } from '@/components/common';
 
-export default Test;
+const TestPage = () => (
+  <div>
+    <Test text="테스트 입니다." />
+    <Test text="테스트2 입니다." />
+  </div>
+);
+
+export default TestPage;
