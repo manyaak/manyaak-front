@@ -7,8 +7,8 @@ interface UserImageProps {
   src: string;
   /** 이미지 사이즈 */
   size?: number;
-  /** 추가 스타일링을 위한 style 객체 */
-  style?: StyleRule;
+  /** 추가 스타일링을 위한 style */
+  style?: string;
 }
 
 /**

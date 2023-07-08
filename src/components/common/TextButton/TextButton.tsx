@@ -20,6 +20,8 @@ interface TextButtonProps {
   borderColor?: string;
   /** 버튼 텍스트 색 */
   labelColor?: string;
+  /** 추가 스타일링을 위한 style */
+  style?: string;
 }
 
 /**
@@ -34,11 +36,12 @@ function TextButton({
   backgroundColor = COLORS.grayscale.gray200,
   labelColor = COLORS.grayscale.gray800,
   width,
+  style,
 }: TextButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={styles.button[sizeType]}
+      className={`${styles.button[sizeType]} ${style}`}
       style={assignInlineVars(styles.buttonVars, {
         backgroundColor,
         borderColor,
