@@ -19,6 +19,7 @@ const renderWeek: RenderWeek = ({
   week,
   isFirstWeek,
   isLastWeek,
+  isInCurrentMonth,
   children,
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -27,7 +28,8 @@ const renderWeek: RenderWeek = ({
     </p>
     <p>
       isFirstWeek: {isFirstWeek ? 'true' : 'false'}, isLastWeek:{' '}
-      {isLastWeek ? 'true' : 'false'}
+      {isLastWeek ? 'true' : 'false'}, isInCurrentMonth:{' '}
+      {isInCurrentMonth ? 'true' : 'false'}
     </p>
     <div style={{ display: 'flex', flexDirection: 'row' }}>{children}</div>
   </div>

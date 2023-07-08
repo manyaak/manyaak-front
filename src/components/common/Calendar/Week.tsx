@@ -13,6 +13,8 @@ interface RenderWeekProps {
   isFirstWeek: boolean;
   /** 이번 달 또는 다음 달 또는 이전 달 중 하나의 마지막 주인지를 나타냄 */
   isLastWeek: boolean;
+  /** 직접 props로 넣은 `month`에 해당하는 날짜가 적어도 하나 포함된 주인지를 나타냄 */
+  isInCurrentMonth: boolean;
   children: ReactNode;
 }
 
@@ -58,6 +60,8 @@ function Week({
     lastDateOfWeek.getMonth() !== lastDateOfPrevWeek.getMonth();
   const isLastWeek =
     firstDateOfWeek.getMonth() !== firstDateOfNextWeek.getMonth();
+  const isInCurrentMonth =
+    firstDateOfWeek.getMonth() === month || lastDateOfWeek.getMonth() === month;
 
   return (
     <CustomWeek
@@ -66,6 +70,7 @@ function Week({
       week={week}
       isFirstWeek={isFirstWeek}
       isLastWeek={isLastWeek}
+      isInCurrentMonth={isInCurrentMonth}
     >
       {DAYS.map((dayIndex) => (
         <Day
