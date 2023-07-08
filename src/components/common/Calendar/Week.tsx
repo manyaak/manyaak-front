@@ -2,7 +2,7 @@ import { useMemo, type ReactNode, memo } from 'react';
 import Day, { type RenderDay } from './Day';
 import { getDateOfWeek } from '@/utils/date';
 
-interface RenderWeekProps {
+export interface RenderWeekProps {
   /** props로 넣어준 `year`와 동일한 값 */
   year: number;
   /** props로 넣어준 `month`와 동일한 값. 0~11 */

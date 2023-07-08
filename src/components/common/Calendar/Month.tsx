@@ -2,7 +2,7 @@ import { memo, type ReactNode } from 'react';
 import { type RenderDay } from './Day';
 import Week, { type RenderWeek } from './Week';
 
-interface RenderMonthProps {
+export interface RenderMonthProps {
   year: number;
   /** 0~11 */
   month: number;

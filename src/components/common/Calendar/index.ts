@@ -1,6 +1,13 @@
-import { type RenderDay } from './Day';
-import Week, { type RenderWeek } from './Week';
-import Month, { type RenderMonth } from './Month';
+import { type RenderDay, type RenderDayProps } from './Day';
+import Week, { type RenderWeek, type RenderWeekProps } from './Week';
+import Month, { type RenderMonth, type RenderMonthProps } from './Month';
 
 export { Week, Month };
-export type { RenderDay, RenderWeek, RenderMonth };
+export type {
+  RenderDay,
+  RenderDayProps,
+  RenderWeek,
+  RenderWeekProps,
+  RenderMonth,
+  RenderMonthProps,
+};
