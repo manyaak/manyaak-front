@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import PromiseBox from './PromiseBox';
+import HangoutBox from './HangoutBox';
 
 export default {
-  title: 'common/PromiseBox',
-  component: PromiseBox,
+  title: 'common/HangoutBox',
+  component: HangoutBox,
 } as Meta;
 
-type Story = StoryObj<typeof PromiseBox>;
+type Story = StoryObj<typeof HangoutBox>;
 
 export const Default: Story = {
   args: {
@@ -28,7 +28,7 @@ export const Default: Story = {
   },
 };
 
-export const PromiseBoxWithShadow: Story = {
+export const HangoutBoxWithShadow: Story = {
   args: {
     name: 'GDSC 만약 회의',
     date: new Date(),
@@ -49,7 +49,7 @@ export const PromiseBoxWithShadow: Story = {
   },
 };
 
-export const NotAcceptedPromiseBox: Story = {
+export const NotAcceptedHangoutBox: Story = {
   args: {
     name: 'GDSC 만약 회의',
     date: new Date(),

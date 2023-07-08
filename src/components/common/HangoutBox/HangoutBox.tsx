@@ -2,7 +2,7 @@ import UserImage from '@/components/common/UserImage';
 import { ReactComponent as ClockIcon } from '@/assets/icons/clock.svg';
 import { ReactComponent as LocationIcon } from '@/assets/icons/location.svg';
 
-import * as styles from './PromiseBox.css';
+import * as styles from './HangoutBox.css';
 
 function toddayFormat(date: Date) {
   const diff = date.getTime() - new Date().getTime();
@@ -16,14 +16,14 @@ function tohhmmFormat(date: Date) {
 }
 
 // TODO 약속 정보 Type 정확히 정해지면 수정 후 밖으로 뺄 것!
-interface PromiseInfoType {
+interface HangoutInfoType {
   name: string;
   date: Date;
   location: string;
   members: { name: string; profileImg: string }[];
 }
 
-interface PromiseBoxProps extends PromiseInfoType {
+interface HangoutBoxProps extends HangoutInfoType {
   /** 그림자 스타일링 여부 */
   haveBoxShadow?: boolean;
   /** 수락 대기 중인 약속인지 */
@@ -35,7 +35,7 @@ interface PromiseBoxProps extends PromiseInfoType {
 /**
  * 약속 정보를 담은 컴포넌트
  */
-function PromiseBox({
+function HangoutBox({
   name,
   date,
   location,
@@ -43,7 +43,7 @@ function PromiseBox({
   haveBoxShadow = false,
   isNotAccepted = false,
   style,
-}: PromiseBoxProps) {
+}: HangoutBoxProps) {
   return (
     <div
       className={`${
@@ -78,4 +78,4 @@ function PromiseBox({
   );
 }
 
-export default PromiseBox;
+export default HangoutBox;
