@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { ReactComponent as PlusIcon } from '@/assets/icons/PlusIcon.svg';
-import { ReactComponent as PromiseOutlineIcon } from '@/assets/icons/PromiseOutlineIcon.svg';
+import { ReactComponent as HangoutOutlineIcon } from '@/assets/icons/HangoutOutlineIcon.svg';
 import { ReactComponent as AddScheduleIcon } from '@/assets/icons/AddScheduleIcon.svg';
 import * as styles from './FloatingButton.css';
 
@@ -32,7 +32,7 @@ const FloatingButton = ({ menuList = [], withoutBasic = false }: PropsType) => {
   const basictMenuItems: MenuType[] = [
     {
       label: '약속 추가',
-      icon: PromiseOutlineIcon,
+      icon: HangoutOutlineIcon,
       onClick: () => {
         console.log('약속 추가 페이지로 이동');
       },

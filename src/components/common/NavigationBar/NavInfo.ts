@@ -1,5 +1,5 @@
 import { ReactComponent as HomeIcon } from '@/assets/icons/HomeIcon.svg';
-import { ReactComponent as PromiseIcon } from '@/assets/icons/PromiseIcon.svg';
+import { ReactComponent as HangoutIcon } from '@/assets/icons/HangoutIcon.svg';
 import { ReactComponent as FriendIcon } from '@/assets/icons/FriendIcon.svg';
 import { ReactComponent as MyPageIcon } from '@/assets/icons/MyPageIcon.svg';
 import { NAV_LIST, NAV_URL_LIST } from '@/constants/navigation';
@@ -16,10 +16,10 @@ export const NAV_INFO = {
     url: NAV_URL_LIST.home,
     icon: HomeIcon,
   },
-  [NAV_LIST.promise]: {
+  [NAV_LIST.hangout]: {
     label: '약속',
-    url: NAV_URL_LIST.promise,
-    icon: PromiseIcon,
+    url: NAV_URL_LIST.hangout,
+    icon: HangoutIcon,
   },
   [NAV_LIST.friend]: {
     label: '친구',
