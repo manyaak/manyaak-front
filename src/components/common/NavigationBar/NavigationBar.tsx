@@ -8,7 +8,7 @@ interface NavigationPropsType {
 
 const NavigationBar = ({ focusType }: NavigationPropsType) => {
   return (
-    <div className={styles.NavigationStyle}>
+    <div className={styles.Navigation}>
       <NavItem type={NAV_LIST.home} isFocused={focusType === NAV_LIST.home} />
       <NavItem
         type={NAV_LIST.promise}

@@ -1,7 +1,7 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { COLORS } from '@/constants/styles';
 
-export const NavigationStyle = style({
+export const Navigation = style({
   display: 'flex',
   height: '80px',
   paddingTop: '27.5px',
@@ -11,7 +11,7 @@ export const NavigationStyle = style({
   boxShadow: '0px -1px 2px 0px rgba(189, 189, 189, 0.25)',
 });
 
-export const navItemBaseStyle = style({
+export const navItemBase = style({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
@@ -23,18 +23,18 @@ export const navItemBaseStyle = style({
   textDecoration: 'none',
 });
 
-export const navItemStyle = styleVariants({
-  default: [navItemBaseStyle, { color: COLORS.grayscale.gray500 }],
-  focused: [navItemBaseStyle, { color: COLORS.grayscale.gray800 }],
+export const navItem = styleVariants({
+  default: [navItemBase, { color: COLORS.grayscale.gray500 }],
+  focused: [navItemBase, { color: COLORS.grayscale.gray800 }],
 });
 
-export const labelTextStyle = style({
+export const labelText = style({
   fontSize: 12,
   fontWeight: 500,
   lineHeight: 'normal',
 });
 
-export const focusedBarBaseStyle = style({
+export const focusedBarBase = style({
   position: 'absolute',
   top: 0,
   width: '35px',
@@ -43,7 +43,7 @@ export const focusedBarBaseStyle = style({
   background: COLORS.grayscale.gray800,
 });
 
-export const focusedBarStyle = styleVariants({
-  default: [focusedBarBaseStyle, { display: 'none' }],
-  focused: [focusedBarBaseStyle, { display: 'block' }],
+export const focusedBar = styleVariants({
+  default: [focusedBarBase, { display: 'none' }],
+  focused: [focusedBarBase, { display: 'block' }],
 });

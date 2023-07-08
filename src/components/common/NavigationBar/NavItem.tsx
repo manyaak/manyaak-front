@@ -19,10 +19,10 @@ const NavItem = ({ type, isFocused }: NavItemPropsType) => {
     : COLORS.grayscale.gray500;
 
   return (
-    <NavLink to={url} className={styles.navItemStyle[key]}>
-      <div className={styles.focusedBarStyle[key]} />
+    <NavLink to={url} className={styles.navItem[key]}>
+      <div className={styles.focusedBar[key]} />
       <Icon fill={iconColor} />
-      <div className={styles.labelTextStyle}>{label}</div>
+      <div className={styles.labelText}>{label}</div>
     </NavLink>
   );
 };

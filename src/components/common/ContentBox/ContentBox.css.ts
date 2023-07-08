@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { COLORS, TEXT_STYLES } from '@/constants/styles';
 
-export const layoutStyle = style({
+export const layout = style({
   position: 'relative',
   width: '100%',
   borderRadius: '12px',
@@ -11,7 +11,7 @@ export const layoutStyle = style({
   overflow: 'hidden',
 });
 
-export const headerStyle = style({
+export const header = style({
   position: 'absolute',
   top: '0',
   left: '0',
@@ -25,7 +25,7 @@ export const headerStyle = style({
   background: COLORS.grayscale.white,
 });
 
-export const contentStyle = style({
+export const content = style({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
@@ -33,7 +33,7 @@ export const contentStyle = style({
   marginTop: '22px',
 });
 
-export const titleStyle = style({
+export const title = style({
   ...TEXT_STYLES.subtitle3,
   color: COLORS.grayscale.black,
 });

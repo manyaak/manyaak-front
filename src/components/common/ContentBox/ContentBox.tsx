@@ -19,10 +19,10 @@ const ContentBox = ({
   const [closed, setClosed] = useState(false);
 
   return (
-    <div className={styles.layoutStyle} style={{ height }}>
-      <div className={styles.contentStyle}>{children}</div>
-      <div className={styles.headerStyle}>
-        <div className={styles.titleStyle}>{title}</div>
+    <div className={styles.layout} style={{ height }}>
+      <div className={styles.content}>{children}</div>
+      <div className={styles.header}>
+        <div className={styles.title}>{title}</div>
         <div>{headerChildren}</div>
       </div>
     </div>
