@@ -11,7 +11,7 @@ type Story = StoryObj<typeof PromiseBox>;
 export const Default: Story = {
   args: {
     name: 'GDSC 만약 회의',
-    date: new Date(),
+    date: new Date('2023-07-15'),
     location: '숭실대 정보관 204호',
     members: [
       {
