@@ -6,9 +6,8 @@ import * as styles from './HangoutBox.css';
 
 function toddayFormat(date: Date) {
   const diff = date.getTime() - new Date().getTime();
-  const diffDay = Math.ceil(diff / (1000 * 60 * 60 * 24));
-
-  return diffDay === 0 ? `오늘` : `${diffDay}일 전`;
+  const dday = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  return dday === 0 ? `오늘` : `${dday}일 전`;
 }
 
 function tohhmmFormat(date: Date) {

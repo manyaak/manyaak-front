@@ -1,6 +1,4 @@
-import { assignInlineVars } from '@vanilla-extract/dynamic';
-import * as styles from './UserImage.css';
-import { StyleRule } from '@vanilla-extract/css';
+import { COLORS } from '@/constants/styles';
 
 interface UserImageProps {
   /** 이미지 url */
@@ -19,8 +17,13 @@ function UserImage({ src, size = 36, style }: UserImageProps) {
     <img
       src={src}
       alt="profile-img"
-      className={`${styles.image} ${style}`}
-      style={assignInlineVars(styles.imageVars, { size: String(size) })}
+      className={`${style}`}
+      style={{
+        width: size,
+        height: size,
+        borderRadius: size / 2,
+        backgroundColor: COLORS.grayscale.gray100,
+      }}
     />
   );
 }

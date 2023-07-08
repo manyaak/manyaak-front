@@ -31,7 +31,6 @@ export const LargeButton: Story = {
     label: 'LargeButton',
     sizeType: 'large',
     backgroundColor: COLORS.primary.yellow,
-    width: 250,
   },
 };
 
@@ -47,6 +46,6 @@ export const ButtonWithBorder: Story = {
     label: 'ButtonWithBorder',
     borderColor: COLORS.grayscale.gray600,
     labelColor: COLORS.grayscale.gray600,
-    backgroundColor: 'none',
+    backgroundColor: COLORS.grayscale.white,
   },
 };
