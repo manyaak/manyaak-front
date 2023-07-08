@@ -56,12 +56,9 @@ export const memberInfoWrap = style({
   position: 'absolute',
   top: '16px',
   right: '16px',
-
   display: 'flex',
+});
 
-  //selectors: {
-  //  '${parent} &img:nth-child(n)': {
-  //    marginRight: '-6px',
-  //  },
-  //},
+export const memberImage = style({
+  marginRight: '-8px',
 });
