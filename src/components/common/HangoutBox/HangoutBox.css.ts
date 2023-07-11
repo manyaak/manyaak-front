@@ -8,7 +8,7 @@ export const boxWrap = style({
   position: 'relative',
 });
 
-export const nonAcceptedBoxWrap = style([
+export const dashedBoxWrap = style([
   boxWrap,
   {
     opacity: 0.55,
@@ -26,19 +26,20 @@ export const mainInfo = style({
 });
 
 export const ddayBox = style({
+  ...TEXT_STYLES.caption1,
   width: 'fit-content',
   padding: '5px 10px',
   color: COLORS.grayscale.gray700,
   backgroundColor: COLORS.grayscale.gray200,
   borderRadius: 12,
   marginRight: 12,
-  ...TEXT_STYLES.caption1,
 });
 
 export const name = style({
-  color: COLORS.grayscale.black,
   ...TEXT_STYLES.body1B,
+  color: COLORS.grayscale.black,
 });
+
 export const subInfoWrap = style({
   display: 'flex',
   alignItems: 'center',
@@ -46,10 +47,10 @@ export const subInfoWrap = style({
 });
 
 export const subInfo = style({
+  ...TEXT_STYLES.body3,
   display: 'flex',
   alignItems: 'center',
   color: COLORS.grayscale.gray700,
-  ...TEXT_STYLES.body3,
 });
 
 export const memberInfoWrap = style({

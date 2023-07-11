@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { COLORS } from '@/constants/styles';
 import TextButton from './TextButton';
 
-import { ReactComponent as ScheduleIcon } from '@/assets/icons/schedule.svg';
+import { ReactComponent as ScheduleIcon } from '@/assets/icons/ScheduleIcon.svg';
 
 export default {
   title: 'common/TextButton',
@@ -38,14 +38,5 @@ export const ButtonWithIcon: Story = {
   args: {
     label: 'ButtonWithIcon',
     iconSvg: <ScheduleIcon />,
-  },
-};
-
-export const ButtonWithBorder: Story = {
-  args: {
-    label: 'ButtonWithBorder',
-    borderColor: COLORS.grayscale.gray600,
-    labelColor: COLORS.grayscale.gray600,
-    backgroundColor: COLORS.grayscale.white,
   },
 };

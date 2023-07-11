@@ -8,7 +8,7 @@ interface TextButtonProps {
   /** 버튼 내에 들어갈 아이콘 컴포넌트 */
   iconSvg?: React.ReactElement;
   /** 버튼 눌렀을 때 실행되는 함수 */
-  onClick: () => void | Promise<void>;
+  onClick?: () => void | Promise<void>;
   /** 버튼 사이즈 타입 (버튼 높이와 텍스트 굵기 결정) */
   sizeType?: 'small' | 'medium' | 'large';
   /** 버튼 배경 색 */
@@ -16,7 +16,7 @@ interface TextButtonProps {
   /** 버튼 텍스트 색 */
   labelColor?: string;
   /** 추가 스타일링을 위한 style */
-  style?: string;
+  className?: string;
 }
 
 /**
@@ -29,12 +29,12 @@ function TextButton({
   sizeType = 'small',
   backgroundColor = COLORS.grayscale.gray200,
   labelColor = COLORS.grayscale.gray800,
-  style,
+  className,
 }: TextButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={`${styles.button[sizeType]} ${style}`}
+      className={`${styles.button[sizeType]} ${className}`}
       style={{
         backgroundColor,
       }}

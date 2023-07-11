@@ -1,6 +1,6 @@
 import UserImage from '@/components/common/UserImage';
-import { ReactComponent as ClockIcon } from '@/assets/icons/clock.svg';
-import { ReactComponent as LocationIcon } from '@/assets/icons/location.svg';
+import { ReactComponent as ClockIcon } from '@/assets/icons/ClockIcon.svg';
+import { ReactComponent as LocationIcon } from '@/assets/icons/LocationIcon.svg';
 import { toddayFormat, tohhmmFormat } from '@/utils/dateUtils';
 
 import * as styles from './HangoutBox.css';
@@ -19,7 +19,7 @@ interface HangoutBoxProps extends HangoutInfoType {
   /** 수락 대기 중인 약속인지 */
   isNotAccepted?: boolean;
   /** 추가 스타일링을 위한 style  */
-  style?: string;
+  className?: string;
 }
 
 /**
@@ -32,13 +32,14 @@ function HangoutBox({
   members,
   haveBoxShadow = false,
   isNotAccepted = false,
-  style,
+  className,
 }: HangoutBoxProps) {
+  const boxWrapStyle = isNotAccepted ? styles.dashedBoxWrap : styles.boxWrap;
   return (
     <div
       className={`${
-        isNotAccepted ? styles.nonAcceptedBoxWrap : styles.boxWrap
-      } ${haveBoxShadow && styles.boxShadow} ${style}`}
+        haveBoxShadow && styles.boxShadow
+      } ${boxWrapStyle} ${className}`}
     >
       <div className={styles.mainInfo}>
         <div className={styles.ddayBox}>{toddayFormat(date)}</div>

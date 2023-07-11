@@ -6,18 +6,18 @@ interface UserImageProps {
   /** 이미지 사이즈 */
   size?: number;
   /** 추가 스타일링을 위한 style */
-  style?: string;
+  className?: string;
 }
 
 /**
  * 사용자의 프로필 이미지를 담는 컴포넌트
  */
-function UserImage({ src, size = 36, style }: UserImageProps) {
+function UserImage({ src, size = 36, className }: UserImageProps) {
   return (
     <img
       src={src}
       alt="profile-img"
-      className={`${style}`}
+      className={className}
       style={{
         width: size,
         height: size,

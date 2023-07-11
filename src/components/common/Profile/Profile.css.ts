@@ -48,11 +48,11 @@ export const textWrap = style({
 });
 
 export const name = style({
-  color: COLORS.grayscale.black,
   ...TEXT_STYLES.body2B,
+  color: COLORS.grayscale.black,
 });
 
 export const statusMessage = style({
-  color: COLORS.grayscale.gray700,
   ...TEXT_STYLES.body3,
+  color: COLORS.grayscale.gray700,
 });
