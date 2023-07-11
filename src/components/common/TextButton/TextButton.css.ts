@@ -13,6 +13,7 @@ const buttonBase = style({
   justifyContent: 'center',
   gap: 4,
   padding: '0px 16px',
+  border: 'none',
   borderRadius: 50,
 });
 
