@@ -1,18 +1,9 @@
 import UserImage from '@/components/common/UserImage';
 import { ReactComponent as ClockIcon } from '@/assets/icons/clock.svg';
 import { ReactComponent as LocationIcon } from '@/assets/icons/location.svg';
+import { toddayFormat, tohhmmFormat } from '@/utils/dateUtils';
 
 import * as styles from './HangoutBox.css';
-
-function toddayFormat(date: Date) {
-  const diff = date.getTime() - new Date().getTime();
-  const dday = Math.ceil(diff / (1000 * 60 * 60 * 24));
-  return dday === 0 ? `오늘` : `${dday}일 전`;
-}
-
-function tohhmmFormat(date: Date) {
-  return `${date.getHours()}시 ${date.getMinutes()}분`;
-}
 
 // TODO 약속 정보 Type 정확히 정해지면 수정 후 밖으로 뺄 것!
 interface HangoutInfoType {
