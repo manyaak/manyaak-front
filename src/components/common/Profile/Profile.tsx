@@ -1,22 +1,29 @@
 import UserImage from '../UserImage';
 import * as styles from './Profile.css';
 
-interface ProfileProps {
-  /** 프로필 타입이 사용자인지 그룹인지 */
-  type: 'user' | 'group';
-  /** 사용자 혹은 그룹 이름 */
+interface SingleProfileProps {
+  type: 'user';
   name: string;
-  /** 사용자 프로필 이미지 혹은 그룹에 속하는 멤버 중 2-3명의 프로필 이미지 */
-  profileImg: string | string[];
-  /** 사용자 상태 메세지 */
+  profileImg: string;
   statusMessage?: string;
 }
+
+interface GroupProfileProps {
+  type: 'group';
+  name: string;
+  profileImg: string[];
+  //statusMessage?: undefined;
+}
+
+type ProfileProps = SingleProfileProps & GroupProfileProps;
 
 /**
  * 사용자 혹은 사용자 그룹의 프로필 정보를 보여주는 컴포넌트
  */
 function Profile({ type, name, profileImg, statusMessage }: ProfileProps) {
-  const profileImgList = Array.isArray(profileImg) ? profileImg : [profileImg];
+  const profileImgList = (
+    Array.isArray(profileImg) ? profileImg : [profileImg]
+  ).slice(0, 4);
   return (
     <div className={styles.profileWrap}>
       <div
@@ -25,11 +32,7 @@ function Profile({ type, name, profileImg, statusMessage }: ProfileProps) {
         }
       >
         {profileImgList.map((img, idx) => (
-          <UserImage
-            key={idx}
-            src={img}
-            size={profileImgList.length > 1 ? 22 : 36}
-          />
+          <UserImage key={idx} src={img} size={type === 'user' ? 22 : 36} />
         ))}
       </div>
       <div className={styles.textWrap}>
