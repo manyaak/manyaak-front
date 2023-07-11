@@ -11,19 +11,18 @@ interface SingleProfileProps {
 interface GroupProfileProps {
   type: 'group';
   name: string;
-  profileImg: string[];
-  //statusMessage?: undefined;
+  profileImg: [string, string, string?];
+  statusMessage?: undefined;
 }
 
-type ProfileProps = SingleProfileProps & GroupProfileProps;
+type ProfileProps = SingleProfileProps | GroupProfileProps;
 
 /**
  * 사용자 혹은 사용자 그룹의 프로필 정보를 보여주는 컴포넌트
  */
 function Profile({ type, name, profileImg, statusMessage }: ProfileProps) {
-  const profileImgList = (
-    Array.isArray(profileImg) ? profileImg : [profileImg]
-  ).slice(0, 4);
+  const profileImgList = Array.isArray(profileImg) ? profileImg : [profileImg];
+
   return (
     <div className={styles.profileWrap}>
       <div

@@ -61,7 +61,7 @@ function HangoutBox({
             key={member.name}
             src={member.profileImg}
             size={22}
-            style={styles.memberImage}
+            className={styles.memberImage}
           />
         ))}
       </div>
