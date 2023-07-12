@@ -11,7 +11,7 @@ interface SingleProfileProps {
 interface GroupProfileProps {
   type: 'group';
   name: string;
-  profileImg: [string, string, string?];
+  profileImg: [string, string] | [string, string, string];
   statusMessage?: undefined;
 }
 
