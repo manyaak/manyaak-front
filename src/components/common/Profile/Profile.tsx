@@ -1,18 +1,20 @@
 import UserImage from '../UserImage';
 import * as styles from './Profile.css';
 
-interface SingleProfileProps {
-  type: 'user';
+interface BaseProfileProps {
   name: string;
+}
+
+interface SingleProfileProps extends BaseProfileProps {
+  type: 'user';
   profileImg: string;
   statusMessage?: string;
 }
 
-interface GroupProfileProps {
+interface GroupProfileProps extends BaseProfileProps {
   type: 'group';
   name: string;
   profileImg: [string, string] | [string, string, string];
-  statusMessage?: undefined;
 }
 
 type ProfileProps = SingleProfileProps | GroupProfileProps;
@@ -20,7 +22,9 @@ type ProfileProps = SingleProfileProps | GroupProfileProps;
 /**
  * 사용자 혹은 사용자 그룹의 프로필 정보를 보여주는 컴포넌트
  */
-function Profile({ type, name, profileImg, statusMessage }: ProfileProps) {
+function Profile(props: ProfileProps) {
+  const { type, name, profileImg } = props;
+  const statusMsg = type === 'user' ? props.statusMessage : undefined;
   const profileImgList = Array.isArray(profileImg) ? profileImg : [profileImg];
 
   return (
@@ -36,9 +40,7 @@ function Profile({ type, name, profileImg, statusMessage }: ProfileProps) {
       </div>
       <div className={styles.textWrap}>
         <div className={styles.name}>{name}</div>
-        {type === 'user' && statusMessage && (
-          <div className={styles.statusMessage}>{statusMessage}</div>
-        )}
+        {statusMsg && <div className={styles.statusMessage}>{statusMsg}</div>}
       </div>
     </div>
   );
