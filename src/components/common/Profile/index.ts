@@ -1,3 +1,3 @@
-import UserImage from './UserImage';
+import Profile from './Profile';
 
-export default UserImage;
+export default Profile;
