@@ -25,17 +25,15 @@ type ProfileProps = SingleProfileProps | GroupProfileProps;
 function Profile(props: ProfileProps) {
   const { type, name, profileImg } = props;
   const statusMsg = type === 'user' ? props.statusMessage : undefined;
-  const profileImgList = Array.isArray(profileImg) ? profileImg : [profileImg];
+  const profileImgList = type === 'user' ? [profileImg] : profileImg;
 
   return (
     <div className={styles.profileWrap}>
       <div
-        className={
-          styles.profileImgWrap[`${profileImgList.length as 1 | 2 | 3}`]
-        }
+        className={styles.profileImgWrap[`${profileImg.length as 1 | 2 | 3}`]}
       >
         {profileImgList.map((img, idx) => (
-          <UserImage key={idx} src={img} size={type === 'user' ? 22 : 36} />
+          <UserImage key={idx} src={img} size={type === 'group' ? 22 : 36} />
         ))}
       </div>
       <div className={styles.textWrap}>
