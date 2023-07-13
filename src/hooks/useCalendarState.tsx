@@ -89,13 +89,11 @@ const CalendarDataStoreContext =
 export const withCalendarStateProvider = <T extends object>(
   WrappedComponent: (props: T) => JSX.Element,
 ) => {
-  function ComponentWithCalendarStateProvider(props: T) {
-    return (
-      <CalendarDataStoreContext.Provider value={calendarDataStore}>
-        <WrappedComponent {...props} />
-      </CalendarDataStoreContext.Provider>
-    );
-  }
+  const ComponentWithCalendarStateProvider = (props: T) => (
+    <CalendarDataStoreContext.Provider value={calendarDataStore}>
+      <WrappedComponent {...props} />
+    </CalendarDataStoreContext.Provider>
+  );
 
   return ComponentWithCalendarStateProvider;
 };

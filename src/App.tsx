@@ -28,7 +28,7 @@ broadcastQueryClient({
   broadcastChannel: 'manyaak-web',
 });
 
-function App() {
+const App = () => {
   const router = createBrowserRouter(routes);
 
   return (
@@ -41,6 +41,6 @@ function App() {
       </PersistQueryClientProvider>
     </StrictMode>
   );
-}
+};
 
 export default App;

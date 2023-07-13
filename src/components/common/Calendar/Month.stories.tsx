@@ -67,11 +67,11 @@ interface DayWithCalendarStateProps extends RenderDayProps {
   selectedDayRef: MutableRefObject<Date | null>;
 }
 
-function DayWithCalendarState({
+const DayWithCalendarState = ({
   date,
   isInCurrentMonth,
   selectedDayRef,
-}: DayWithCalendarStateProps) {
+}: DayWithCalendarStateProps) => {
   const [dayState, setDayState] = useCalendarState<DayInfo>({
     type: 'day',
     date,
@@ -136,7 +136,7 @@ function DayWithCalendarState({
       </p>
     </div>
   );
-}
+};
 
 const meta: Meta<typeof Month> = {
   component: Month,
