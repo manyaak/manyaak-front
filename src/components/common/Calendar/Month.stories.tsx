@@ -167,7 +167,6 @@ export const MonthWithCalendarState: Story = {
     const renderDayWithCalendarState = useCallback(
       (renderDayProps: RenderDayProps) => (
         <DayWithCalendarState
-          /* eslint-disable-next-line react/jsx-props-no-spreading */
           {...renderDayProps}
           selectedDayRef={selectedDayRef}
         />
@@ -178,7 +177,6 @@ export const MonthWithCalendarState: Story = {
     return (
       <div>
         <h2>날짜를 누르면 배경색이 칠해집니다.</h2>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Month {...props} renderDay={renderDayWithCalendarState} />
       </div>
     );

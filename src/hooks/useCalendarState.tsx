@@ -92,7 +92,6 @@ export const withCalendarStateProvider = <T extends object>(
   function ComponentWithCalendarStateProvider(props: T) {
     return (
       <CalendarDataStoreContext.Provider value={calendarDataStore}>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <WrappedComponent {...props} />
       </CalendarDataStoreContext.Provider>
     );
