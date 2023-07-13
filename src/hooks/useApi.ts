@@ -48,7 +48,7 @@ const useApi = () => {
       },
     ) => {
       try {
-        const [fetcher] = api;
+        const { fetcher } = api;
         const response = await fetcher(requestInfo, authToken?.accessToken);
 
         return response;

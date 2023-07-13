@@ -46,7 +46,7 @@ const useApiInfiniteQuery = <
   > & { shouldAlertOnError?: boolean },
 ) => {
   const { fetchWithToken } = useApi();
-  const [, getQueryKey] = api;
+  const { getQueryKey } = api;
 
   return useInfiniteQuery({
     queryKey: getQueryKey(requestInfo(0)),

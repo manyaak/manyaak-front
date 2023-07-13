@@ -25,7 +25,7 @@ const useApiMutation = <Result, Request extends ApiRequest, TContext = unknown>(
   },
 ) => {
   const { fetchWithToken } = useApi();
-  const [, getQueryKey] = api;
+  const { getQueryKey } = api;
 
   return useMutation({
     mutationKey: getQueryKey(),

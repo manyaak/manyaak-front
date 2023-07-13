@@ -23,7 +23,7 @@ const useApiQuery = <Result, Request extends ApiRequest, TData = Result>(
   },
 ) => {
   const { fetchWithToken } = useApi();
-  const [, getQueryKey] = api;
+  const { getQueryKey } = api;
 
   return useQuery({
     queryKey: getQueryKey(requestInput),

@@ -59,7 +59,7 @@ type ApiFetcher<Result, Request extends ApiRequest> = (
   acecssToken?: string,
 ) => Promise<Result>;
 
-export type Api<Result, Request extends ApiRequest> = readonly [
-  fetcher: ApiFetcher<Result, Request>,
-  getQueryKey: (requestInfo?: ApiRequestInput<Request>) => any[],
-];
+export type Api<Result, Request extends ApiRequest> = {
+  readonly fetcher: ApiFetcher<Result, Request>;
+  readonly getQueryKey: (requestInfo?: ApiRequestInput<Request>) => any[];
+};
