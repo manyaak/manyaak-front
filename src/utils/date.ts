@@ -1,6 +1,7 @@
 /**
  * 특정 주의 특정 요일에 해당하는 일자를 얻는 함수
- * @example```
+ * @example
+ * ```
  * const date = getDateOfWeek(2023, 6, 0, 0);
  * console.log(`${date.getFullYear()} ${date.getMonth()} ${date.getDate()}`); // 2023 05 25
  * ```

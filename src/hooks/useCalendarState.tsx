@@ -76,7 +76,8 @@ const CalendarDataStoreContext =
 
 /**
  * 캘린더 state context provider를 감싸주는 HOC
- * @example```
+ * @example
+ * ```
  * const Calendar = () => {
  *   const setCalendarState = useSetCalendarState();
  *   // ...
@@ -127,9 +128,13 @@ const getKeyStringFrom = (params: CalendarParams) => {
  * 캘린더 state를 사용할 수 있는 hook
  * @param params `CalendarParams`
  * @param equals Re-render가 필요없으면 `true`, 필요하면 `false` 반환. 기본값은 `shallow`
- * @example```
+ * @example
+ * ```
  * type DayInfo = { isSelected: boolean };
- * const [dayState, setDayState] = useCalendarState<DayInfo>({ type: 'day', date });
+ * const [dayState, setDayState] = useCalendarState<DayInfo>({
+ *   type: 'day',
+ *   date,
+ * });
  * ```
  */
 const useCalendarState = <Data,>(
@@ -160,10 +165,19 @@ const useCalendarState = <Data,>(
 
 /**
  * 여러 날짜의 state를 한 번에 바꿀 수 있는 유틸
- * @example```
+ * @example
+ * ```
  * type DayInfo = { isSelected: boolean };
  * const setCalendarState = useSetCalendarState<DayInfo>();
- * setCalendarState({ type: 'day', date: new Date(2023, 6, 9), newData: (prev) => ({ ...prev, isSelected: true }) });
+ * setCalendarState({
+ *   type: 'day',
+ *   date: new Date(2023, 6, 9),
+ *   newData: (prev) => ({ ...prev, isSelected: true }),
+ * }, {
+ *   type: 'day',
+ *   date: new Date(2023, 6, 10),
+ *   newData: (prev) => ({ ...prev, isSelected: false }),
+ * });
  * ```
  */
 export const useSetCalendarState = <
