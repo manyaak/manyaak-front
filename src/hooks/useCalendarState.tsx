@@ -61,21 +61,13 @@ interface CalendarDataStore extends CalendarData<any, any, any> {
 
 const calendarDataStore = createStore<CalendarDataStore>()((set) => ({
   setRawData: (action) => {
-    if (isFunction(action)) {
-      set((state) => action(state));
-    } else {
-      set(action);
-    }
+    set((state) => (isFunction(action) ? action(state) : action));
   },
   setData: (type, action) => {
-    if (isFunction(action)) {
-      set((state) => ({
-        ...state,
-        [type]: action(state[type]),
-      }));
-    } else {
-      set((state) => ({ ...state, [type]: action }));
-    }
+    set((state) => ({
+      ...state,
+      [type]: isFunction(action) ? action(state[type]) : action,
+    }));
   },
 }));
 
@@ -155,12 +147,10 @@ const useCalendarState = <Data,>(
 
   const setData = useCallback(
     (action: CalendarStoreSetStateAction<Data>) => {
-      if (isFunction(action)) {
-        setStoreData(params.type, (prev) => ({
-          ...prev,
-          [keyString]: action(prev?.[keyString]),
-        }));
-      }
+      setStoreData(params.type, (prev) => ({
+        ...prev,
+        [keyString]: isFunction(action) ? action(prev?.[keyString]) : action,
+      }));
     },
     [keyString, params.type, setStoreData],
   );
