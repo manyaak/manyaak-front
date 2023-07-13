@@ -9,7 +9,7 @@ import { ApiError } from '@/utils/api';
 /**
  * `useInfiniteQuery` wrapper
  * @param api `Api`
- * @param requestInfo page에 따른 API request
+ * @param getRequestInput page에 따른 API request getter
  * @param initialPage 초기 페이지 (보통 0 아니면 1)
  * @param getNextPageParam 다음 페이지를 얻는 함수
  * @param options `UseInfiniteQueryOptions & { shouldAlertOnError?: boolean }`
@@ -30,8 +30,8 @@ const useApiInfiniteQuery = <
   TData = Result,
 >(
   api: Api<Result, Request>,
-  requestInfo: (page: number) => ApiRequestInput<Request>,
-  initialPage: number,
+  getRequestInput: (page: number) => ApiRequestInput<Request>,
+  initialPage: number, // TODO: 서버 명세 통일되면 기본값이 설정된 optional로 수정
   getNextPageParam: (
     lastPage: Result,
     allPages: Result[],
@@ -49,9 +49,9 @@ const useApiInfiniteQuery = <
   const { getQueryKey } = api;
 
   return useInfiniteQuery({
-    queryKey: getQueryKey(requestInfo(0)),
+    queryKey: getQueryKey(getRequestInput(0)),
     queryFn: ({ pageParam = initialPage }) =>
-      fetchWithToken(api, requestInfo(pageParam), {
+      fetchWithToken(api, getRequestInput(pageParam), {
         shouldAlertOnError: options?.shouldAlertOnError,
       }),
     getNextPageParam,

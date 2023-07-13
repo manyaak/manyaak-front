@@ -9,6 +9,7 @@ import useGlobalAlert from '@/hooks/useGlobalAlert';
  * - access token을 주입해준다.
  * - `shouldAlertOnError`를 `true`로 하면 에러 발생 시 팝업을 띄워준다.
  * - 주의! `try..catch`로 에러를 핸들링해야 한다.
+ * - 주의! React Query와는 독립적이다. React Query를 이용하지 않아야 할 때만 사용하자.
  * @returns `{ fetchWithToken }`
  * @example
  * ```
@@ -42,14 +43,14 @@ const useApi = () => {
   const fetchWithToken = useCallback(
     async <Result, Request extends ApiRequest>(
       api: Api<Result, Request>,
-      requestInfo: ApiRequestInput<Request>,
+      requestInput: ApiRequestInput<Request>,
       options?: {
         shouldAlertOnError?: boolean;
       },
     ) => {
       try {
         const { fetcher } = api;
-        const response = await fetcher(requestInfo, authToken?.accessToken);
+        const response = await fetcher(requestInput, authToken?.accessToken);
 
         return response;
       } catch (error) {

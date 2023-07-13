@@ -35,7 +35,11 @@ export interface ApiInfo<Result, Request extends ApiRequest> {
   /** `zod` 객체 */
   requestSchema: Request;
   /** React Query를 위한 query/mutation key getter */
-  getQueryKey: (requestInfo?: ApiRequestInput<Request>) => any[];
+  getQueryKey: (requestInput?: ApiRequestInput<Request>) => any[];
+  getQueryKeysToInvalidate?: (
+    requestInput: ApiRequestInput<Request>,
+    result: Result,
+  ) => any[][];
   /**
    * API 호출 성공 시 받을 결과의 타입
    * @example
@@ -61,5 +65,9 @@ type ApiFetcher<Result, Request extends ApiRequest> = (
 
 export type Api<Result, Request extends ApiRequest> = {
   readonly fetcher: ApiFetcher<Result, Request>;
-  readonly getQueryKey: (requestInfo?: ApiRequestInput<Request>) => any[];
+  readonly getQueryKey: (requestInput?: ApiRequestInput<Request>) => any[];
+  readonly getQueryKeysToInvalidate?: (
+    requestInput: ApiRequestInput<Request>,
+    result: Result,
+  ) => any[][];
 };

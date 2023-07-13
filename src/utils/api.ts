@@ -190,5 +190,9 @@ export const getApi = <Result, Request extends ApiRequest>(
     return response;
   };
 
-  return { fetcher, getQueryKey: info.getQueryKey } as const;
+  return {
+    fetcher,
+    getQueryKey: info.getQueryKey,
+    getQueryKeysToInvalidate: info.getQueryKeysToInvalidate,
+  } as const;
 };
