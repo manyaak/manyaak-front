@@ -1,8 +1,4 @@
-import {
-  createThemeContract,
-  style,
-  styleVariants,
-} from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 import { TEXT_STYLES } from '@/constants/styles';
 

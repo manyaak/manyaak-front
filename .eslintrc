@@ -28,6 +28,41 @@
     "react/jsx-no-bind": "off",
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "default",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": [
+          "class",
+          "enum",
+          "interface",
+          "typeAlias",
+          "typeParameter"
+        ],
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": ["enumMember"],
+        "format": ["UPPER_CASE"]
+      },
+      {
+        "selector": ["objectLiteralProperty"],
+        "format": null
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase"],
+        "prefix": ["api_"],
+        "filter": "^api_"
+      }
+    ],
+    "react/require-default-props": "off",
+    "import/order": "warn",
+    "react/destructuring-assignment": "off"
   }
 }

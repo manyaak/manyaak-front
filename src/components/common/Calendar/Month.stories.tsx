@@ -79,6 +79,7 @@ function DayWithCalendarState({
   const setCalendarState = useSetCalendarState<DayInfo>();
 
   // 날짜를 선택할 때 콘솔이 최대 2번(기존에 선택되어 있던 날짜 한 번, 새로 선택한 날짜 한 번)만 찍히는지 확인
+  // eslint-disable-next-line no-console
   console.log(
     `day re-rendered, ${date.getFullYear()}-${
       date.getMonth() + 1

@@ -33,6 +33,7 @@ function TextButton({
 }: TextButtonProps) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`${styles.button[sizeType]} ${className}`}
       style={{

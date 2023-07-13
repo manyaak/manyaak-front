@@ -35,6 +35,7 @@ function Profile(props: ProfileProps) {
         }
       >
         {profileImgList.map((img, idx) => (
+          /* eslint-disable-next-line react/no-array-index-key */
           <UserImage key={idx} src={img} size={type === 'group' ? 22 : 36} />
         ))}
       </div>
