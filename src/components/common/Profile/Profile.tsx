@@ -30,7 +30,9 @@ function Profile(props: ProfileProps) {
   return (
     <div className={styles.profileWrap}>
       <div
-        className={styles.profileImgWrap[`${profileImg.length as 1 | 2 | 3}`]}
+        className={
+          styles.profileImgWrap[`${profileImgList.length as 1 | 2 | 3}`]
+        }
       >
         {profileImgList.map((img, idx) => (
           <UserImage key={idx} src={img} size={type === 'group' ? 22 : 36} />
