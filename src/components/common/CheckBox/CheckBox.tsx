@@ -6,6 +6,7 @@ interface CheckBoxProps {
   size?: number;
   borderRadius?: number;
   background?: string;
+  className?: string;
   onClick?: () => void;
 }
 
@@ -14,6 +15,7 @@ const CheckBox = ({
   size,
   borderRadius,
   background,
+  className,
   onClick,
 }: CheckBoxProps) => {
   const checkStatus = checked ? 'checked' : 'unchecked';
@@ -21,7 +23,7 @@ const CheckBox = ({
   return (
     <div
       onClick={onClick}
-      className={styles.box[checkStatus]}
+      className={`${styles.box[checkStatus]} ${className}`}
       style={{
         width: size,
         height: size,

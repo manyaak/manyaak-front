@@ -5,7 +5,7 @@ interface ContentBoxProps {
   children: React.ReactNode;
   headerChildren?: React.ReactNode;
   title: string | React.ReactNode;
-  height?: string;
+  className?: string;
   toggle?: boolean;
 }
 
@@ -13,13 +13,13 @@ const ContentBox = ({
   children,
   headerChildren,
   title,
-  height,
+  className,
   toggle,
 }: ContentBoxProps) => {
   const [closed, setClosed] = useState(false);
 
   return (
-    <div className={styles.layout} style={{ height }}>
+    <div className={`${styles.layout} ${className}`}>
       <div className={styles.content}>{children}</div>
       <div className={styles.header}>
         <div className={styles.title}>{title}</div>
