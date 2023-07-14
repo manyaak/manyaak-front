@@ -11,24 +11,27 @@ interface NavItemType {
 }
 
 export const NAV_INFO = {
-  [NAV_LIST.home]: {
+  [NAV_LIST.HOME]: {
     label: '홈',
-    url: NAV_URL_LIST.home,
+    url: NAV_URL_LIST.HOME,
     icon: HomeIcon,
   },
-  [NAV_LIST.hangout]: {
+  [NAV_LIST.HANGOUT]: {
     label: '약속',
-    url: NAV_URL_LIST.hangout,
+    url: NAV_URL_LIST.HANGOUT,
     icon: HangoutIcon,
   },
-  [NAV_LIST.friend]: {
+  [NAV_LIST.FRIEND]: {
     label: '친구',
-    url: NAV_URL_LIST.friend,
+    url: NAV_URL_LIST.FRIEND,
     icon: FriendIcon,
   },
-  [NAV_LIST.myPage]: {
+  [NAV_LIST.MY_PAGE]: {
     label: '내 정보',
-    url: NAV_URL_LIST.myPage,
+    url: NAV_URL_LIST.MY_PAGE,
     icon: MyPageIcon,
   },
-} as const satisfies Record<string, NavItemType>;
+} as const satisfies Record<
+  (typeof NAV_LIST)[keyof typeof NAV_LIST],
+  NavItemType
+>;

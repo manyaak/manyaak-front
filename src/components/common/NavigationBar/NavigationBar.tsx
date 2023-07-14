@@ -8,19 +8,19 @@ interface NavigationBarProps {
 
 const NavigationBar = ({ focusType }: NavigationBarProps) => {
   return (
-    <div className={styles.Navigation}>
-      <NavItem type={NAV_LIST.home} isFocused={focusType === NAV_LIST.home} />
+    <div className={styles.navigation}>
+      <NavItem type={NAV_LIST.HOME} isFocused={focusType === NAV_LIST.HOME} />
       <NavItem
-        type={NAV_LIST.hangout}
-        isFocused={focusType === NAV_LIST.hangout}
+        type={NAV_LIST.HANGOUT}
+        isFocused={focusType === NAV_LIST.HANGOUT}
       />
       <NavItem
-        type={NAV_LIST.friend}
-        isFocused={focusType === NAV_LIST.friend}
+        type={NAV_LIST.FRIEND}
+        isFocused={focusType === NAV_LIST.FRIEND}
       />
       <NavItem
-        type={NAV_LIST.myPage}
-        isFocused={focusType === NAV_LIST.myPage}
+        type={NAV_LIST.MY_PAGE}
+        isFocused={focusType === NAV_LIST.MY_PAGE}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { COLORS } from '@/constants/styles';
 
-export const Navigation = style({
+export const navigation = style({
   display: 'flex',
   height: '80px',
   paddingTop: '27.5px',
