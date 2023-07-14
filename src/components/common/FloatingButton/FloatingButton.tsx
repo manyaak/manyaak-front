@@ -11,12 +11,15 @@ interface MenuType {
   onClick?: () => void;
 }
 
-interface PropsType {
+interface FloatingButtonProps {
   menuList?: MenuType[];
   withoutBasic?: boolean;
 }
 
-const FloatingButton = ({ menuList = [], withoutBasic = false }: PropsType) => {
+const FloatingButton = ({
+  menuList = [],
+  withoutBasic = false,
+}: FloatingButtonProps) => {
   const [isShow, setIsShow] = useState(false);
 
   const activeStatus = isShow ? 'close' : 'add';

@@ -1,7 +1,7 @@
 import { ReactComponent as CheckIcon } from '@/assets/icons/CheckIcon.svg';
 import * as styles from './CheckBox.css';
 
-interface PropsType {
+interface CheckBoxProps {
   checked?: boolean;
   size?: number;
   borderRadius?: number;
@@ -15,7 +15,7 @@ const CheckBox = ({
   borderRadius,
   background,
   onClick,
-}: PropsType) => {
+}: CheckBoxProps) => {
   const checkStatus = checked ? 'checked' : 'unchecked';
 
   return (

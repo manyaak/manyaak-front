@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as styles from './ContentBox.css';
 
-interface PropsType {
+interface ContentBoxProps {
   children: React.ReactNode;
   headerChildren?: React.ReactNode;
   title: string | React.ReactNode;
@@ -15,7 +15,7 @@ const ContentBox = ({
   title,
   height,
   toggle,
-}: PropsType) => {
+}: ContentBoxProps) => {
   const [closed, setClosed] = useState(false);
 
   return (

@@ -5,12 +5,12 @@ import * as styles from './NavigationBar.css';
 
 type NavListType = keyof typeof NAV_INFO;
 
-interface NavItemPropsType {
+interface NavItemProps {
   type: NavListType;
   isFocused?: boolean;
 }
 
-const NavItem = ({ type, isFocused }: NavItemPropsType) => {
+const NavItem = ({ type, isFocused }: NavItemProps) => {
   const key = isFocused ? 'focused' : 'default';
   const { label, url, icon: Icon } = NAV_INFO[type];
 

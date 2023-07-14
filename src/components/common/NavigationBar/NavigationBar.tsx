@@ -2,11 +2,11 @@ import { NAV_LIST } from '@/constants/navigation';
 import NavItem from './NavItem';
 import * as styles from './NavigationBar.css';
 
-interface NavigationPropsType {
+interface NavigationBarProps {
   focusType: keyof typeof NAV_LIST;
 }
 
-const NavigationBar = ({ focusType }: NavigationPropsType) => {
+const NavigationBar = ({ focusType }: NavigationBarProps) => {
   return (
     <div className={styles.Navigation}>
       <NavItem type={NAV_LIST.home} isFocused={focusType === NAV_LIST.home} />
