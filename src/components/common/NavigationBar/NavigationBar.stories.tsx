@@ -12,6 +12,6 @@ type Story = StoryObj<typeof NavigationBar>;
 
 export const Primary: Story = {
   args: {
-    focusType: 'home',
+    focusType: 'HOME',
   },
 };
