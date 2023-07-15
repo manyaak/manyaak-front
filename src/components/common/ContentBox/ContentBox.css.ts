@@ -22,7 +22,18 @@ export const header = style({
   height: '62px',
   borderRadius: '12px',
   padding: '0px 24px',
+  gap: '8px',
   background: COLORS.grayscale.white,
+});
+
+export const title = style({
+  ...TEXT_STYLES.subtitle3,
+  color: COLORS.grayscale.black,
+  flexShrink: 0,
+});
+
+export const headerChildren = style({
+  flexGrow: 1,
 });
 
 export const content = style({
@@ -30,10 +41,5 @@ export const content = style({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
-  marginTop: '22px',
-});
-
-export const title = style({
-  ...TEXT_STYLES.subtitle3,
-  color: COLORS.grayscale.black,
+  marginTop: '42px',
 });
