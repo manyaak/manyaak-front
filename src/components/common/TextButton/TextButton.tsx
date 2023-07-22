@@ -22,7 +22,7 @@ interface TextButtonProps {
 /**
  * 버튼 컴포넌트
  */
-function TextButton({
+const TextButton = ({
   label,
   iconSvg,
   onClick,
@@ -30,7 +30,7 @@ function TextButton({
   backgroundColor,
   labelColor,
   className,
-}: TextButtonProps) {
+}: TextButtonProps) => {
   return (
     <button
       type="button"
@@ -60,6 +60,6 @@ function TextButton({
       )}
     </button>
   );
-}
+};
 
 export default TextButton;

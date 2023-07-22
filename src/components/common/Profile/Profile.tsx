@@ -22,7 +22,7 @@ type ProfileProps = SingleProfileProps | GroupProfileProps;
 /**
  * 사용자 혹은 사용자 그룹의 프로필 정보를 보여주는 컴포넌트
  */
-function Profile(props: ProfileProps) {
+const Profile = (props: ProfileProps) => {
   const { type, name, profileImg } = props;
   const statusMsg = type === 'user' ? props.statusMessage : undefined;
   const profileImgList = type === 'user' ? [profileImg] : profileImg;
@@ -35,6 +35,7 @@ function Profile(props: ProfileProps) {
         }
       >
         {profileImgList.map((img, idx) => (
+          /* eslint-disable-next-line react/no-array-index-key */
           <UserImage key={idx} src={img} size={type === 'group' ? 22 : 36} />
         ))}
       </div>
@@ -44,6 +45,6 @@ function Profile(props: ProfileProps) {
       </div>
     </div>
   );
-}
+};
 
 export default Profile;

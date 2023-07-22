@@ -12,20 +12,18 @@ interface UserImageProps {
 /**
  * 사용자의 프로필 이미지를 담는 컴포넌트
  */
-function UserImage({ src, size = 36, className }: UserImageProps) {
-  return (
-    <img
-      src={src}
-      alt="profile-img"
-      className={className}
-      style={{
-        width: size,
-        height: size,
-        borderRadius: size / 2,
-        backgroundColor: COLORS.grayscale.gray100,
-      }}
-    />
-  );
-}
+const UserImage = ({ src, size = 36, className }: UserImageProps) => (
+  <img
+    src={src}
+    alt="profile-img"
+    className={className}
+    style={{
+      width: size,
+      height: size,
+      borderRadius: size / 2,
+      backgroundColor: COLORS.grayscale.gray100,
+    }}
+  />
+);
 
 export default UserImage;

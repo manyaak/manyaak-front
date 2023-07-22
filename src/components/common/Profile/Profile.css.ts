@@ -1,5 +1,5 @@
-import { COLORS, TEXT_STYLES } from '@/constants/styles';
 import { style, styleVariants } from '@vanilla-extract/css';
+import { COLORS, TEXT_STYLES } from '@/constants/styles';
 
 export const profileWrap = style({
   display: 'flex',
