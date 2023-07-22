@@ -25,7 +25,7 @@ interface HangoutBoxProps extends HangoutInfoType {
 /**
  * 약속 정보를 담은 컴포넌트
  */
-function HangoutBox({
+const HangoutBox = ({
   name,
   date,
   location,
@@ -33,7 +33,7 @@ function HangoutBox({
   haveBoxShadow = false,
   isNotAccepted = false,
   className,
-}: HangoutBoxProps) {
+}: HangoutBoxProps) => {
   const boxWrapStyle = isNotAccepted ? styles.dashedBoxWrap : styles.boxWrap;
   return (
     <div
@@ -67,6 +67,6 @@ function HangoutBox({
       </div>
     </div>
   );
-}
+};
 
 export default HangoutBox;

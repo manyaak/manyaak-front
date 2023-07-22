@@ -7,7 +7,7 @@ const routes = [
   },
   {
     path: 'test',
-    element: <Test text="test page" />,
+    element: <Test />,
   },
 ];
 

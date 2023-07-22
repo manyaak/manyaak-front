@@ -33,13 +33,13 @@ interface WeekProps {
 
 const DAYS = [0, 1, 2, 3, 4, 5, 6] as const;
 
-function Week({
+const Week = ({
   renderWeek: CustomWeek,
   renderDay,
   year,
   month,
   week,
-}: WeekProps) {
+}: WeekProps) => {
   const firstDateOfWeek = useMemo(
     () => getDateOfWeek(year, month, week, 0),
     [year, month, week],
@@ -84,6 +84,6 @@ function Week({
       ))}
     </CustomWeek>
   );
-}
+};
 
 export default memo(Week);

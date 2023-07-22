@@ -22,27 +22,25 @@ interface MonthProps {
 
 const WEEKS = [0, 1, 2, 3, 4, 5] as const;
 
-function Month({
+const Month = ({
   renderMonth: CustomMonth,
   renderWeek,
   renderDay,
   year,
   month,
-}: MonthProps) {
-  return (
-    <CustomMonth year={year} month={month}>
-      {WEEKS.map((week) => (
-        <Week
-          key={week}
-          renderWeek={renderWeek}
-          renderDay={renderDay}
-          year={year}
-          month={month}
-          week={week}
-        />
-      ))}
-    </CustomMonth>
-  );
-}
+}: MonthProps) => (
+  <CustomMonth year={year} month={month}>
+    {WEEKS.map((week) => (
+      <Week
+        key={week}
+        renderWeek={renderWeek}
+        renderDay={renderDay}
+        year={year}
+        month={month}
+        week={week}
+      />
+    ))}
+  </CustomMonth>
+);
 
 export default memo(Month);
