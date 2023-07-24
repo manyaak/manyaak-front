@@ -22,7 +22,7 @@ interface TextButtonProps {
 /**
  * 버튼 컴포넌트
  */
-function TextButton({
+const TextButton = ({
   label,
   iconSvg,
   onClick,
@@ -30,35 +30,34 @@ function TextButton({
   backgroundColor = COLORS.grayscale.gray200,
   labelColor = COLORS.grayscale.gray800,
   className,
-}: TextButtonProps) {
-  return (
-    <button
-      onClick={onClick}
-      className={`${styles.button[sizeType]} ${className}`}
+}: TextButtonProps) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className={`${styles.button[sizeType]} ${className}`}
+    style={{
+      backgroundColor,
+    }}
+  >
+    <div
+      className={styles.label[sizeType]}
       style={{
-        backgroundColor,
+        color: labelColor,
       }}
     >
+      {label}
+    </div>
+    {iconSvg && (
       <div
-        className={styles.label[sizeType]}
+        className={styles.icon}
         style={{
           color: labelColor,
         }}
       >
-        {label}
+        {iconSvg}
       </div>
-      {iconSvg && (
-        <div
-          className={styles.icon}
-          style={{
-            color: labelColor,
-          }}
-        >
-          {iconSvg}
-        </div>
-      )}
-    </button>
-  );
-}
+    )}
+  </button>
+);
 
 export default TextButton;

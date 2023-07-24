@@ -67,11 +67,11 @@ interface DayWithCalendarStateProps extends RenderDayProps {
   selectedDayRef: MutableRefObject<Date | null>;
 }
 
-function DayWithCalendarState({
+const DayWithCalendarState = ({
   date,
   isInCurrentMonth,
   selectedDayRef,
-}: DayWithCalendarStateProps) {
+}: DayWithCalendarStateProps) => {
   const [dayState, setDayState] = useCalendarState<DayInfo>({
     type: 'day',
     date,
@@ -79,6 +79,7 @@ function DayWithCalendarState({
   const setCalendarState = useSetCalendarState<DayInfo>();
 
   // 날짜를 선택할 때 콘솔이 최대 2번(기존에 선택되어 있던 날짜 한 번, 새로 선택한 날짜 한 번)만 찍히는지 확인
+  // eslint-disable-next-line no-console
   console.log(
     `day re-rendered, ${date.getFullYear()}-${
       date.getMonth() + 1
@@ -135,7 +136,7 @@ function DayWithCalendarState({
       </p>
     </div>
   );
-}
+};
 
 const meta: Meta<typeof Month> = {
   component: Month,
@@ -166,7 +167,6 @@ export const MonthWithCalendarState: Story = {
     const renderDayWithCalendarState = useCallback(
       (renderDayProps: RenderDayProps) => (
         <DayWithCalendarState
-          /* eslint-disable-next-line react/jsx-props-no-spreading */
           {...renderDayProps}
           selectedDayRef={selectedDayRef}
         />
@@ -177,7 +177,6 @@ export const MonthWithCalendarState: Story = {
     return (
       <div>
         <h2>날짜를 누르면 배경색이 칠해집니다.</h2>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Month {...props} renderDay={renderDayWithCalendarState} />
       </div>
     );
