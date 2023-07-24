@@ -1,19 +1,20 @@
 import UserImage from '@/components/common/UserImage';
 import { ReactComponent as ClockIcon } from '@/assets/icons/ClockIcon.svg';
 import { ReactComponent as LocationIcon } from '@/assets/icons/LocationIcon.svg';
-import { toddayFormat, tohhmmFormat } from '@/utils/dateUtils';
+import { toDdayFormat, toHhmmFormat } from '@/utils/date';
 
 import * as styles from './HangoutBox.css';
 
 // TODO 약속 정보 Type 정확히 정해지면 수정 후 밖으로 뺄 것!
-interface HangoutInfoType {
+export interface HangoutInfoType {
   name: string;
   date: Date;
   location: string;
   members: { name: string; profileImg: string }[];
+  state: 'WAITING' | 'ACCEPT';
 }
 
-interface HangoutBoxProps extends HangoutInfoType {
+interface HangoutBoxProps extends Omit<HangoutInfoType, 'state'> {
   /** 그림자 스타일링 여부 */
   haveBoxShadow?: boolean;
   /** 수락 대기 중인 약속인지 */
@@ -42,13 +43,13 @@ const HangoutBox = ({
       } ${boxWrapStyle} ${className}`}
     >
       <div className={styles.mainInfo}>
-        <div className={styles.ddayBox}>{toddayFormat(date)}</div>
+        <div className={styles.ddayBox}>{toDdayFormat(date)}</div>
         <div className={styles.name}>{name}</div>
       </div>
       <div className={styles.subInfoWrap}>
         <div className={styles.subInfo}>
           <ClockIcon width={18} height={18} style={{ marginRight: 3 }} />
-          <div>{tohhmmFormat(date)}</div>
+          <div>{toHhmmFormat(date)}</div>
         </div>
         <div className={styles.subInfo}>
           <LocationIcon width={18} height={18} style={{ marginRight: 3 }} />
