@@ -2,13 +2,15 @@ import { style, styleVariants } from '@vanilla-extract/css';
 import { COLORS, TEXT_STYLES } from '@/constants/styles';
 
 export const overlay = style({
-  position: 'absolute',
+  position: 'fixed',
   bottom: 0,
   left: 0,
   right: 0,
   top: 0,
   background: '#000000B2',
   zIndex: '10',
+  width: '100vw',
+  height: '100vh',
 });
 
 export const itemsWrapper = style({
@@ -16,7 +18,7 @@ export const itemsWrapper = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-end',
-  bottom: '0',
+  bottom: '70px',
   right: '0',
   gap: '8px',
   zIndex: '11',

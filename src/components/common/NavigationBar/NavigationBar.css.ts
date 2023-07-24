@@ -3,8 +3,7 @@ import { COLORS } from '@/constants/styles';
 
 export const navigation = style({
   display: 'flex',
-  height: '80px',
-  paddingTop: '27.5px',
+  height: '70px',
   justifyContent: 'space-between',
   alignItems: 'center',
   background: COLORS.grayscale.white,
