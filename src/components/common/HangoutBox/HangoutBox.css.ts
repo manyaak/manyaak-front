@@ -1,11 +1,12 @@
-import { COLORS, TEXT_STYLES } from '@/constants/styles';
 import { style } from '@vanilla-extract/css';
+import { COLORS, TEXT_STYLES } from '@/constants/styles';
 
 export const boxWrap = style({
   padding: 16,
   background: COLORS.grayscale.white,
   borderRadius: 12,
   position: 'relative',
+  cursor: 'pointer',
 });
 
 export const dashedBoxWrap = style([
