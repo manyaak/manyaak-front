@@ -1,5 +1,3 @@
-import { COLORS } from '@/constants/styles';
-
 import * as styles from './TextButton.css';
 
 interface TextButtonProps {
