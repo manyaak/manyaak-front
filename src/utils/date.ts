@@ -27,3 +27,34 @@ export const getDateOfWeek = (
     0,
   );
 };
+
+export function toDdayFormat(date: Date) {
+  const diff = date.getTime() - new Date().getTime();
+  const dday = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  return dday === 0 ? `오늘` : `${dday}일 전`;
+}
+
+export function toHhmmFormat(date: Date) {
+  return `${date.getHours()}시 ${date.getMinutes()}분`;
+}
+
+export function toMmddFormat(date: Date) {
+  return `${date.getMonth() + 1}월 ${date.getDate()}일`;
+}
+
+export function isToday(date: Date) {
+  const today = new Date();
+  return (
+    today.getUTCFullYear() === date.getUTCFullYear() &&
+    today.getUTCMonth() === date.getUTCMonth() &&
+    today.getUTCDate() === date.getUTCDate()
+  );
+}
+
+export function isSameDate(date1: Date, date2: Date) {
+  return (
+    date1.getUTCFullYear() === date2.getUTCFullYear() &&
+    date1.getUTCMonth() === date2.getUTCMonth() &&
+    date1.getUTCDate() === date2.getUTCDate()
+  );
+}
