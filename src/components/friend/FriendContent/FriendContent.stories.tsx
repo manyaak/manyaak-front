@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FriendContent from './FriendContent';
 
 const meta: Meta<typeof FriendContent> = {
-  title: 'tab/FriendContent',
+  title: 'tab/friend/FriendContent',
   component: FriendContent,
 };
 
