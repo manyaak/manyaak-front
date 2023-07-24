@@ -1,6 +1,6 @@
 import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
-import * as styles from '../Friend.css';
+import * as styles from '../FriendContent.css';
 
 export interface ReceivedRequestItemProps {
   id: number;

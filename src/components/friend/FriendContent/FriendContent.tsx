@@ -4,17 +4,17 @@ import FriendList from './FriendList';
 import { FriendItemProps } from './FriendList/FriendItem';
 import { ReceivedRequestItemProps } from './ReceivedRequestList/ReceivedRequestItem';
 import { GroupItemProps } from './GroupList/GroupItem';
-import * as styles from './Friend.css';
+import * as styles from './FriendContent.css';
 
 interface FrinedProps {
   data: {
-    request: ReceivedRequestItemProps[] | [];
-    friend: FriendItemProps[] | [];
-    group: GroupItemProps[] | [];
+    request: ReceivedRequestItemProps[];
+    friend: FriendItemProps[];
+    group: GroupItemProps[];
   };
 }
 
-const Friend = ({ data }: FrinedProps) => (
+const FriendContent = ({ data }: FrinedProps) => (
   <div className={styles.layout}>
     {data.request.length > 0 && <ReceivedRequestList list={data.request} />}
     <GroupList list={data.group} />
@@ -22,4 +22,4 @@ const Friend = ({ data }: FrinedProps) => (
   </div>
 );
 
-export default Friend;
+export default FriendContent;

@@ -1,7 +1,7 @@
 import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
 import { ReactComponent as ScheduleIcon } from '@/assets/icons/ScheduleIcon.svg';
-import * as styles from '../Friend.css';
+import * as styles from '../FriendContent.css';
 
 export interface FriendItemProps {
   id: number;

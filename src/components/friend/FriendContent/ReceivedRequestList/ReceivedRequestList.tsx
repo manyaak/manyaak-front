@@ -2,7 +2,7 @@ import ContentBox from '@/components/common/ContentBox';
 import ReceivedRequestItem, {
   ReceivedRequestItemProps,
 } from './ReceivedRequestItem';
-import * as styles from '../Friend.css';
+import * as styles from '../FriendContent.css';
 
 interface ReceivedRequestListProps {
   list: ReceivedRequestItemProps[];

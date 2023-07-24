@@ -1,7 +1,7 @@
 import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
 import { ReactComponent as HangoutOutlineIcon } from '@/assets/icons/HangoutOutlineIcon.svg';
-import * as styles from '../Friend.css';
+import * as styles from '../FriendContent.css';
 
 export interface GroupItemProps {
   id: number;
@@ -10,7 +10,7 @@ export interface GroupItemProps {
 }
 
 const GroupItem = ({ id, name, profileImg }: GroupItemProps) => {
-  const onMakePromise = () => {
+  const onMakeHangout = () => {
     console.log('id: ', id);
   };
 
@@ -21,7 +21,7 @@ const GroupItem = ({ id, name, profileImg }: GroupItemProps) => {
         label="약속 잡기"
         iconSvg={<HangoutOutlineIcon />}
         sizeType="small"
-        onClick={onMakePromise}
+        onClick={onMakeHangout}
       />
     </div>
   );

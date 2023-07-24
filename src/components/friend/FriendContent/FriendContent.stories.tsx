@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Friend from './Friend';
+import FriendContent from './FriendContent';
 
-const meta: Meta<typeof Friend> = {
-  title: 'tab/Friend',
-  component: Friend,
+const meta: Meta<typeof FriendContent> = {
+  title: 'tab/FriendContent',
+  component: FriendContent,
 };
 
 export default meta;
@@ -64,7 +64,7 @@ const DummyData = {
   ],
 };
 
-type Story = StoryObj<typeof Friend>;
+type Story = StoryObj<typeof FriendContent>;
 export const Primary: Story = {
   args: {
     data: DummyData,
