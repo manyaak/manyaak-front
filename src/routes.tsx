@@ -1,13 +1,32 @@
-import Test from '@/pages/test';
+import BasicLayout from './pages/layout';
+import Hangouts from './pages/hangout';
 
 const routes = [
   {
     path: '/',
-    element: <div>main page</div>,
-  },
-  {
-    path: 'test',
-    element: <Test />,
+    element: <BasicLayout />,
+    children: [
+      {
+        index: true,
+        element: <div>Home Tab!</div>,
+      },
+      {
+        path: 'hangout',
+        element: <Hangouts />,
+      },
+      {
+        path: 'hangout/:hid',
+        element: <>hangout item</>,
+      },
+      {
+        path: 'friend',
+        element: <div>Friends Tab!</div>,
+      },
+      {
+        path: 'mypage',
+        element: <div>MyPage Tab!</div>,
+      },
+    ],
   },
 ];
 
