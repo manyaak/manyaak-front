@@ -1,6 +1,7 @@
 import TextButton from '@/components/common/TextButton';
-import * as styles from './EmptyContent.css';
+import { ReactComponent as HangoutOutlineIcon } from '@/assets/icons/HangoutOutlineIcon.svg';
 import { COLORS } from '@/constants/styles';
+import * as styles from './EmptyContent.css';
 
 interface EmptyContentProps {
   type: 'friend' | 'group';
@@ -12,7 +13,7 @@ const EmptyContent = ({ type }: EmptyContentProps) => {
     group: {
       suggestText: `아직 그룹이 없습니다. \n약속을 만들어 새로운 그룹을 만들어보세요!`,
       btnText: '약속 잡기',
-      icon: undefined,
+      icon: <HangoutOutlineIcon />,
       onClick: () => console.log('click'),
     },
     friend: {
