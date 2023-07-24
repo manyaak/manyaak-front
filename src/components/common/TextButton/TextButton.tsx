@@ -27,12 +27,13 @@ function TextButton({
   iconSvg,
   onClick,
   sizeType = 'small',
-  backgroundColor = COLORS.grayscale.gray200,
-  labelColor = COLORS.grayscale.gray800,
+  backgroundColor,
+  labelColor,
   className,
 }: TextButtonProps) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`${styles.button[sizeType]} ${className}`}
       style={{
