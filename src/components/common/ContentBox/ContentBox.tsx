@@ -23,7 +23,7 @@ const ContentBox = ({
       <div className={styles.content}>{children}</div>
       <div className={styles.header}>
         <div className={styles.title}>{title}</div>
-        <div>{headerChildren}</div>
+        <div className={styles.headerChildren}>{headerChildren}</div>
       </div>
     </div>
   );
