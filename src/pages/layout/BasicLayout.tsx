@@ -6,8 +6,8 @@ import FloatingButton from '@/components/common/FloatingButton';
 
 import * as styles from './BasicLayout.css';
 
-function BasicLayout({ children }: PropsWithChildren) {
-  const { isNavBarVisible } = useNavigationState();
+const BasicLayout = ({ children }: PropsWithChildren) => {
+  const { isNavBarVisible, activeNavType } = useNavigationState();
 
   return (
     <div className={styles.wrapper[isNavBarVisible ? 'withBar' : 'withoutBar']}>
@@ -16,11 +16,11 @@ function BasicLayout({ children }: PropsWithChildren) {
       {isNavBarVisible && (
         <div className={styles.navBarWrapper}>
           <FloatingButton />
-          <NavigationBar />
+          <NavigationBar focusType={activeNavType} />
         </div>
       )}
     </div>
   );
-}
+};
 
 export default BasicLayout;

@@ -5,6 +5,7 @@ export const wrapperBase = style({
   backgroundColor: COLORS.grayscale.gray50,
   margin: '0 auto',
   minHeight: '100vh',
+  overflow: 'auto',
 
   position: 'relative',
 });
