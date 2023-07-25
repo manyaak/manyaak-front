@@ -5,20 +5,17 @@ import { toDdayFormat, toHhmmFormat } from '@/utils/date';
 
 import * as styles from './HangoutBox.css';
 
-// TODO 약속 정보 Type 정확히 정해지면 수정 후 밖으로 뺄 것!
 export interface HangoutInfoType {
   name: string;
   date: Date;
   location: string;
   members: { name: string; profileImg: string }[];
-  state: 'WAITING' | 'ACCEPT';
+  isAccepted: boolean;
 }
 
-interface HangoutBoxProps extends Omit<HangoutInfoType, 'state'> {
+interface HangoutBoxProps extends HangoutInfoType {
   /** 그림자 스타일링 여부 */
   haveBoxShadow?: boolean;
-  /** 수락 대기 중인 약속인지 */
-  isNotAccepted?: boolean;
   /** 추가 스타일링을 위한 style  */
   className?: string;
 }
@@ -32,10 +29,10 @@ const HangoutBox = ({
   location,
   members,
   haveBoxShadow = false,
-  isNotAccepted = false,
+  isAccepted,
   className,
 }: HangoutBoxProps) => {
-  const boxWrapStyle = isNotAccepted ? styles.dashedBoxWrap : styles.boxWrap;
+  const boxWrapStyle = isAccepted ? styles.boxWrap : styles.dashedBoxWrap;
   return (
     <div
       className={`${
