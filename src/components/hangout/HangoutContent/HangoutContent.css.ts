@@ -5,6 +5,7 @@ export const container = style({
   width: '100%',
   backgroundColor: COLORS.grayscale.gray50,
   position: 'relative',
+  marginTop: 62,
 });
 
 export const title = style({
