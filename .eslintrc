@@ -62,7 +62,6 @@
         "filter": "^api_"
       }
     ],
-    "react/require-default-props": "off",
     "import/order": "warn",
     "react/destructuring-assignment": "off",
     "react/jsx-props-no-spreading": "off",
