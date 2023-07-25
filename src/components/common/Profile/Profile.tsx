@@ -13,8 +13,7 @@ interface SingleProfileProps extends BaseProfileProps {
 
 interface GroupProfileProps extends BaseProfileProps {
   type: 'group';
-  name: string;
-  profileImg: [string, string] | [string, string, string];
+  profileImg: string[];
 }
 
 type ProfileProps = SingleProfileProps | GroupProfileProps;
@@ -27,15 +26,21 @@ const Profile = (props: ProfileProps) => {
   const statusMsg = type === 'user' ? props.statusMessage : undefined;
   const profileImgList = type === 'user' ? [profileImg] : profileImg;
 
+  // 이미지 최대 3개 제한
+  const selectLength = Math.min(3, profileImgList.length);
+  const selectedProfileImg = [];
+  for (let i = 0; i < selectLength; i += 1) {
+    selectedProfileImg.push(profileImgList[i]);
+  }
+
   return (
     <div className={styles.profileWrap}>
       <div
         className={
-          styles.profileImgWrap[`${profileImgList.length as 1 | 2 | 3}`]
+          styles.profileImgWrap[`${selectedProfileImg.length as 1 | 2 | 3}`]
         }
       >
-        {profileImgList.map((img, idx) => (
-          /* eslint-disable-next-line react/no-array-index-key */
+        {selectedProfileImg.map((img, idx) => (
           <UserImage key={idx} src={img} size={type === 'group' ? 22 : 36} />
         ))}
       </div>
