@@ -60,6 +60,6 @@ export const NotAcceptedHangoutBox: Story = {
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
     ],
-    isNotAccepted: true,
+    isAccepted: false,
   },
 };
