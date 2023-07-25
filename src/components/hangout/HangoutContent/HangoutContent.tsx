@@ -4,26 +4,20 @@ import HangoutBox from '@/components/common/HangoutBox';
 import { isSameDate, isToday, toMmddFormat } from '@/utils/date';
 
 import { hangoutsDummydata } from '@/dummyData';
-import * as styles from './HangoutListTemplate.css';
 
-function HangoutListTemplate() {
-  const [waitingFiltered, setWaitingFiltered] = useState(false);
-  const toggleWaitingFiltered = () => setWaitingFiltered((prev) => !prev);
+import * as styles from './HangoutContent.css';
 
-  const hangoutList = waitingFiltered
-    ? hangoutsDummydata.filter((h) => h.state === 'WAITING')
+interface HangoutContentProps {
+  onlyWaiting: boolean;
+}
+
+const HangoutContent = ({ onlyWaiting }: HangoutContentProps) => {
+  const hangoutList = onlyWaiting
+    ? hangoutsDummydata.filter((h) => !h.isAccepted)
     : hangoutsDummydata;
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>약속</h2>
-      <TextButton
-        label={`대기중(${2})`}
-        onClick={toggleWaitingFiltered}
-        className={
-          styles.toggleButton[waitingFiltered ? 'active' : 'nonActive']
-        }
-      />
       <div className={styles.hangoutBoxsWrap}>
         {hangoutList.map((hangout, i) => (
           <>
@@ -39,7 +33,7 @@ function HangoutListTemplate() {
               location={hangout.location}
               members={hangout.members}
               className={styles.hangoutBox}
-              isNotAccepted={hangout.state === 'WAITING'}
+              isAccepted={hangout.isAccepted}
               haveBoxShadow
             />
           </>
@@ -47,6 +41,6 @@ function HangoutListTemplate() {
       </div>
     </div>
   );
-}
+};
 
-export default HangoutListTemplate;
+export default HangoutContent;
