@@ -40,8 +40,7 @@ const Profile = (props: ProfileProps) => {
           styles.profileImgWrap[`${selectedProfileImg.length as 1 | 2 | 3}`]
         }
       >
-        {profileImgList.map((img, idx) => (
-          /* eslint-disable-next-line react/no-array-index-key */
+        {selectedProfileImg.map((img, idx) => (
           <UserImage key={idx} src={img} size={type === 'group' ? 22 : 36} />
         ))}
       </div>
