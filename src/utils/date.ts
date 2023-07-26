@@ -27,3 +27,12 @@ export const getDateOfWeek = (
     0,
   );
 };
+
+export function isToday(date: Date) {
+  const today = new Date();
+  return (
+    today.getFullYear() === date.getFullYear() &&
+    today.getMonth() + 1 === date.getMonth() &&
+    today.getDate() === date.getDate()
+  );
+}
