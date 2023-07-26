@@ -8,7 +8,6 @@ import * as styles from './StyledCalendar.css';
 const DAY_OF_WEEKS = ['일', '월', '화', '수', '목', '금', '토'] as const;
 
 interface StyledCalendarProps {
-  calendarType: 'montly' | 'weekly';
   year: number;
   month: number;
 }

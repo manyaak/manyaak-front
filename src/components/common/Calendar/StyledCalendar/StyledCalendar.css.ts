@@ -10,7 +10,6 @@ export const dayBase = style({
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  position: 'relative',
 });
 
 export const day = styleVariants({
@@ -19,14 +18,18 @@ export const day = styleVariants({
   notThisMonth: [dayBase, { color: COLORS.grayscale.gray500 }],
 });
 
-export const selectedDayBackground = style({
+export const dayTextBase = style({
   width: 28,
   height: 28,
   borderRadius: 14,
-  backgroundColor: COLORS.primary.yellow,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
 
-  position: 'absolute',
-  zIndex: -2,
+export const dayText = styleVariants({
+  unselected: [dayTextBase],
+  selected: [dayTextBase, { backgroundColor: COLORS.primary.yellow }],
 });
 
 export const weekColumn = style({

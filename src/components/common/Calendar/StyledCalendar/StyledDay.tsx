@@ -58,8 +58,13 @@ const StyledDay = ({ date, isInCurrentMonth, selectedDayRef }: DayProps) => {
   return (
     /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
     <div className={styles.day[dayStyleType]} onClick={onClickDay}>
-      <p>{date.getDate()}</p>
-      {dayState?.isSelected && <div className={styles.selectedDayBackground} />}
+      <p
+        className={
+          styles.dayText[dayState?.isSelected ? 'selected' : 'unselected']
+        }
+      >
+        {date.getDate()}
+      </p>
     </div>
   );
 };
