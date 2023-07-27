@@ -1,5 +1,6 @@
 import BasicLayout from './pages/layout';
 import Hangouts from './pages/hangout';
+import HomeTab from './pages/home';
 
 const routes = [
   {
@@ -8,7 +9,7 @@ const routes = [
     children: [
       {
         index: true,
-        element: <div>Home Tab!</div>,
+        element: <HomeTab />,
       },
       {
         path: 'hangout',
