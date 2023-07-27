@@ -51,6 +51,7 @@ export function getMonthAndDay(date: Date) {
   return `${date.getMonth() + 1}월 ${date.getDate()}일`;
 }
 
+
 /** 2개의 날짜가 같은 날짜인지 확인하는 함수 */
 export function isSameDate(date1: Date, date2: Date) {
   return (

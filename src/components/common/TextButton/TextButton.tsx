@@ -1,5 +1,3 @@
-import { COLORS } from '@/constants/styles';
-
 import * as styles from './TextButton.css';
 
 interface TextButtonProps {
@@ -27,8 +25,8 @@ const TextButton = ({
   iconSvg,
   onClick,
   sizeType = 'small',
-  backgroundColor = COLORS.grayscale.gray200,
-  labelColor = COLORS.grayscale.gray800,
+  backgroundColor,
+  labelColor,
   className,
 }: TextButtonProps) => (
   <button

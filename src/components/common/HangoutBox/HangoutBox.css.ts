@@ -6,6 +6,7 @@ export const boxWrap = style({
   background: COLORS.grayscale.white,
   borderRadius: 12,
   position: 'relative',
+  cursor: 'pointer',
 });
 
 export const dashedBoxWrap = style([
