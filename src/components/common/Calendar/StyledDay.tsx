@@ -3,9 +3,9 @@ import useCalendarState, {
   useSetCalendarState,
 } from '@/hooks/useCalendarState';
 import { RenderDayProps } from './CalendarSkeleton';
-import { isToday } from '@/utils/date';
 
 import * as styles from './Calendar.css';
+import { isSameDate } from '@/utils/date';
 
 type DayInfo = { isSelected: boolean };
 
@@ -25,11 +25,7 @@ const StyledDay = ({ date, isInCurrentMonth, selectedDayRef }: DayProps) => {
       setDayState((prev) => ({ ...prev, isSelected: true }));
       // eslint-disable-next-line no-param-reassign
       selectedDayRef.current = date;
-    } else if (
-      selectedDayRef.current.getFullYear() === date.getFullYear() &&
-      selectedDayRef.current.getMonth() === date.getMonth() &&
-      selectedDayRef.current.getDate() === date.getDate()
-    ) {
+    } else if (isSameDate(selectedDayRef.current, date)) {
       setDayState((prev) => ({ ...prev, isSelected: false }));
       // eslint-disable-next-line no-param-reassign
       selectedDayRef.current = null;
@@ -53,7 +49,11 @@ const StyledDay = ({ date, isInCurrentMonth, selectedDayRef }: DayProps) => {
 
   const dayStyleType =
     // eslint-disable-next-line no-nested-ternary
-    isToday(date) ? 'today' : !isInCurrentMonth ? 'notThisMonth' : 'general';
+    isSameDate(date, new Date())
+      ? 'today'
+      : !isInCurrentMonth
+      ? 'notThisMonth'
+      : 'general';
 
   return (
     /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
