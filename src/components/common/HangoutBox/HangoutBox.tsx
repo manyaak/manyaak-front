@@ -1,7 +1,7 @@
 import UserImage from '@/components/common/UserImage';
 import { ReactComponent as ClockIcon } from '@/assets/icons/ClockIcon.svg';
 import { ReactComponent as LocationIcon } from '@/assets/icons/LocationIcon.svg';
-import { toDdayFormat, toHhmmFormat } from '@/utils/date';
+import { getDday, getHourAndMinute } from '@/utils/date';
 
 import * as styles from './HangoutBox.css';
 
@@ -40,13 +40,13 @@ const HangoutBox = ({
       } ${boxWrapStyle} ${className}`}
     >
       <div className={styles.mainInfo}>
-        <div className={styles.ddayBox}>{toDdayFormat(date)}</div>
+        <div className={styles.ddayBox}>{getDday(date)}</div>
         <div className={styles.name}>{name}</div>
       </div>
       <div className={styles.subInfoWrap}>
         <div className={styles.subInfo}>
           <ClockIcon width={18} height={18} style={{ marginRight: 3 }} />
-          <div>{toHhmmFormat(date)}</div>
+          <div>{getHourAndMinute(date)}</div>
         </div>
         <div className={styles.subInfo}>
           <LocationIcon width={18} height={18} style={{ marginRight: 3 }} />

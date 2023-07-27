@@ -1,7 +1,5 @@
-import { useState } from 'react';
-import TextButton from '@/components/common/TextButton';
 import HangoutBox from '@/components/common/HangoutBox';
-import { isSameDate, isToday, toMmddFormat } from '@/utils/date';
+import { isSameDate, isToday, getMonthAndDay } from '@/utils/date';
 
 import { hangoutsDummydata } from '@/dummyData';
 
@@ -24,7 +22,7 @@ const HangoutContent = ({ onlyWaiting }: HangoutContentProps) => {
             {(i === 0 ||
               !isSameDate(hangout.date, hangoutList[i - 1].date)) && (
               <div className={styles.dateLabel}>
-                {isToday(hangout.date) ? '오늘' : toMmddFormat(hangout.date)}
+                {isToday(hangout.date) ? '오늘' : getMonthAndDay(hangout.date)}
               </div>
             )}
             <HangoutBox
