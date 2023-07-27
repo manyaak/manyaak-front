@@ -28,33 +28,44 @@ export const getDateOfWeek = (
   );
 };
 
-export function toDdayFormat(date: Date) {
+/**
+ * @return `오늘` or `n일전`
+ * */
+export function getDday(date: Date) {
   const diff = date.getTime() - new Date().getTime();
   const dday = Math.ceil(diff / (1000 * 60 * 60 * 24));
   return dday === 0 ? `오늘` : `${dday}일 전`;
 }
 
-export function toHhmmFormat(date: Date) {
+/**
+ * @returns `h시 m분`
+ */
+export function getHourAndMinute(date: Date) {
   return `${date.getHours()}시 ${date.getMinutes()}분`;
 }
 
-export function toMmddFormat(date: Date) {
+/**
+ * @returns `m월 d일`
+ */
+export function getMonthAndDay(date: Date) {
   return `${date.getMonth() + 1}월 ${date.getDate()}일`;
 }
 
+/** 날짜가 오늘인지 확인하는 함수  */
 export function isToday(date: Date) {
   const today = new Date();
   return (
-    today.getUTCFullYear() === date.getUTCFullYear() &&
-    today.getUTCMonth() === date.getUTCMonth() &&
-    today.getUTCDate() === date.getUTCDate()
+    today.getFullYear() === date.getFullYear() &&
+    today.getMonth() === date.getMonth() &&
+    today.getDate() === date.getUTCDate()
   );
 }
 
+/** 2개의 날짜가 같은 날짜인지 확인하는 함수 */
 export function isSameDate(date1: Date, date2: Date) {
   return (
-    date1.getUTCFullYear() === date2.getUTCFullYear() &&
-    date1.getUTCMonth() === date2.getUTCMonth() &&
-    date1.getUTCDate() === date2.getUTCDate()
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() + 1 === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
   );
 }
