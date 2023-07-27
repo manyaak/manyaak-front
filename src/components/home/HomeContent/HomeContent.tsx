@@ -13,7 +13,7 @@ interface HomeProps {
 }
 
 const HomeContent = ({ data }: HomeProps) => {
-  const { friendRequestCount, hangoutRequestCount } = data;
+  const { friendRequestCount, hangoutRequestCount, favoriteGroup } = data;
   return (
     <div className={styles.layout}>
       {friendRequestCount > 0 && (
@@ -23,7 +23,7 @@ const HomeContent = ({ data }: HomeProps) => {
         <NewRequestNotification type="hangout" count={hangoutRequestCount} />
       )}
       <ScheduleList />
-      <FavoriteGroupList list={data.favoriteGroup} />
+      <FavoriteGroupList list={favoriteGroup} />
     </div>
   );
 };

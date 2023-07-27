@@ -1,5 +1,6 @@
-import UserImage from '../UserImage';
-import GroupProfileImage from './GroupProfileImage/GroupProfileImage';
+import UserImage from '@/components/common/UserImage';
+import GroupProfileImage from '@/components/common/GroupProfileImage';
+
 import * as styles from './Profile.css';
 
 interface BaseProfileProps {

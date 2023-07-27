@@ -1,5 +1,5 @@
 import UserImage from '@/components/common/UserImage';
-import * as styles from '../Profile.css';
+import * as styles from './GroupProfileImage.css';
 
 const GroupProfileImage = ({ src }: { src: string[] }) => {
   // 이미지 최대 3개 제한
