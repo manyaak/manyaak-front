@@ -51,21 +51,12 @@ export function getMonthAndDay(date: Date) {
   return `${date.getMonth() + 1}월 ${date.getDate()}일`;
 }
 
-/** 날짜가 오늘인지 확인하는 함수  */
-export function isToday(date: Date) {
-  const today = new Date();
-  return (
-    today.getFullYear() === date.getFullYear() &&
-    today.getMonth() === date.getMonth() &&
-    today.getDate() === date.getUTCDate()
-  );
-}
 
 /** 2개의 날짜가 같은 날짜인지 확인하는 함수 */
 export function isSameDate(date1: Date, date2: Date) {
   return (
     date1.getFullYear() === date2.getFullYear() &&
-    date1.getMonth() + 1 === date2.getMonth() &&
+    date1.getMonth() === date2.getMonth() &&
     date1.getDate() === date2.getDate()
   );
 }
