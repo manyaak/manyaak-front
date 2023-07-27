@@ -1,7 +1,8 @@
-import { GroupProfileImage } from '@/components/common/Profile';
+import GroupProfileImage from '@/components/common/GroupProfileImage';
 import TextButton from '@/components/common/TextButton';
-import * as styles from '../HomeContent.css';
 import { COLORS } from '@/constants/styles';
+
+import * as styles from '../HomeContent.css';
 
 export interface FavoriteGroupItemProps {
   id: number;
