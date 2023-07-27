@@ -1,25 +1,26 @@
 import { useCallback, useRef } from 'react';
-import { Month, RenderMonth, RenderWeek, RenderDayProps } from '..';
+import { Week, RenderWeek, RenderDayProps } from './CalendarSkeleton';
 import { withCalendarStateProvider } from '@/hooks/useCalendarState';
 import StyledDay from './StyledDay';
 
-import * as styles from './StyledCalendar.css';
+import * as styles from './Calendar.css';
+import { DAY_OF_WEEKS } from './MontlyCalendar';
 
-const DAY_OF_WEEKS = ['일', '월', '화', '수', '목', '금', '토'] as const;
-
-interface StyledCalendarProps {
+interface WeeklyCalendarProps {
   year: number;
+  /** 0~11 */
   month: number;
+  week: number;
 }
 
 /**
- * 스타일링된 캘린더 컴포넌트
+ * 주간 캘린더 컴포넌트
  */
-const StyledCalendar = ({ year, month }: StyledCalendarProps) => {
+const WeeklyCalendar = ({ year, month, week }: WeeklyCalendarProps) => {
   const selectedDayRef = useRef<Date | null>(null);
 
-  const renderMonth: RenderMonth = ({ children }) => (
-    <div>
+  const renderWeek: RenderWeek = ({ children }) => (
+    <div className={styles.weekColumn}>
       <div className={styles.weekRow}>
         {DAY_OF_WEEKS.map((day) => (
           <div className={styles.dayOfWeek} key={day}>
@@ -27,12 +28,6 @@ const StyledCalendar = ({ year, month }: StyledCalendarProps) => {
           </div>
         ))}
       </div>
-      {children}
-    </div>
-  );
-
-  const renderWeek: RenderWeek = ({ children }) => (
-    <div className={styles.weekColumn}>
       <div className={styles.weekRow}>{children}</div>
     </div>
   );
@@ -45,14 +40,14 @@ const StyledCalendar = ({ year, month }: StyledCalendarProps) => {
   );
 
   return (
-    <Month
+    <Week
       year={year}
       month={month}
-      renderMonth={renderMonth}
+      week={week}
       renderWeek={renderWeek}
       renderDay={renderDay}
     />
   );
 };
 
-export default withCalendarStateProvider(StyledCalendar);
+export default withCalendarStateProvider(WeeklyCalendar);

@@ -2,10 +2,10 @@ import { MutableRefObject } from 'react';
 import useCalendarState, {
   useSetCalendarState,
 } from '@/hooks/useCalendarState';
-import { RenderDayProps } from '..';
+import { RenderDayProps } from './CalendarSkeleton';
 import { isToday } from '@/utils/date';
 
-import * as styles from './StyledCalendar.css';
+import * as styles from './Calendar.css';
 
 type DayInfo = { isSelected: boolean };
 
