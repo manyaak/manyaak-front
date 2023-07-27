@@ -19,17 +19,20 @@ interface WeeklyCalendarProps {
 const WeeklyCalendar = ({ year, month, week }: WeeklyCalendarProps) => {
   const selectedDayRef = useRef<Date | null>(null);
 
-  const renderWeek: RenderWeek = ({ children }) => (
-    <div className={styles.weekColumn}>
-      <div className={styles.weekRow}>
-        {DAY_OF_WEEKS.map((day) => (
-          <div className={styles.dayOfWeek} key={day}>
-            {day}
-          </div>
-        ))}
+  const renderWeek: RenderWeek = useCallback(
+    ({ children }) => (
+      <div className={styles.weekColumn}>
+        <div className={styles.weekRow}>
+          {DAY_OF_WEEKS.map((day) => (
+            <div className={styles.dayOfWeek} key={day}>
+              {day}
+            </div>
+          ))}
+        </div>
+        <div className={styles.weekRow}>{children}</div>
       </div>
-      <div className={styles.weekRow}>{children}</div>
-    </div>
+    ),
+    [],
   );
 
   const renderDay = useCallback(

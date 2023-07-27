@@ -24,23 +24,29 @@ interface MontlyCProps {
 const MontlyCalendar = ({ year, month }: MontlyCProps) => {
   const selectedDayRef = useRef<Date | null>(null);
 
-  const renderMonth: RenderMonth = ({ children }) => (
-    <div>
-      <div className={styles.weekRow}>
-        {DAY_OF_WEEKS.map((day) => (
-          <div className={styles.dayOfWeek} key={day}>
-            {day}
-          </div>
-        ))}
+  const renderMonth: RenderMonth = useCallback(
+    ({ children }) => (
+      <div>
+        <div className={styles.weekRow}>
+          {DAY_OF_WEEKS.map((day) => (
+            <div className={styles.dayOfWeek} key={day}>
+              {day}
+            </div>
+          ))}
+        </div>
+        {children}
       </div>
-      {children}
-    </div>
+    ),
+    [],
   );
 
-  const renderWeek: RenderWeek = ({ children }) => (
-    <div className={styles.weekColumn}>
-      <div className={styles.weekRow}>{children}</div>
-    </div>
+  const renderWeek: RenderWeek = useCallback(
+    ({ children }) => (
+      <div className={styles.weekColumn}>
+        <div className={styles.weekRow}>{children}</div>
+      </div>
+    ),
+    [],
   );
 
   const renderDay = useCallback(
