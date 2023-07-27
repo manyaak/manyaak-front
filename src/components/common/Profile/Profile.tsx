@@ -1,4 +1,5 @@
 import UserImage from '../UserImage';
+import GroupProfileImage from './GroupProfileImage/GroupProfileImage';
 import * as styles from './Profile.css';
 
 interface BaseProfileProps {
@@ -23,27 +24,17 @@ type ProfileProps = SingleProfileProps | GroupProfileProps;
  */
 const Profile = (props: ProfileProps) => {
   const { type, name, profileImg } = props;
+
   const statusMsg = type === 'user' ? props.statusMessage : undefined;
   const profileImgList = type === 'user' ? [profileImg] : profileImg;
 
-  // 이미지 최대 3개 제한
-  const selectLength = Math.min(3, profileImgList.length);
-  const selectedProfileImg = [];
-  for (let i = 0; i < selectLength; i += 1) {
-    selectedProfileImg.push(profileImgList[i]);
-  }
-
   return (
     <div className={styles.profileWrap}>
-      <div
-        className={
-          styles.profileImgWrap[`${selectedProfileImg.length as 1 | 2 | 3}`]
-        }
-      >
-        {selectedProfileImg.map((img, idx) => (
-          <UserImage key={idx} src={img} size={type === 'group' ? 22 : 36} />
-        ))}
-      </div>
+      {profileImgList.length === 1 ? (
+        <UserImage src={profileImgList[0]} size={36} />
+      ) : (
+        <GroupProfileImage src={profileImgList} />
+      )}
       <div className={styles.textWrap}>
         <div className={styles.name}>{name}</div>
         {statusMsg && <div className={styles.statusMessage}>{statusMsg}</div>}

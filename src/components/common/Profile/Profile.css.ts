@@ -7,13 +7,18 @@ export const profileWrap = style({
 });
 
 export const profileImgWrap = styleVariants({
-  1: {},
   2: {
+    width: 36,
+    height: 36,
     display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
     ':nth-child(1)': {
       marginRight: '-8px',
     },
   },
+
   3: {
     width: 36,
     height: 36,
