@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { NAV_LIST } from '@/constants/navigation';
 import NavItem from './NavItem';
 
@@ -23,4 +22,4 @@ const NavigationBar = ({ focusType }: NavigationBarProps) => (
   </div>
 );
 
-export default memo(NavigationBar);
+export default NavigationBar;
