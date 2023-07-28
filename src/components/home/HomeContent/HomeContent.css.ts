@@ -76,6 +76,12 @@ export const notiButton = style({
   flexGrow: 0,
 });
 
+export const notiButtonIcon = style({ transform: 'rotate(270deg)' });
+
 export const calendarHeader = style({
   justifyContent: 'flex-end',
+});
+
+export const hangoutListWrap = style({
+  marginTop: 16,
 });

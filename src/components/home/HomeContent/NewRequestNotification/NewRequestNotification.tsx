@@ -25,7 +25,7 @@ const NewRequestNotification = ({
         onClick={checkNotifications}
         className={styles.notiButton}
       >
-        <ArrowDownIcon style={{ transform: 'rotate(270deg)' }} />
+        <ArrowDownIcon className={styles.notiButtonIcon} />
       </button>
     </div>
   );

@@ -1,18 +1,12 @@
 import { ReactComponent as HomeTabLogoIcon } from '@/assets/icons/HomeTabLogoIcon.svg';
-import { COLORS } from '@/constants/styles';
 import HomeContent from '@/components/home/HomeContent';
+
 import { HomeContentDummyData } from '@/dummyData';
+import * as styles from './home.css';
 
 const HomeTab = () => (
-  <div
-    style={{
-      background: COLORS.grayscale.gray50,
-      paddingTop: 32,
-    }}
-  >
-    <div style={{ width: 60, margin: '0 auto' }}>
-      <HomeTabLogoIcon />
-    </div>
+  <div className={styles.layout}>
+    <HomeTabLogoIcon className={styles.icon} />
     <HomeContent data={HomeContentDummyData} />
   </div>
 );

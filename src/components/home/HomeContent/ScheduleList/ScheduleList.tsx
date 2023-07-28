@@ -46,7 +46,7 @@ const ScheduleList = () => {
       }
     >
       <MontlyCalendar year={year} month={month} />
-      <div style={{ marginTop: 16 }}>
+      <div className={styles.hangoutListWrap}>
         {hangoutsDummydata.slice(0, 2).map((hangout) => (
           <HangoutBox
             key={hangout.name}
