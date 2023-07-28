@@ -42,6 +42,7 @@ export const button = style({
   background: COLORS.primary.yellow,
   cursor: 'pointer',
   transition: 'all 0.3s ease-in',
+  padding: '14px',
 });
 
 export const mainButton = styleVariants({
@@ -50,9 +51,10 @@ export const mainButton = styleVariants({
     {
       transform: 'rotate(0deg)',
       boxShadow: '0px 8px 26px 0px rgba(0, 0, 0, 0.15)',
+      padding: '0',
     },
   ],
-  close: [button, { transform: 'rotate(45deg)' }],
+  close: [button, { transform: 'rotate(45deg)', padding: '0' }],
 });
 
 export const label = style({
