@@ -1,6 +1,7 @@
 import BasicLayout from './pages/layout';
 import Hangouts from './pages/hangout';
 import HomeTab from './pages/home';
+import FriendTab from './pages/friend';
 
 const routes = [
   {
@@ -21,7 +22,7 @@ const routes = [
       },
       {
         path: 'friend',
-        element: <div>Friends Tab!</div>,
+        element: <FriendTab />,
       },
       {
         path: 'mypage',
