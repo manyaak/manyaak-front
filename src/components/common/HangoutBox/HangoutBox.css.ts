@@ -64,3 +64,7 @@ export const memberInfoWrap = style({
 export const memberImage = style({
   marginRight: '-8px',
 });
+
+export const icon = style({
+  marginRight: '3px',
+});

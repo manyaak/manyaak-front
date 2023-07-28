@@ -45,11 +45,11 @@ const HangoutBox = ({
       </div>
       <div className={styles.subInfoWrap}>
         <div className={styles.subInfo}>
-          <ClockIcon width={18} height={18} style={{ marginRight: 3 }} />
+          <ClockIcon width={18} height={18} className={styles.icon} />
           <div>{getHourAndMinute(date)}</div>
         </div>
         <div className={styles.subInfo}>
-          <LocationIcon width={18} height={18} style={{ marginRight: 3 }} />
+          <LocationIcon width={18} height={18} className={styles.icon} />
           <div>{location}</div>
         </div>
       </div>

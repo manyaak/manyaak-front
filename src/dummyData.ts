@@ -74,3 +74,37 @@ export const hangoutsDummydata: HangoutInfoType[] = [
     isAccepted: true,
   },
 ];
+
+export const HomeContentDummyData = {
+  friendRequestCount: 1,
+  hangoutRequestCount: 5,
+
+  favoriteGroup: [
+    {
+      id: 1,
+      name: 'GDSC 그룹1',
+      profileImg: [
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      ],
+    },
+    {
+      id: 2,
+      name: 'GDSC 그룹2',
+      profileImg: [
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      ],
+    },
+    {
+      id: 3,
+      name: 'GDSC 그룹3',
+      profileImg: [
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      ],
+    },
+  ],
+};
