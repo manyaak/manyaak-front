@@ -5,7 +5,7 @@ export const wrapper = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  margin: '32px 30px 17px 25px',
+  margin: '32px 10px 17px 5px',
 });
 
 export const title = style({
