@@ -75,3 +75,7 @@ export const notiButton = style({
   justifyContent: 'center',
   flexGrow: 0,
 });
+
+export const calendarHeader = style({
+  justifyContent: 'flex-end',
+});

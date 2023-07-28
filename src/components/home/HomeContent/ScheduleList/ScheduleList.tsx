@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ContentBox from '@/components/common/ContentBox';
 import HangoutBox from '@/components/common/HangoutBox';
 import { CalenderHeader, MontlyCalendar } from '@/components/common/Calendar';
+import * as styles from '../HomeContent.css';
 
 import { hangoutsDummydata, userDummydata } from '@/dummyData';
 
@@ -40,6 +41,7 @@ const ScheduleList = () => {
           month={month}
           goBefore={setBeforeMonth}
           goNext={setNextMonth}
+          className={styles.calendarHeader}
         />
       }
     >

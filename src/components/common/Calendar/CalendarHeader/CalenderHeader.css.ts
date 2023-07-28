@@ -4,7 +4,6 @@ import { COLORS, TEXT_STYLES } from '@/constants/styles';
 export const header = style({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-end',
 });
 
 export const date = style({
