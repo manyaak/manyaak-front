@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import GroupProfileImage from './GroupProfileImage';
 
 export default {
-  title: 'common/Profile/GroupProfileImage',
+  title: 'common/GroupProfileImage',
   component: GroupProfileImage,
 } as Meta;
 

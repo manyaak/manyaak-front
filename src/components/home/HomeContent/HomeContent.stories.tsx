@@ -30,3 +30,13 @@ export const WithoutNotifications: Story = {
     },
   },
 };
+
+export const WithoutGroup: Story = {
+  args: {
+    data: {
+      friendRequestCount: 0,
+      hangoutRequestCount: 0,
+      favoriteGroup: [],
+    },
+  },
+};

@@ -1,6 +1,6 @@
 import ContentBox from '@/components/common/ContentBox';
 import GroupItem, { GroupItemProps } from './GroupItem';
-import EmptyContent from '../EmptyContent';
+import EmptyContent from '../../../common/EmptyContent';
 
 interface GroupListProps {
   list: GroupItemProps[];
