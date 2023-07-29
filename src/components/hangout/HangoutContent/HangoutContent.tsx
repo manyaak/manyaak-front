@@ -16,7 +16,7 @@ const HangoutContent = ({ onlyWaiting }: HangoutContentProps) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.hangoutBoxsWrap}>
+      <div>
         {hangoutList.map((hangout, i) => (
           <>
             {(i === 0 ||

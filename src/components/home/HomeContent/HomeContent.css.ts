@@ -8,7 +8,6 @@ export const layout = style({
   gap: '16px',
   height: '100%',
   backgroundColor: COLORS.grayscale.gray50,
-  padding: '20px',
   paddingTop: '32px',
 });
 

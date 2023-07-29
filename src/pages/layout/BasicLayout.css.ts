@@ -6,7 +6,7 @@ export const wrapperBase = style({
   margin: '0 auto',
   minHeight: '100vh',
   overflow: 'auto',
-
+  padding: '0 20px',
   position: 'relative',
 });
 

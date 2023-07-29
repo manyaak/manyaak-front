@@ -35,10 +35,6 @@ export const toggleButton = styleVariants({
   ],
 });
 
-export const hangoutBoxsWrap = style({
-  margin: '0px 20px',
-});
-
 export const hangoutBox = style({
   marginBottom: 10,
 });

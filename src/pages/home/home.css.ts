@@ -6,6 +6,14 @@ export const layout = style({
   paddingTop: '32px',
 });
 
+export const header = style({
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingBottom: '20px',
+});
+
 export const icon = style({
   width: '60px',
   margin: '0 auto',

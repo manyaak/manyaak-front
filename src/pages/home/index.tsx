@@ -6,7 +6,9 @@ import * as styles from './home.css';
 
 const HomeTab = () => (
   <div className={styles.layout}>
-    <HomeTabLogoIcon className={styles.icon} />
+    <div className={styles.header}>
+      <HomeTabLogoIcon className={styles.icon} />
+    </div>
     <HomeContent data={HomeContentDummyData} />
   </div>
 );

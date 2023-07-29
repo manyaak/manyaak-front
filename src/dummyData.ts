@@ -108,3 +108,62 @@ export const HomeContentDummyData = {
     },
   ],
 };
+
+export const friendDummyData = {
+  request: [
+    {
+      id: 1,
+      name: '이강현',
+      profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      statusMessage: 'test',
+    },
+    {
+      id: 2,
+      name: '고광서',
+      profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      statusMessage: 'test',
+    },
+  ],
+  friend: [
+    {
+      id: 1,
+      name: '공소나',
+      profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      statusMessage: 'test',
+    },
+    {
+      id: 2,
+      name: '이정민',
+      profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      statusMessage: 'asdf',
+    },
+    {
+      id: 3,
+      name: '박가현',
+      profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      statusMessage: 'qwer',
+    },
+  ],
+  group: [
+    {
+      id: 1,
+      name: '사실 그룹',
+      profileImg: [
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      ],
+    },
+    {
+      id: 2,
+      name: '만약 그룹',
+      profileImg: [
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+        'https://img.freepik.com/free-icon/user_318-159711.jpg',
+      ],
+    },
+  ],
+};
