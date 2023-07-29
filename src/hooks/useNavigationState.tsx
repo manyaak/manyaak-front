@@ -26,11 +26,7 @@ const navigationStore = create<NavigationStore>((set) => ({
  */
 const useNavigationState = () => {
   const { isNavBarVisible, activeNavType, hideNavBar, setActiveNavType } =
-    useStore(
-      navigationStore,
-      (state) => state,
-      () => true,
-    );
+    useStore(navigationStore, (state) => state);
 
   return {
     isNavBarVisible,
