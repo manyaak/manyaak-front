@@ -2,17 +2,16 @@ import { style, styleVariants } from '@vanilla-extract/css';
 import { COLORS } from '@/constants/styles';
 
 export const wrapperBase = style({
-  backgroundColor: COLORS.grayscale.gray50,
   margin: '0 auto',
   minHeight: '100vh',
   overflow: 'auto',
-  padding: '0 20px',
+  padding: '0 20px 90px',
   position: 'relative',
 });
 
 export const wrapper = styleVariants({
-  withBar: [wrapperBase, { paddingBottom: 90 }],
-  withoutBar: [wrapperBase],
+  withBar: [wrapperBase, { backgroundColor: COLORS.grayscale.gray50 }],
+  withoutBar: [wrapperBase, { backgroundColor: COLORS.grayscale.white }],
 });
 
 export const navBarWrapper = style({
