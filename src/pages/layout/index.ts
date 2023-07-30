@@ -1,3 +1,4 @@
-import BasicLayout from './BasicLayout';
+import MainLayout from './MainLayout';
+import SubLayout from './SubLayout';
 
-export default BasicLayout;
+export { MainLayout, SubLayout };
