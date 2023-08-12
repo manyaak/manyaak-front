@@ -5,11 +5,11 @@ import SelectFriendList from './SelectFriendList';
 import SelectGroupList from './SelectGroupList';
 import * as styles from './SelectFriendStep.css';
 
-interface SelectFrinedStepProps {
-  onMoveNextStep: () => void;
+interface SelectFriendStepProps {
+  setValid: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SelectFriendStep = ({ onMoveNextStep }: SelectFrinedStepProps) => {
+const SelectFriendStep = ({ setValid }: SelectFriendStepProps) => {
   type HangoutUserType = 'friend' | 'group';
 
   const [hangoutUserType, setHangoutUserType] =
@@ -18,6 +18,7 @@ const SelectFriendStep = ({ onMoveNextStep }: SelectFrinedStepProps) => {
 
   const onSelect = (id: number) => {
     setSelectedId(id);
+    setValid(true);
   };
 
   // TODO: dummy data
@@ -46,6 +47,7 @@ const SelectFriendStep = ({ onMoveNextStep }: SelectFrinedStepProps) => {
   const onChangeHangoutUserType = (type: HangoutUserType) => {
     setHangoutUserType(type);
     setSelectedId(undefined);
+    setValid(false);
   };
 
   return (
@@ -65,7 +67,6 @@ const SelectFriendStep = ({ onMoveNextStep }: SelectFrinedStepProps) => {
         />
       </div>
       <div>{renderContentByType()}</div>
-      {/* TODO: Footer) if selectedId, activate */}
     </div>
   );
 };
