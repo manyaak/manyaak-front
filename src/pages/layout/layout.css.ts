@@ -11,7 +11,10 @@ export const wrapperBase = style({
 
 export const wrapper = styleVariants({
   withBar: [wrapperBase, { backgroundColor: COLORS.grayscale.gray50 }],
-  withoutBar: [wrapperBase, { backgroundColor: COLORS.grayscale.white }],
+  withoutBar: [
+    wrapperBase,
+    { backgroundColor: COLORS.grayscale.white, padding: '0 20px' },
+  ],
 });
 
 export const navBarWrapper = style({
