@@ -7,9 +7,17 @@ export const NEW_HANGOUT_STEP_KEY = {
 } as const;
 
 export const NEW_HANGOUT_STEP_INFO = {
-  selectFriend: 1,
-  selectDate: 2,
-  selectLocation: 3,
-  check: 4,
-  complete: 5,
+  1: NEW_HANGOUT_STEP_KEY.selectFriend,
+  2: NEW_HANGOUT_STEP_KEY.selectDate,
+  3: NEW_HANGOUT_STEP_KEY.selectLocation,
+  4: NEW_HANGOUT_STEP_KEY.check,
+  5: NEW_HANGOUT_STEP_KEY.complete,
+} as const;
+
+export const HEADER_TEXT = {
+  [NEW_HANGOUT_STEP_KEY.selectFriend]: '함께할 친구를 선택해주세요',
+  [NEW_HANGOUT_STEP_KEY.selectDate]: '시간을 선택해 주세요',
+  [NEW_HANGOUT_STEP_KEY.selectLocation]: '모일 장소를 선택해주세요',
+  [NEW_HANGOUT_STEP_KEY.check]: '약속 정보가 맞으신가요?',
+  [NEW_HANGOUT_STEP_KEY.complete]: '',
 } as const;

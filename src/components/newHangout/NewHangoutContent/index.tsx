@@ -1,5 +1,9 @@
 import NewHangoutContent from './NewHangoutContent';
-import { NEW_HANGOUT_STEP_INFO, NEW_HANGOUT_STEP_KEY } from './NewHangoutInfo';
+import {
+  NEW_HANGOUT_STEP_INFO,
+  NEW_HANGOUT_STEP_KEY,
+  HEADER_TEXT,
+} from './NewHangoutInfo';
 
-export { NEW_HANGOUT_STEP_INFO, NEW_HANGOUT_STEP_KEY };
+export { NEW_HANGOUT_STEP_INFO, NEW_HANGOUT_STEP_KEY, HEADER_TEXT };
 export default NewHangoutContent;
