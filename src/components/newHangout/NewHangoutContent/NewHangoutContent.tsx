@@ -3,6 +3,7 @@ import SelectDateStep from './SelectDateStep';
 import SelectLocationStep from './SelectLocationStep';
 import CheckStep from './CheckStep';
 import CompleteStep from './CompleteStep';
+import * as styles from './NewHangoutContent.css';
 
 interface NewHangoutContentProps {
   step: number;
@@ -27,7 +28,7 @@ const NewHangoutContent = ({ step, setValid }: NewHangoutContentProps) => {
     }
   };
 
-  return <div>{renderContent()}</div>;
+  return <div className={styles.contentWrapper}>{renderContent()}</div>;
 };
 
 export default NewHangoutContent;

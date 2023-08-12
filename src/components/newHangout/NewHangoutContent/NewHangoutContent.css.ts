@@ -1,5 +1,9 @@
 import { style } from '@vanilla-extract/css';
 
+export const contentWrapper = style({
+  paddingBottom: '45px',
+});
+
 export const displayCenterWrapper = style({
   display: 'flex',
   flexDirection: 'column',

@@ -6,6 +6,11 @@ export const footerWrapper = style({
   alignItems: 'center',
   width: '100%',
   gap: '12px',
+  padding: '8px 20px 23px 20px',
+
+  position: 'fixed',
+  left: 0,
+  bottom: 0,
 });
 
 export const button = style({
