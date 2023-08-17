@@ -8,10 +8,9 @@ import * as styles from './SelectFriendStep.css';
 interface SelectFriendStepProps {
   setValid: React.Dispatch<React.SetStateAction<boolean>>;
 }
+type HangoutUserType = 'friend' | 'group';
 
 const SelectFriendStep = ({ setValid }: SelectFriendStepProps) => {
-  type HangoutUserType = 'friend' | 'group';
-
   const [hangoutUserType, setHangoutUserType] =
     useState<HangoutUserType>('friend');
   const [selectedId, setSelectedId] = useState<number>();
