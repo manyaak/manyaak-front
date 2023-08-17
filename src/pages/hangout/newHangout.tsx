@@ -8,6 +8,13 @@ import NewHangoutContent, {
 import NewHangoutFooter from '@/components/newHangout/NewHangoutFooter';
 import NewHangoutHeader from '@/components/newHangout/NewHangoutHeader';
 
+const EXCLUDED_STEPS = [
+  NEW_HANGOUT_STEP_KEY.check,
+  NEW_HANGOUT_STEP_KEY.complete,
+] as const;
+
+const SKIPPABLE_STEPS = [NEW_HANGOUT_STEP_KEY.selectLocation] as const;
+
 const NewHangoutTab = () => {
   const navigate = useNavigate();
 
@@ -16,25 +23,18 @@ const NewHangoutTab = () => {
 
   useEffect(() => {
     // 체크 안해도 되는 단계 처리
-    const noCheckStepList = [
-      NEW_HANGOUT_STEP_KEY.check,
-      NEW_HANGOUT_STEP_KEY.complete,
-    ];
-
-    let noCheckThisStep = false;
-    noCheckStepList.forEach((key) => {
-      if (key === NEW_HANGOUT_STEP_INFO[step]) noCheckThisStep = true;
-    });
-    if (noCheckThisStep) setValid(true);
+    const needNotToCheck =
+      EXCLUDED_STEPS.findIndex(
+        (item) => item === NEW_HANGOUT_STEP_INFO[step],
+      ) !== -1;
+    if (needNotToCheck) setValid(true);
   }, [step]);
 
   // 스킵 가능한 단계 처리
-  const canSkipStepList = [NEW_HANGOUT_STEP_KEY.selectLocation];
-
-  let canSkipThisStep = false;
-  canSkipStepList.forEach((key) => {
-    if (key === NEW_HANGOUT_STEP_INFO[step]) canSkipThisStep = true;
-  });
+  const canSkip =
+    SKIPPABLE_STEPS.findIndex(
+      (item) => item === NEW_HANGOUT_STEP_INFO[step],
+    ) !== -1;
 
   // TODO
   const onMoveNextStep = () => {
@@ -73,7 +73,7 @@ const NewHangoutTab = () => {
         onNextStep={onMoveNextStep}
         onSkipStep={onSkipStep}
         valid={valid}
-        skip={canSkipThisStep}
+        skip={canSkip}
         label={btnLabel}
       />
     </div>
