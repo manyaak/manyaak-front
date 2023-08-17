@@ -4,6 +4,7 @@ import HangoutRequestTab from './pages/hangout/hangoutRequest';
 import HangoutDetailTab from './pages/hangout/hangoutDetail';
 import HomeTab from './pages/home';
 import FriendTab from './pages/friend';
+import NewHangoutTab from './pages/hangout/newHangout';
 
 const routes = [
   {
@@ -39,6 +40,10 @@ const routes = [
       {
         path: 'hangout/request/:hid',
         element: <HangoutRequestTab />,
+      },
+      {
+        path: 'hangout/new',
+        element: <NewHangoutTab />,
       },
     ],
   },
