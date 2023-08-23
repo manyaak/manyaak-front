@@ -2,22 +2,27 @@ import { HangoutInfoType } from './components/common/HangoutBox/HangoutBox';
 
 export const userDummydata = [
   {
+    id: 1,
     name: '공소나',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
+    id: 2,
     name: '이강현',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
+    id: 3,
     name: '고광서',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
+    id: 4,
     name: '박가현',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
+    id: 5,
     name: '이정민',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
