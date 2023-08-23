@@ -4,12 +4,12 @@ import HangoutBox from '@/components/common/HangoutBox';
 import { CalenderHeader, MontlyCalendar } from '@/components/common/Calendar';
 import * as styles from '../HomeContent.css';
 
-import { hangoutsDummydata, userDummydata } from '@/dummyData';
-
-const today = new Date();
+import { hangoutsDummydata } from '@/dummyData';
 
 // TODO  hangout dummydata 교체
 const ScheduleList = () => {
+  const today = new Date();
+
   const [currentDate, setCurrentDate] = useState({
     year: today.getFullYear(),
     month: today.getMonth(),
