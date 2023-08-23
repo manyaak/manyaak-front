@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css';
 import { TEXT_STYLES } from '@/constants/styles/textStyles';
-
 import { COLORS } from '@/constants/styles';
 
 export const inputBarWrapper = style({
