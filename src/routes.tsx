@@ -4,8 +4,8 @@ import HangoutRequestTab from './pages/hangout/hangoutRequest';
 import HangoutDetailTab from './pages/hangout/hangoutDetail';
 import HomeTab from './pages/home';
 import FriendTab from './pages/friend';
-import FriendScheduleContentTab from './pages/friend/schedule';
 import NewHangoutTab from './pages/hangout/newHangout';
+import FriendScheduleContentTab from './pages/friend/friendDetail';
 
 const routes = [
   {
