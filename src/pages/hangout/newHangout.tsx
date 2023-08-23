@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PageHeader from '@/components/common/PageHeader';
 import NewHangoutContent, {
   NEW_HANGOUT_STEP_INFO,
   NEW_HANGOUT_STEP_KEY,
   HEADER_TEXT,
 } from '@/components/newHangout/NewHangoutContent';
 import NewHangoutFooter from '@/components/newHangout/NewHangoutFooter';
-import NewHangoutHeader from '@/components/newHangout/NewHangoutHeader';
 
 const EXCLUDED_STEPS = [
   NEW_HANGOUT_STEP_KEY.check,
@@ -67,7 +67,10 @@ const NewHangoutTab = () => {
 
   return (
     <div>
-      <NewHangoutHeader text={HEADER_TEXT[NEW_HANGOUT_STEP_INFO[step]]} />
+      <PageHeader
+        mainTitle="약속 만들기"
+        subTitle={HEADER_TEXT[NEW_HANGOUT_STEP_INFO[step]]}
+      />
       <NewHangoutContent step={step} setValid={setValid} />
       <NewHangoutFooter
         onNextStep={onMoveNextStep}
