@@ -39,11 +39,11 @@ const routes = [
         element: <HangoutDetailTab />,
       },
       {
-        path: 'hangout/request/:hid',
+        path: 'hangout/:hid/request',
         element: <HangoutRequestTab />,
       },
       {
-        path: 'friend/schedule/:hid',
+        path: 'friend/:hid',
         element: <FriendScheduleContentTab />,
       },
       {
