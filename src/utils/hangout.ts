@@ -12,14 +12,19 @@ export const getAvailableSchedules = (
   const [from, to] = range;
 
   // 범위에서 벗어나는 일정은 제외
-  const filteredSchedules = schedules.filter((item) => {
-    const start = item.start.getTime();
-    const end = item.end.getTime();
-    const isOutside =
-      (start < from.getTime() && end <= from.getTime()) ||
-      (start >= to.getTime() && end > to.getTime());
-    return !isOutside;
-  });
+  const filteredSchedules = schedules
+    .filter((item) => {
+      const start = item.start.getTime();
+      const end = item.end.getTime();
+      const isOutside =
+        (start < from.getTime() && end <= from.getTime()) ||
+        (start >= to.getTime() && end > to.getTime());
+      return !isOutside;
+    })
+    .map((item) => ({
+      start: item.start.getTime() > from.getTime() ? item.start : from,
+      end: item.end.getTime() < to.getTime() ? item.end : to,
+    }));
 
   const times: { dateTime: number; isAvailable: boolean }[] = [];
   const indexOfDate: {
@@ -32,7 +37,7 @@ export const getAvailableSchedules = (
       // 시작점은 뒤 로직에서 알아서 체크하므로 `times`에 중복 push하지 않아야 함 => `dateTime > from.getTime()`을 만족해야 함
       if (indexOfDate[dateTime] === undefined && dateTime > from.getTime()) {
         times.push({
-          dateTime: Math.min(dateTime, to.getTime()),
+          dateTime,
           isAvailable: true,
         });
         indexOfDate[dateTime] = 0;
@@ -53,10 +58,11 @@ export const getAvailableSchedules = (
   filteredSchedules.forEach((schedule) => {
     const startDateTime = schedule.start.getTime();
     const endDateTime = schedule.end.getTime();
-    const prevIndexOfStartIndex = indexOfDate[startDateTime];
+    // `undefined`면 `from`과 같다는 뜻이므로 `startIndex`가 `0`이 되도록 `-1`로 fallback
+    const prevIndexOfStartIndex = indexOfDate[startDateTime] ?? -1;
     const endIndex = indexOfDate[endDateTime];
 
-    if (prevIndexOfStartIndex !== undefined && endIndex !== undefined) {
+    if (endIndex !== undefined) {
       const startIndex = prevIndexOfStartIndex + 1;
       for (let i = startIndex; i <= endIndex; i += 1) {
         times[i] = { ...times[i], isAvailable: false };
