@@ -76,15 +76,14 @@ export const getAvailableSchedules = (
 
   const result: { start: Date; end: Date }[] = [];
 
-  let start = from;
   for (let i = 0; i < times.length; i += 1) {
-    if (!times[i].isAvailable) {
-      if (i > 0 && times[i - 1].isAvailable) {
-        result.push({ start, end: new Date(times[i - 1].dateTime) });
-      }
-      start = new Date(times[i].dateTime);
-    } else if (i === times.length - 1) {
-      result.push({ start, end: new Date(times[i].dateTime) });
+    if (times[i].isAvailable) {
+      const startDateTime = i > 0 ? times[i - 1].dateTime : from;
+      const endDateTime = times[i].dateTime;
+      result.push({
+        start: new Date(startDateTime),
+        end: new Date(endDateTime),
+      });
     }
   }
 
