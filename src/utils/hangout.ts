@@ -1,6 +1,6 @@
 /**
  * 주어진 범위 내에서 일정이 없는 시간대를 반환하는 함수
- * - `schedules.length`를 n이라 하면 시간 복잡도는 O(n*log(n))
+ * @see https://www.notion.so/getAvailableSchedules-37db9a6ce7e945819c4cbd1f72e32e76?pvs=4
  * @param range 검사할 범위
  * @param schedules 일정 목록
  * @returns 일정이 없는 시간대 목록 (오름차순)
