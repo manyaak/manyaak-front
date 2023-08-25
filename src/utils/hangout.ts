@@ -74,18 +74,17 @@ export const getAvailableSchedules = (
     times.push({ dateTime: to.getTime(), isAvailable: true });
   }
 
-  const result: { start: Date; end: Date }[] = [];
-
-  for (let i = 0; i < times.length; i += 1) {
-    if (times[i].isAvailable) {
-      const startDateTime = i > 0 ? times[i - 1].dateTime : from;
-      const endDateTime = times[i].dateTime;
-      result.push({
-        start: new Date(startDateTime),
-        end: new Date(endDateTime),
-      });
+  const result = times.reduce((prev, cur, curIdx) => {
+    if (cur.isAvailable) {
+      const startDateTime = curIdx > 0 ? times[curIdx - 1].dateTime : from;
+      const endDateTime = cur.dateTime;
+      return [
+        ...prev,
+        { start: new Date(startDateTime), end: new Date(endDateTime) },
+      ];
     }
-  }
+    return prev;
+  }, [] as { start: Date; end: Date }[]);
 
   return result.filter((item) => item.start.getTime() < item.end.getTime());
 };
