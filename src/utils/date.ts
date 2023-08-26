@@ -41,7 +41,8 @@ export function getDday(date: Date) {
  * @returns `h시 m분`
  */
 export function getHourAndMinute(date: Date) {
-  return `${date.getHours()}시 ${date.getMinutes()}분`;
+  const hour = date.getHours() === 0 ? 24 : date.getHours();
+  return `${hour}시 ${date.getMinutes()}분`;
 }
 
 /**
@@ -51,6 +52,14 @@ export function getMonthAndDay(date: Date) {
   return `${date.getMonth() + 1}월 ${date.getDate()}일`;
 }
 
+/**
+ * @returns `YYYY-MM-DDThh:mm:ss`
+ */
+export function getDateTimeLocalString(date: Date) {
+  const offset = date.getTimezoneOffset() * 60000;
+  const localDate = new Date((date as any) - offset);
+  return localDate.toISOString().split('.')[0];
+}
 
 /** 2개의 날짜가 같은 날짜인지 확인하는 함수 */
 export function isSameDate(date1: Date, date2: Date) {
