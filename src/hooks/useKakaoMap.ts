@@ -27,7 +27,6 @@ const useKakaoMap = (latitude: number, longitude: number) => {
       level: 3, // 지도의 확대 레벨
     };
     const kakaoMap = new kakao.maps.Map(mapContainerRef.current, mapOption);
-    kakaoMap.setZoomable(true);
   };
 
   return mapContainerRef;
