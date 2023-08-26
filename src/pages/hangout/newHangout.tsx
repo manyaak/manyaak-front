@@ -59,6 +59,16 @@ const NewHangoutTab = () => {
     setValid(false);
   };
 
+  // TODO
+  const onMovePrevStep = () => {
+    if (step <= 1) {
+      navigate('/');
+      return;
+    }
+    setStep((prev) => (prev - 1) as keyof typeof NEW_HANGOUT_STEP_INFO);
+    setValid(false);
+  };
+
   // button label
   const btnLabel =
     NEW_HANGOUT_STEP_INFO[step] === NEW_HANGOUT_STEP_KEY.complete
@@ -70,6 +80,7 @@ const NewHangoutTab = () => {
       <PageHeader
         mainTitle="약속 만들기"
         subTitle={HEADER_TEXT[NEW_HANGOUT_STEP_INFO[step]]}
+        goBefore={onMovePrevStep}
       />
       <NewHangoutContent step={step} setValid={setValid} />
       <NewHangoutFooter
