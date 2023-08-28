@@ -6,8 +6,13 @@ import HomeTab from './pages/home';
 import FriendTab from './pages/friend';
 import NewHangoutTab from './pages/hangout/newHangout';
 import FriendScheduleContentTab from './pages/friend/friendDetail';
+import LoginTab from './pages/login';
 
 const routes = [
+  {
+    path: '/login',
+    element: <LoginTab />,
+  },
   {
     path: '/',
     element: <MainLayout />,
