@@ -2,7 +2,7 @@ import { useState } from 'react';
 import InputBar from '@/components/common/InputBar';
 import FooterButton from '@/components/common/FooterButton';
 import SelectUserList from '@/components/common/SelectUserList';
-import * as styles from './newGroupContent.css';
+import * as styles from './NewGroupContent.css';
 import { userDummydata } from '@/dummyData';
 
 const NewGroupContent = () => {
