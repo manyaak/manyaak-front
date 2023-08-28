@@ -16,8 +16,9 @@ interface GroupInfo extends BaseUserInfo {
 }
 
 interface BaseSelectUserListProps {
-  selectedId?: number;
+  selectedIdList?: number[];
   onSelect?: (id: number) => void;
+  multiple?: boolean;
 }
 
 interface SelectFriendListProps extends BaseSelectUserListProps {
@@ -35,7 +36,7 @@ type SelectUserListProps = SelectFriendListProps | SelectGroupListProps;
 const SelectUserList = ({
   type,
   list,
-  selectedId,
+  selectedIdList,
   onSelect,
 }: SelectUserListProps) => (
   <div className={styles.userList}>
@@ -50,7 +51,7 @@ const SelectUserList = ({
             profileImg={profileImg as string[]}
           />
         )}
-        <CheckBox checked={selectedId === id} />
+        <CheckBox checked={selectedIdList?.includes(id)} />
       </div>
     ))}
   </div>

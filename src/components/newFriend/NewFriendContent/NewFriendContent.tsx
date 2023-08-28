@@ -47,7 +47,7 @@ const NewFriendContent = () => {
           <SelectUserList
             type="friend"
             list={userDummydata}
-            selectedId={selectedId}
+            selectedIdList={selectedId ? [selectedId] : undefined}
             onSelect={onSelect}
           />
         </div>

@@ -20,7 +20,6 @@ const SelectFriendStep = ({ setValid }: SelectFriendStepProps) => {
   };
 
   // TODO: dummy data
-  // eslint-disable-next-line consistent-return
   const renderContentByType = () => {
     switch (hangoutUserType) {
       case 'friend':
@@ -28,7 +27,7 @@ const SelectFriendStep = ({ setValid }: SelectFriendStepProps) => {
           <SelectUserList
             type="friend"
             list={userDummydata}
-            selectedId={selectedId}
+            selectedIdList={selectedId ? [selectedId] : undefined}
             onSelect={onSelect}
           />
         );
@@ -37,7 +36,7 @@ const SelectFriendStep = ({ setValid }: SelectFriendStepProps) => {
           <SelectUserList
             type="group"
             list={friendDummyData.group}
-            selectedId={selectedId}
+            selectedIdList={selectedId ? [selectedId] : undefined}
             onSelect={onSelect}
           />
         );
