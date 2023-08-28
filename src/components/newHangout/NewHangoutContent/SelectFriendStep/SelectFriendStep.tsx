@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import TextButton from '@/components/common/TextButton';
-import { friendDummyData, userDummydata } from '@/dummyData';
-import SelectFriendList from './SelectFriendList';
-import SelectGroupList from './SelectGroupList';
+import SelectUserList from '@/components/common/SelectUserList';
 import * as styles from './SelectFriendStep.css';
+import { friendDummyData, userDummydata } from '@/dummyData';
 
 interface SelectFriendStepProps {
   setValid: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,11 +20,13 @@ const SelectFriendStep = ({ setValid }: SelectFriendStepProps) => {
   };
 
   // TODO: dummy data
+  // eslint-disable-next-line consistent-return
   const renderContentByType = () => {
     switch (hangoutUserType) {
       case 'friend':
         return (
-          <SelectFriendList
+          <SelectUserList
+            type="friend"
             list={userDummydata}
             selectedId={selectedId}
             onSelect={onSelect}
@@ -33,7 +34,8 @@ const SelectFriendStep = ({ setValid }: SelectFriendStepProps) => {
         );
       case 'group':
         return (
-          <SelectGroupList
+          <SelectUserList
+            type="group"
             list={friendDummyData.group}
             selectedId={selectedId}
             onSelect={onSelect}
