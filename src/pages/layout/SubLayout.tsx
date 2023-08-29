@@ -1,22 +1,21 @@
 import { Outlet } from 'react-router-dom';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useLayoutEffect } from 'react';
+import { SUB_LAYOUT_INFO } from './layoutInfo';
 
 import * as styles from './layout.css';
 
-const safeAreaInset = ((window as any).safeAreaInsets as
-  | { top: number; bottom: number }
-  | undefined) ?? { top: 0, bottom: 0 };
+const SubLayout = ({ children }: PropsWithChildren) => {
+  useLayoutEffect(() => {
+    (window as any).ReactNativeWebView.postMessage(
+      JSON.stringify({
+        backgroundColor: SUB_LAYOUT_INFO.backgroundColor,
+      }),
+    );
+  }, []);
 
-const SubLayout = ({ children }: PropsWithChildren) => (
-  <div
-    className={styles.wrapper.withoutBar}
-    style={{
-      paddingTop: safeAreaInset.top,
-      paddingBottom: safeAreaInset.bottom,
-    }}
-  >
-    {children || <Outlet />}
-  </div>
-);
+  return (
+    <div className={styles.wrapper.withoutBar}>{children || <Outlet />}</div>
+  );
+};
 
 export default SubLayout;
