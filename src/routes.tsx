@@ -2,6 +2,7 @@ import { MainLayout, SubLayout } from './pages/layout';
 import Hangouts from './pages/hangout';
 import HangoutRequestTab from './pages/hangout/hangoutRequest';
 import HangoutDetailTab from './pages/hangout/hangoutDetail';
+import LoginTab from './pages/login';
 import HomeTab from './pages/home';
 import FriendTab from './pages/friend';
 import NewHangoutTab from './pages/hangout/newHangout';
@@ -10,6 +11,10 @@ import NewFriendTab from './pages/friend/newFriend';
 import NewGroupTab from './pages/friend/newGroup';
 
 const routes = [
+  {
+    path: '/login',
+    element: <LoginTab />,
+  },
   {
     path: '/',
     element: <MainLayout />,
