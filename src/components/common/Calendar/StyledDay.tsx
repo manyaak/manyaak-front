@@ -33,9 +33,10 @@ const StyledDay = ({
       setDayState((prev) => ({ ...prev, isSelected: true }));
       selectedDayRef.current = date;
       selectedDayHandler?.(selectedDayRef.current);
+      return;
     }
     // 선택되어 있는 날짜를 눌러서 해제하는 경우
-    else if (isSameDate(selectedDayRef.current, date)) {
+    if (isSameDate(selectedDayRef.current, date)) {
       setDayState((prev) => ({ ...prev, isSelected: false }));
       selectedDayRef.current = null;
     }
