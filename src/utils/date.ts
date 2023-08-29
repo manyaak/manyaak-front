@@ -53,6 +53,7 @@ export function getMonthAndDay(date: Date) {
 }
 
 /**
+ * date를 `<input type="datetieme-local" />`의 value로 사용하기 위한 함수
  * @returns `YYYY-MM-DDThh:mm:ss`
  */
 export function getDateTimeLocalString(date: Date) {
@@ -61,7 +62,10 @@ export function getDateTimeLocalString(date: Date) {
   return localDate.toISOString().split('.')[0];
 }
 
-/** 2개의 날짜가 같은 날짜인지 확인하는 함수 */
+/**
+ * 2개의 날짜가 같은 날짜인지 확인하는 함수
+ * @returns 두 날짜가 같은 날짜인지 여부 boolean
+ */
 export function isSameDate(date1: Date, date2: Date) {
   return (
     date1.getFullYear() === date2.getFullYear() &&
