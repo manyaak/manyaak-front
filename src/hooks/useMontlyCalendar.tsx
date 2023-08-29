@@ -22,7 +22,6 @@ const useMontlyCalendar = () => {
       ...prev,
       year: month === 0 ? prev.year - 1 : prev.year,
       month: month === 0 ? 11 : prev.month - 1,
-      day: -1,
     }));
   };
 
@@ -31,7 +30,6 @@ const useMontlyCalendar = () => {
       ...prev,
       year: month === 11 ? prev.year + 1 : prev.year,
       month: month === 11 ? 0 : prev.month + 1,
-      day: -1,
     }));
   };
 
