@@ -5,6 +5,7 @@ import { ReactComponent as AppleLogoIcon } from '@/assets/icons/AppleLogoIcon.sv
 import * as styles from './login.css';
 
 const LoginTab = () => {
+  // TODO 소셜 로그인 추가
   const onKakaoLogin = () => {};
   const onAppleLogin = () => {};
 
