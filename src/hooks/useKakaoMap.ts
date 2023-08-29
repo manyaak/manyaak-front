@@ -1,24 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-use-before-define */
+import { useEffect, useRef } from 'react';
 
 const useKakaoMap = (latitude: number, longitude: number) => {
-  const [mapLoaded, setMapLoaded] = useState(false);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
-  // kakao map script load
-  useEffect(() => {
-    const $script = document.createElement('script');
-    $script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${
-      import.meta.env.VITE_KAKAO_APP_KEY
-    }&autoload=false`;
-    $script.addEventListener('load', () => setMapLoaded(true));
-    document.head.appendChild($script);
-  }, []);
+  const { kakao } = window;
 
   // kakao map load
   useEffect(() => {
-    if (!mapLoaded) return;
-
-    const { kakao } = window;
+    renderMap();
 
     kakao.maps.load(() => {
       const map = new kakao.maps.Map(mapContainerRef.current, {
@@ -29,7 +19,15 @@ const useKakaoMap = (latitude: number, longitude: number) => {
       });
       marker.setMap(map);
     });
-  }, [mapLoaded, latitude, longitude]);
+  }, []);
+
+  const renderMap = () => {
+    const mapOption = {
+      center: new kakao.maps.LatLng(latitude, longitude), // 내가 지정한 센터(초기에 보여지는)
+      level: 3, // 지도의 확대 레벨
+    };
+    const kakaoMap = new kakao.maps.Map(mapContainerRef.current, mapOption);
+  };
 
   return mapContainerRef;
 };

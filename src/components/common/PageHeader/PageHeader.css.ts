@@ -1,7 +1,18 @@
 import { style } from '@vanilla-extract/css';
 import { COLORS } from '@/constants/styles';
 
-export const headerWrapper = style({
+export const arrowWrapper = style({
+  padding: '19px 0',
+  margin: '0 -4px',
+});
+
+export const leftArrow = style({
+  transform: 'rotate(90deg)',
+  width: '20px',
+  height: '20px',
+});
+
+export const textWrapper = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
