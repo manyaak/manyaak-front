@@ -6,7 +6,7 @@ import NewHangoutContent, {
   NEW_HANGOUT_STEP_KEY,
   HEADER_TEXT,
 } from '@/components/newHangout/NewHangoutContent';
-import NewHangoutFooter from '@/components/newHangout/NewHangoutFooter';
+import FooterButton from '@/components/common/FooterButton';
 
 const EXCLUDED_STEPS = [
   NEW_HANGOUT_STEP_KEY.check,
@@ -83,10 +83,10 @@ const NewHangoutTab = () => {
         goBefore={onMovePrevStep}
       />
       <NewHangoutContent step={step} setValid={setValid} />
-      <NewHangoutFooter
-        onNextStep={onMoveNextStep}
-        onSkipStep={onSkipStep}
-        valid={valid}
+      <FooterButton
+        onClick={onMoveNextStep}
+        onSkip={onSkipStep}
+        disabled={!valid}
         skip={canSkip}
         label={btnLabel}
       />

@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const contentWrapper = style({
-  paddingBottom: '45px',
+  paddingBottom: '76px',
 });
 
 export const displayCenterWrapper = style({

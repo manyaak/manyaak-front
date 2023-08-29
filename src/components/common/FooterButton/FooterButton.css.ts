@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { COLORS, TEXT_STYLES } from '@/constants/styles';
+import { COLORS } from '@/constants/styles';
 
 export const footerWrapper = style({
   display: 'flex',
