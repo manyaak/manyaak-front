@@ -12,16 +12,17 @@ import * as styles from './Calendar.css';
 
 export const DAY_OF_WEEKS = ['일', '월', '화', '수', '목', '금', '토'] as const;
 
-interface MontlyCProps {
+interface MontlyCalendarProps {
   year: number;
   /** 0~11 */
   month: number;
+  onSelectDay?: (day: Date) => void;
 }
 
 /**
  * 월간 캘린더 컴포넌트
  */
-const MontlyCalendar = ({ year, month }: MontlyCProps) => {
+const MontlyCalendar = ({ year, month, onSelectDay }: MontlyCalendarProps) => {
   const selectedDayRef = useRef<Date | null>(null);
 
   const renderMonth: RenderMonth = useCallback(
@@ -51,9 +52,13 @@ const MontlyCalendar = ({ year, month }: MontlyCProps) => {
 
   const renderDay = useCallback(
     (renderDayProps: RenderDayProps) => (
-      <StyledDay {...renderDayProps} selectedDayRef={selectedDayRef} />
+      <StyledDay
+        {...renderDayProps}
+        selectedDayRef={selectedDayRef}
+        selectedDayHandler={onSelectDay}
+      />
     ),
-    [],
+    [onSelectDay],
   );
 
   return (
