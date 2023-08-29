@@ -9,6 +9,10 @@ import { NAV_LIST, NAV_URL_LIST } from '@/constants/navigation';
 type NavType = keyof typeof NAV_LIST;
 const NavTypes = Object.keys(NAV_URL_LIST) as NavType[];
 
+const safeAreaInset = ((window as any).safeAreaInsets as
+  | { top: number; bottom: number }
+  | undefined) ?? { top: 0, bottom: 0 };
+
 const MainLayout = ({ children }: PropsWithChildren) => {
   const { pathname }: Location = useLocation();
   const [activeNavType, setActiveNavType] = useState<NavType>('HOME');
@@ -20,7 +24,13 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   }, [pathname]);
 
   return (
-    <div className={styles.wrapper.withBar}>
+    <div
+      className={styles.wrapper.withBar}
+      style={{
+        paddingTop: safeAreaInset.top,
+        paddingBottom: safeAreaInset.bottom,
+      }}
+    >
       {children || <Outlet />}
       <div className={styles.navBarWrapper}>
         <FloatingButton />
