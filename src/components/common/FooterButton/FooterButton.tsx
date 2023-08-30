@@ -8,6 +8,7 @@ interface FooterButtonProps {
   onSkip?: () => void;
   skip?: boolean;
   disabled?: boolean;
+  className?: string;
 }
 
 const FooterButton = ({
@@ -17,13 +18,14 @@ const FooterButton = ({
   onSkip,
   skip,
   disabled,
+  className,
 }: FooterButtonProps) => {
   const btnLabel = label || '다음';
   const skipBtnLabel = skipLabel || '건너뛰기';
   const btnActivate = disabled ? 'inactivate' : 'activate';
 
   return (
-    <div className={styles.footerWrapper}>
+    <div className={`${styles.footerWrapper} ${className}`}>
       {skip && (
         <TextButton
           label={skipBtnLabel}
