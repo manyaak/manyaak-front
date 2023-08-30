@@ -9,7 +9,6 @@ export const headerWrapper = style({
   justifyContent: 'center',
   height: '60px',
   width: '100vw',
-  margin: '0 -20px',
   background: COLORS.grayscale.white,
   boxShadow: '0px 3px 5px 0px rgba(199, 199, 199, 0.25)',
 });

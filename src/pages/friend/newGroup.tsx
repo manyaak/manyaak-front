@@ -10,7 +10,9 @@ const NewGroupTab = () => {
 
   return (
     <>
-      <PageSubHeader title={mainTitle} goBefore={onMovePrevPage} />
+      <div style={{ margin: '0 -20px' }}>
+        <PageSubHeader title={mainTitle} goBefore={onMovePrevPage} />
+      </div>
       <NewGroupContent />
     </>
   );
