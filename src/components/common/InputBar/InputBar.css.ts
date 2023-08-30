@@ -10,6 +10,7 @@ export const inputBarWrapper = style({
   height: '40px',
   borderRadius: '8px',
   background: COLORS.grayscale.gray100,
+  width: '100%',
 });
 
 export const iconWrapper = style({
