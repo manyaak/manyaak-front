@@ -28,6 +28,7 @@ const HangoutContent = ({ onlyWaiting }: HangoutContentProps) => {
               </div>
             )}
             <HangoutBox
+              id={hangout.id}
               name={hangout.name}
               date={hangout.date}
               location={hangout.location}
