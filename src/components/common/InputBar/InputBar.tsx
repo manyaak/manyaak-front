@@ -7,6 +7,7 @@ interface InputBarProps {
   value: string;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClickBtn?: () => void;
+  className?: string;
 }
 
 const InputBar = ({
@@ -14,8 +15,9 @@ const InputBar = ({
   value,
   handleInputChange,
   onClickBtn,
+  className,
 }: InputBarProps) => (
-  <div className={styles.inputBarWrapper}>
+  <div className={`${styles.inputBarWrapper} ${className}`}>
     <TextInput
       className={styles.textStyle}
       value={value}
