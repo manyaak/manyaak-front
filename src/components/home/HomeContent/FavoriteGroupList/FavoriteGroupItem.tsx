@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import GroupProfileImage from '@/components/common/GroupProfileImage';
 import TextButton from '@/components/common/TextButton';
 import { COLORS } from '@/constants/styles';
@@ -15,8 +16,11 @@ const FavoriteGroupItem = ({
   name,
   profileImg,
 }: FavoriteGroupItemProps) => {
+  const navigate = useNavigate();
+
+  // TODO: 그룹 선택한 상태로 이동
   const createHangout = () => {
-    console.log('id: ', id);
+    navigate('/hangout/new');
   };
 
   return (

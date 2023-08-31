@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputBar from '@/components/common/InputBar';
 import FooterButton from '@/components/common/FooterButton';
 import SelectUserList from '@/components/common/SelectUserList';
@@ -12,6 +13,8 @@ const NewFriendContent = () => {
 
   const [searchVal, setSearchVal] = useState('');
   const [selectedId, setSelectedId] = useState<number>();
+
+  const navigate = useNavigate();
 
   const onSelect = (id: number) => {
     setSelectedId(id);
@@ -31,6 +34,8 @@ const NewFriendContent = () => {
 
   const onComplete = () => {
     console.log('완료 동작');
+
+    navigate('/');
   };
 
   return (

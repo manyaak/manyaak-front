@@ -8,12 +8,9 @@ const useKakaoMap = (latitude: number, longitude: number) => {
 
   // kakao map load
   useEffect(() => {
-    renderMap();
-
     kakao.maps.load(() => {
-      const map = new kakao.maps.Map(mapContainerRef.current, {
-        center: new kakao.maps.LatLng(latitude, longitude),
-      });
+      const map = renderMap();
+
       const marker = new kakao.maps.Marker({
         position: new kakao.maps.LatLng(latitude, longitude),
       });
@@ -27,6 +24,7 @@ const useKakaoMap = (latitude: number, longitude: number) => {
       level: 3, // 지도의 확대 레벨
     };
     const kakaoMap = new kakao.maps.Map(mapContainerRef.current, mapOption);
+    return kakaoMap;
   };
 
   return mapContainerRef;

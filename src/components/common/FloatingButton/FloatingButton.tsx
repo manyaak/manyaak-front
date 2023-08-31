@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ReactComponent as PlusIcon } from '@/assets/icons/PlusIcon.svg';
 import { MENU_ITEMS, MenuType } from './MenuItems';
 import * as styles from './FloatingButton.css';
@@ -32,12 +33,12 @@ const FloatingButton = ({
       {isShow && <div onClick={onClose} className={styles.overlay} />}
       <div className={styles.itemsWrapper}>
         {isShow &&
-          allMenuList.map(({ label, icon: Icon, onClick }) => (
+          allMenuList.map(({ label, icon: Icon, url, onClick }) => (
             <div className={styles.menuItem} key={label}>
               {label && <div className={styles.label}>{label}</div>}
-              <div onClick={onClick} className={styles.button}>
+              <Link to={url || ''} onClick={onClick} className={styles.button}>
                 <Icon />
-              </div>
+              </Link>
             </div>
           ))}
         <div onClick={toggle} className={styles.mainButton[activeStatus]}>

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import UserImage from '@/components/common/UserImage';
 import { ReactComponent as ClockIcon } from '@/assets/icons/ClockIcon.svg';
 import { ReactComponent as LocationIcon } from '@/assets/icons/LocationIcon.svg';
@@ -6,6 +7,7 @@ import { getDday, getHourAndMinute } from '@/utils/date';
 import * as styles from './HangoutBox.css';
 
 export interface HangoutInfoType {
+  id: number;
   name: string;
   date: Date;
   location: string;
@@ -24,6 +26,7 @@ interface HangoutBoxProps extends HangoutInfoType {
  * 약속 정보를 담은 컴포넌트
  */
 const HangoutBox = ({
+  id,
   name,
   date,
   location,
@@ -32,9 +35,21 @@ const HangoutBox = ({
   isAccepted,
   className,
 }: HangoutBoxProps) => {
+  const navigate = useNavigate();
+
   const boxWrapStyle = isAccepted ? styles.boxWrap : styles.dashedBoxWrap;
+
+  const onClickBox = () => {
+    if (isAccepted) {
+      navigate(`/hangout/${id}`);
+    } else {
+      navigate(`/hangout/${id}/request`);
+    }
+  };
+
   return (
     <div
+      onClick={onClickBox}
       className={`${
         haveBoxShadow && styles.boxShadow
       } ${boxWrapStyle} ${className}`}

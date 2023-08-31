@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
 import { ReactComponent as HangoutOutlineIcon } from '@/assets/icons/HangoutOutlineIcon.svg';
@@ -10,8 +11,11 @@ export interface GroupItemProps {
 }
 
 const GroupItem = ({ id, name, profileImg }: GroupItemProps) => {
+  const navigate = useNavigate();
+
+  // TODO: 그룹 선택한 상태로 이동
   const onMakeHangout = () => {
-    console.log('id: ', id);
+    navigate('/hangout/new');
   };
 
   return (

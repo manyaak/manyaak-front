@@ -1,11 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as AddFriendIcon } from '@/assets/icons/AddFriendIcon.svg';
 import MainHeader from '@/components/common/MainHeader';
 import * as styles from './FriendHeader.css';
 
 const FriendHeader = () => {
-  // TODO: 로직 추가
+  const navigate = useNavigate();
+
   const onClickIcon = () => {
-    console.log('');
+    navigate('/friend/new');
   };
 
   return (

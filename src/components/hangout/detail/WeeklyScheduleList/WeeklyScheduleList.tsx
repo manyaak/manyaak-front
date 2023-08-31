@@ -37,13 +37,14 @@ const WeeklyScheduleList = ({ year, month, week }: WeeklyScheduleListProps) => {
       />
       <WeeklyCalendar year={year} month={month} week={currentWeek} />
       <div className={styles.hangoutListWrap}>
-        {hangoutsDummydata.slice(0, 2).map((hanogout) => (
+        {hangoutsDummydata.slice(0, 2).map((hangout) => (
           <HangoutBox
-            key={hanogout.name}
-            name={hanogout.name}
-            date={hanogout.date}
-            location={hanogout.location}
-            members={hanogout.members}
+            id={hangout.id}
+            key={hangout.id}
+            name={hangout.name}
+            date={hangout.date}
+            location={hangout.location}
+            members={hangout.members}
             isAccepted
           />
         ))}
