@@ -40,7 +40,11 @@ const HangoutBox = ({
   const boxWrapStyle = isAccepted ? styles.boxWrap : styles.dashedBoxWrap;
 
   const onClickBox = () => {
-    navigate(`/hangout/${id}`);
+    if (isAccepted) {
+      navigate(`/hangout/${id}`);
+    } else {
+      navigate(`/hangout/${id}/request`);
+    }
   };
 
   return (
