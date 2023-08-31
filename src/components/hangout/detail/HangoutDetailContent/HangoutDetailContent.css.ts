@@ -7,6 +7,7 @@ export const container = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '35px',
+  paddingBottom: '70px',
 });
 
 export const header = style({
