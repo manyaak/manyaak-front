@@ -87,6 +87,7 @@ export const footer = style({
   gap: '16px',
   boxShadow: '0px -2px 3px 0px rgba(193, 193, 193, 0.25)',
   backgroundColor: COLORS.grayscale.white,
+  zIndex: 1,
 
   position: 'fixed',
   left: 0,
