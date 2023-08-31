@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
 import { ReactComponent as ScheduleIcon } from '@/assets/icons/ScheduleIcon.svg';
@@ -16,8 +17,10 @@ const FriendItem = ({
   profileImg,
   statusMessage,
 }: FriendItemProps) => {
+  const navigate = useNavigate();
+
   const onShowSchedule = () => {
-    console.log('id: ', id);
+    navigate(`/friend/${id}`);
   };
 
   return (
