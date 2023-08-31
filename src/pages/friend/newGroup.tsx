@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import PageSubHeader from '@/components/common/PageSubHeader';
 import NewGroupContent from '@/components/newGroup/NewGroupContent';
 
 const NewGroupTab = () => {
   const mainTitle = '그룹 만들기';
 
+  const navigate = useNavigate();
+
   const onMovePrevPage = () => {
-    console.log('이전 페이지 이동');
+    navigate(-1);
   };
 
   return (

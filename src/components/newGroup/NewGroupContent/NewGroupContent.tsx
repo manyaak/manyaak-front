@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputBar from '@/components/common/InputBar';
 import FooterButton from '@/components/common/FooterButton';
 import SelectUserList from '@/components/common/SelectUserList';
@@ -13,7 +14,9 @@ const NewGroupContent = () => {
   const [groupName, setgroupName] = useState('');
   const [selectedIdList, setSelectedIdList] = useState<number[]>([]);
 
-  // Toggle
+  const navigate = useNavigate();
+
+  // toggle
   const onSelect = (id: number) => {
     const newSelectedIdList = [...selectedIdList];
     const targetIdx = newSelectedIdList.indexOf(id);
@@ -31,8 +34,11 @@ const NewGroupContent = () => {
     setgroupName(inputVal);
   };
 
+  // TODO: 완료 알림 처리?
   const onComplete = () => {
     console.log('완료 동작');
+
+    navigate('/');
   };
 
   const isValid = selectedIdList.length > 0 && groupName.length > 0;
