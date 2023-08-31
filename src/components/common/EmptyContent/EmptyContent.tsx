@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import TextButton from '@/components/common/TextButton';
 import { ReactComponent as HangoutOutlineIcon } from '@/assets/icons/HangoutOutlineIcon.svg';
 import { COLORS } from '@/constants/styles';
@@ -7,20 +8,21 @@ interface EmptyContentProps {
   type: 'friend' | 'group';
 }
 
-// TODO: 버튼 클릭 로직 추가
 const EmptyContent = ({ type }: EmptyContentProps) => {
+  const navigate = useNavigate();
+
   const ContentData = {
     group: {
       suggestText: `아직 그룹이 없습니다. \n약속을 만들어 새로운 그룹을 만들어보세요!`,
       btnText: '약속 잡기',
       icon: <HangoutOutlineIcon />,
-      onClick: () => console.log('click'),
+      onClick: () => navigate('/hangout/new'),
     },
     friend: {
       suggestText: `아직 친구가 없습니다. \n친구를 검색해서 추가해보세요!`,
       btnText: '친구 검색',
       icon: undefined,
-      onClick: () => console.log('click'),
+      onClick: () => navigate('/friend/new'),
     },
   } as const;
 
