@@ -23,7 +23,8 @@ const ScheduleList = () => {
       <MontlyCalendar year={year} month={month} />
       <div className={styles.hangoutListWrap}>
         <HangoutBox
-          key={hangout.name}
+          id={hangout.id}
+          key={hangout.id}
           name={hangout.name}
           date={hangout.date}
           location={hangout.location}

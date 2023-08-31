@@ -27,6 +27,7 @@ const ScheduleList = () => {
       <div className={styles.hangoutListWrap}>
         {hangoutsDummydata.slice(0, 2).map((hangout) => (
           <HangoutBox
+            id={hangout.id}
             key={hangout.name}
             name={hangout.name}
             date={hangout.date}
