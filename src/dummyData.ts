@@ -30,6 +30,7 @@ export const userDummydata = [
 
 export const hangoutsDummydata: HangoutInfoType[] = [
   {
+    id: 1,
     name: 'GDSC 만약 회의1',
     date: new Date(),
     location: '숭실대',
@@ -37,6 +38,7 @@ export const hangoutsDummydata: HangoutInfoType[] = [
     isAccepted: true,
   },
   {
+    id: 2,
     name: 'GDSC 만약 회의2',
     date: new Date(),
     location: '숭실대',
@@ -44,6 +46,7 @@ export const hangoutsDummydata: HangoutInfoType[] = [
     isAccepted: false,
   },
   {
+    id: 3,
     name: 'GDSC 만약 회의3',
     date: new Date('2023-07-24 19:00'),
     location: '숭실대',
@@ -51,6 +54,7 @@ export const hangoutsDummydata: HangoutInfoType[] = [
     isAccepted: true,
   },
   {
+    id: 4,
     name: 'GDSC 만약 회의3',
     date: new Date('2023-07-24'),
     location: '숭실대',
@@ -58,6 +62,7 @@ export const hangoutsDummydata: HangoutInfoType[] = [
     isAccepted: true,
   },
   {
+    id: 5,
     name: '공소나 생일 파티',
     date: new Date('2023-09-25'),
     location: '일산',
@@ -65,6 +70,7 @@ export const hangoutsDummydata: HangoutInfoType[] = [
     isAccepted: true,
   },
   {
+    id: 6,
     name: '공소나 생일 파티',
     date: new Date('2023-09-25'),
     location: '일산',
@@ -72,6 +78,7 @@ export const hangoutsDummydata: HangoutInfoType[] = [
     isAccepted: false,
   },
   {
+    id: 7,
     name: '공소나 생일 파티',
     date: new Date('2023-09-25'),
     location: '일산',
