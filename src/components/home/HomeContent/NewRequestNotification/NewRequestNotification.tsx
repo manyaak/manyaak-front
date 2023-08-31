@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as ArrowDownIcon } from '@/assets/icons/ArrowDownIcon.svg';
 import * as styles from '../HomeContent.css';
 
@@ -10,8 +11,17 @@ const NewRequestNotification = ({
   type,
   count,
 }: NewRequestNotificationProps) => {
+  const navigate = useNavigate();
+
   const checkNotifications = () => {
-    console.log('');
+    if (type === 'friend') {
+      navigate('/friend');
+    }
+
+    // TODO: 대기중 상태의 약속 탭으로 이동
+    if (type === 'hangout') {
+      navigate('/hangout');
+    }
   };
 
   return (
