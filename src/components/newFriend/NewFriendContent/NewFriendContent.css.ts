@@ -19,3 +19,9 @@ export const listWrapper = style({
   height: '100%',
   overflowY: 'scroll',
 });
+
+export const searchMessage = style({
+  ...TEXT_STYLES.body1R,
+  width: 'fit-content',
+  margin: '20px auto',
+});
