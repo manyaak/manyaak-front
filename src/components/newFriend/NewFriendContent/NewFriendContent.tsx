@@ -14,8 +14,8 @@ const NewFriendContent = ({
   searchUserAsync: (value: string) => Promise<any>;
   requestFriendAsync: (id: number) => Promise<any>;
 }) => {
-  const description = '친구의 아이디를 검색해보세요';
-  const searchPlaceholder = '아이디 입력';
+  const description = '친구의 이름을 검색해보세요';
+  const searchPlaceholder = '이름 입력';
   const footerBtnText = '완료';
 
   const [searchVal, setSearchVal] = useState('');
@@ -33,13 +33,11 @@ const NewFriendContent = ({
     setSearchVal(inputVal);
   };
 
-  // 친구 검색 (이름 기준)
   const onSearch = () => {
     searchUserAsync(searchVal);
     setSelectedId(undefined);
   };
 
-  // 친구 추가 요청
   const onComplete = () => {
     if (isValid) {
       requestFriendAsync(selectedId);
