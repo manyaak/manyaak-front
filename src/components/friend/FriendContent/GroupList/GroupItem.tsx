@@ -3,12 +3,9 @@ import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
 import { ReactComponent as HangoutOutlineIcon } from '@/assets/icons/HangoutOutlineIcon.svg';
 import * as styles from '../FriendContent.css';
+import { GroupInfo } from '@/types/friend';
 
-export interface GroupItemProps {
-  id: number;
-  name: string;
-  profileImg: string[];
-}
+export type GroupItemProps = GroupInfo;
 
 const GroupItem = ({ id, name, profileImg }: GroupItemProps) => {
   const navigate = useNavigate();

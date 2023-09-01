@@ -2,14 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
 import { ReactComponent as ScheduleIcon } from '@/assets/icons/ScheduleIcon.svg';
+import { FriendInfo } from '@/types/friend';
 import * as styles from '../FriendContent.css';
 
-export interface FriendItemProps {
-  id: number;
-  name: string;
-  profileImg: string;
-  statusMessage: string;
-}
+export type FriendItemProps = FriendInfo;
 
 const FriendItem = ({
   id,

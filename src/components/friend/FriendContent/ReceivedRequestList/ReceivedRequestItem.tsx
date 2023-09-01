@@ -1,13 +1,9 @@
 import Profile from '@/components/common/Profile';
 import TextButton from '@/components/common/TextButton';
 import * as styles from '../FriendContent.css';
+import { FriendInfo } from '@/types/friend';
 
-export interface ReceivedRequestItemProps {
-  id: number;
-  name: string;
-  profileImg: string;
-  statusMessage: string;
-}
+export type ReceivedRequestItemProps = FriendInfo;
 
 const ReceivedRequestItem = ({
   id,

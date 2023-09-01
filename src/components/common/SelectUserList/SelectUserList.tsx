@@ -1,19 +1,7 @@
 import CheckBox from '@/components/common/CheckBox';
 import Profile from '@/components/common/Profile';
 import * as styles from './SelectUserList.css';
-
-interface BaseUserInfo {
-  id: number;
-  name: string;
-}
-
-interface FriendInfo extends BaseUserInfo {
-  profileImg: string;
-}
-
-interface GroupInfo extends BaseUserInfo {
-  profileImg: string[];
-}
+import { FriendInfo, GroupInfo } from '@/types/friend';
 
 interface BaseSelectUserListProps {
   selectedIdList?: number[];
