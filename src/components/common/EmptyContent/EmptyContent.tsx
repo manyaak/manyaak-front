@@ -33,6 +33,7 @@ const EmptyContent = ({ type }: EmptyContentProps) => {
         <TextButton
           label={ContentData[type].btnText}
           iconSvg={ContentData[type].icon}
+          onClick={ContentData[type].onClick}
           sizeType="small"
           backgroundColor={COLORS.primary.yellow}
           labelColor={COLORS.grayscale.gray800}
