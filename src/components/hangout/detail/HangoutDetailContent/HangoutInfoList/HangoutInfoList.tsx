@@ -2,7 +2,6 @@ import { getHourAndMinute, getMonthAndDay } from '@/utils/date';
 import { HangoutInfoType } from '@/types/hangout';
 import useKakaoMap from '@/hooks/useKakaoMap';
 import UserImage from '@/components/common/UserImage';
-import { userDummydata } from '@/dummyData';
 
 import * as styles from '../HangoutDetailContent.css';
 
@@ -18,24 +17,28 @@ interface HangoutInfoListProps {
 }
 
 const HangoutInfoList = ({ infos }: HangoutInfoListProps) => {
-  const { location, name } = infos;
-  const mapContainerRef = useKakaoMap(37.4963, 126.9569);
+  const { location, members, groupName, latitude, longitude } = infos;
+
+  const mapContainerRef = useKakaoMap(Number(latitude), Number(longitude));
+
   return (
     <div className={styles.infoListWrapper}>
       <InfoSection
         label="일시"
         data={`${getMonthAndDay(new Date())} ${getHourAndMinute(new Date())}`}
       />
+      {latitude && longitude && (
+        <div>
+          <InfoSection label="위치" data={location} />
+          <div className={styles.mapContainer} ref={mapContainerRef} />
+        </div>
+      )}
       <div>
-        <InfoSection label="위치" data={location} />
-        <div className={styles.mapContainer} ref={mapContainerRef} />
-      </div>
-      <div>
-        <InfoSection label="그룹" data={name} />
+        <InfoSection label="그룹" data={groupName || ''} />
         <div className={styles.groupMembersWrap}>
-          {userDummydata.map((user) => (
+          {members?.map((user) => (
             <div key={user.name} className={styles.member}>
-              <UserImage src={user.profileImg} />
+              <UserImage src={user.profileImg || ''} />
               <div className={styles.userName}>{user.name}</div>
             </div>
           ))}
