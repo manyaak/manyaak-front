@@ -1,12 +1,14 @@
 /* eslint-disable consistent-return */
 import { useState } from 'react';
+import useApiQuery from '@/hooks/useApiQuery';
+import { api_getFriendData } from '@/apis/friend';
+import { FriendInfo } from '@/types/friend';
 import TextButton from '@/components/common/TextButton';
 import SelectUserList from '@/components/common/SelectUserList';
 import FooterButton from '@/components/common/FooterButton';
 import { HangoutDataType, NEW_HANGOUT_STEP_KEY } from '../NewHangoutInfo';
-import * as styles from './SelectFriendStep.css';
 
-import { friendDummyData, userDummydata } from '@/dummyData';
+import * as styles from './SelectFriendStep.css';
 
 interface SelectFriendStepProps {
   onNextStep: (
@@ -17,6 +19,19 @@ interface SelectFriendStepProps {
 type HangoutUserType = 'friend' | 'group';
 
 const SelectFriendStep = ({ onNextStep }: SelectFriendStepProps) => {
+  const { data: apiData } = useApiQuery(api_getFriendData, {});
+
+  const clubList = apiData?.clubList;
+  const friendList = apiData?.friendList;
+
+  const groupList = clubList?.map((club: any) => ({
+    id: club.id,
+    name: club.clubName,
+    profileImg: club.clubMemberList.map(
+      (member: FriendInfo) => member.profileImg ?? '',
+    ),
+  }));
+
   const [hangoutUserType, setHangoutUserType] =
     useState<HangoutUserType>('friend');
   const [selectedId, setSelectedId] = useState<number>();
@@ -27,14 +42,13 @@ const SelectFriendStep = ({ onNextStep }: SelectFriendStepProps) => {
     setIsValid(true);
   };
 
-  // TODO: dummy data
   const renderContentByType = () => {
     switch (hangoutUserType) {
       case 'friend':
         return (
           <SelectUserList
             type="friend"
-            list={userDummydata}
+            list={friendList || []}
             selectedIdList={selectedId ? [selectedId] : undefined}
             onSelect={onSelect}
           />
@@ -43,7 +57,7 @@ const SelectFriendStep = ({ onNextStep }: SelectFriendStepProps) => {
         return (
           <SelectUserList
             type="group"
-            list={friendDummyData.group}
+            list={groupList || []}
             selectedIdList={selectedId ? [selectedId] : undefined}
             onSelect={onSelect}
           />

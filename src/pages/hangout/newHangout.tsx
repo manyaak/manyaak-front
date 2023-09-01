@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getDateTimeAPIString } from '@/utils/date';
+import { api_newHangout } from '@/apis/newHangout';
+import useApi from '@/hooks/useApi';
 import PageHeader from '@/components/common/PageHeader';
 import NewHangoutContent, {
   NEW_HANGOUT_STEP_INFO,
@@ -13,6 +15,7 @@ import { HangoutDataType } from '@/components/newHangout/NewHangoutContent/NewHa
 
 const NewHangoutTab = () => {
   const navigate = useNavigate();
+  const { fetchWithToken } = useApi();
 
   const [step, setStep] = useState<keyof typeof NEW_HANGOUT_STEP_INFO>(1);
   const [hangoutInfo, setHangoutInfo] = useState<HangoutDataType>({
@@ -22,7 +25,7 @@ const NewHangoutTab = () => {
   });
 
   // 다음 단계로 이동
-  const onMoveNextStep = (
+  const onMoveNextStep = async (
     type: keyof typeof NEW_HANGOUT_STEP_KEY,
     data?: HangoutDataType[Exclude<typeof type, 'check'>],
   ) => {
@@ -30,7 +33,11 @@ const NewHangoutTab = () => {
 
     // 완료 단계 처리
     if (thisStep === 4) {
-      onMakeHangout();
+      const result = await onMakeHangout();
+      if (result) {
+        alert('약속이 생성되었습니다.');
+        navigate(`/hangout/${result.data.id}`);
+      }
       return;
     }
 
@@ -52,24 +59,28 @@ const NewHangoutTab = () => {
     setStep((prev) => (prev - 1) as keyof typeof NEW_HANGOUT_STEP_INFO);
   };
 
-  // TODO: 약속 생성 API
+  // 약속 생성 API
   const onMakeHangout = async () => {
-    const filteredData = filterData(hangoutInfo);
-    console.log(filteredData);
+    try {
+      const filteredData = filterData(hangoutInfo);
+      const result = await fetchWithToken(api_newHangout, {
+        body: filteredData,
+      });
+
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // API 전송을 위한 데이터 전처리
   const filterData = (data: HangoutDataType) => {
     // 친구 선택 데이터
     const clubId =
-      data.selectFriend?.type === 'group'
-        ? data.selectFriend?.selectedId
-        : undefined;
+      data.selectFriend?.type === 'group' ? data.selectFriend?.selectedId : 0;
 
-    const friendList =
-      data.selectFriend?.type === 'friend'
-        ? [data.selectFriend.selectedId]
-        : undefined;
+    const friendId =
+      data.selectFriend?.type === 'friend' ? data.selectFriend.selectedId : 0;
 
     // 날짜 선택 데이터
     const startDateTime =
@@ -79,23 +90,23 @@ const NewHangoutTab = () => {
 
     // 장소 선택 데이터
     const placeName = data.selectLocation?.placeInfo.place_name;
-    const addressName = data.selectLocation?.placeInfo.address_name;
-    const latitude = data.selectLocation?.placeInfo.x;
-    const longitude = data.selectLocation?.placeInfo.y;
+    const address = data.selectLocation?.placeInfo.address_name;
+    const latitude = Number(data.selectLocation?.placeInfo.y);
+    const longitude = Number(data.selectLocation?.placeInfo.x);
 
     // 약속 이름
-    const hangoutName = data.selectLocation?.hangoutName;
+    const name = data.selectLocation?.hangoutName;
 
     return {
       clubId,
-      friendList,
+      friendId,
       startDateTime,
       endDateTime,
       placeName,
-      addressName,
+      address,
       latitude,
       longitude,
-      hangoutName,
+      name,
     };
   };
 
