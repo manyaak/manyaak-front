@@ -37,7 +37,6 @@ const EmptyContent = ({ type }: EmptyContentProps) => {
           sizeType="small"
           backgroundColor={COLORS.primary.yellow}
           labelColor={COLORS.grayscale.gray800}
-          onClick={ContentData[type].onClick}
         />
       </div>
     </div>
