@@ -1,12 +1,12 @@
-import { Location, Outlet, useLocation } from 'react-router-dom';
-import { PropsWithChildren, useEffect, useState, useLayoutEffec } from 'react';
-import useNavigationState from '@/hooks/useNavigationState';
+import { Location, Navigate, Outlet, useLocation } from 'react-router-dom';
+import { PropsWithChildren, useEffect, useState, useLayoutEffect } from 'react';
 import NavigationBar from '@/components/common/NavigationBar';
 import FloatingButton from '@/components/common/FloatingButton';
 import { MAIN_LAYOUT_INFO } from './layoutInfo';
-
 import * as styles from './layout.css';
 import { NAV_LIST, NAV_URL_LIST } from '@/constants/navigation';
+import { sendDataToMobile } from '@/utils/mobile';
+import useAuth from '@/hooks/useAuth';
 
 type NavType = keyof typeof NAV_LIST;
 const NavTypes = Object.keys(NAV_URL_LIST) as NavType[];
@@ -14,6 +14,7 @@ const NavTypes = Object.keys(NAV_URL_LIST) as NavType[];
 const MainLayout = ({ children }: PropsWithChildren) => {
   const { pathname }: Location = useLocation();
   const [activeNavType, setActiveNavType] = useState<NavType>('HOME');
+  const { isLogined } = useAuth();
 
   useEffect(() => {
     Object.values(NAV_URL_LIST).forEach((url, idx) => {
@@ -22,12 +23,12 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   }, [pathname]);
 
   useLayoutEffect(() => {
-    (window as any).ReactNativeWebView.postMessage(
-      JSON.stringify({
-        backgroundColor: MAIN_LAYOUT_INFO.backgroundColor,
-      }),
-    );
+    sendDataToMobile({ backgroundColor: MAIN_LAYOUT_INFO.backgroundColor });
   }, []);
+
+  if (!isLogined) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div className={styles.wrapper.withBar}>

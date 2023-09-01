@@ -37,7 +37,7 @@ import useGlobalAlert from '@/hooks/useGlobalAlert';
  * ```
  */
 const useApi = () => {
-  const { authToken } = useAuth();
+  const { authToken, clearAuthToken } = useAuth();
   const { alertFromApiError } = useGlobalAlert();
 
   const fetchWithToken = useCallback(
@@ -55,6 +55,9 @@ const useApi = () => {
         return response;
       } catch (error) {
         if (error instanceof ApiError) {
+          if (error.status === 401) {
+            clearAuthToken();
+          }
           if (options?.shouldAlertOnError) {
             alertFromApiError(error);
           }
@@ -62,7 +65,7 @@ const useApi = () => {
         throw error;
       }
     },
-    [authToken?.accessToken, alertFromApiError],
+    [authToken?.accessToken, alertFromApiError, clearAuthToken],
   );
 
   return { fetchWithToken };

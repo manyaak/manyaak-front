@@ -12,5 +12,10 @@ export const api_login = getApi('POST', '/api/member', {
     }),
   }),
   getQueryKey: () => [...KEY_BASE, 'login'],
-  _resultType: '' as string,
+  _resultType: {} as {
+    data: {
+      accessToken: string;
+      refreshToken: string;
+    };
+  },
 });
