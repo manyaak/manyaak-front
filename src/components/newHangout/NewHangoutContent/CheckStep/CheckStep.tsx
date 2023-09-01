@@ -16,7 +16,7 @@ const CheckStep = ({ hangoutInfo, onNextStep }: CheckStepProps) => {
   return (
     <>
       <div>약속 체크 단계</div>
-      <FooterButton onClick={onConfim} label="완료" />
+      <FooterButton onClick={onConfim} label="약속 만들기" />
     </>
   );
 };
