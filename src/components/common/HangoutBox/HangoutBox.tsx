@@ -3,17 +3,9 @@ import UserImage from '@/components/common/UserImage';
 import { ReactComponent as ClockIcon } from '@/assets/icons/ClockIcon.svg';
 import { ReactComponent as LocationIcon } from '@/assets/icons/LocationIcon.svg';
 import { getDday, getHourAndMinute } from '@/utils/date';
+import { HangoutInfoType } from '@/types/hangout';
 
 import * as styles from './HangoutBox.css';
-
-export interface HangoutInfoType {
-  id: number;
-  name: string;
-  date: Date;
-  location: string;
-  members: { name: string; profileImg: string }[];
-  isAccepted: boolean;
-}
 
 interface HangoutBoxProps extends HangoutInfoType {
   /** 그림자 스타일링 여부 */
@@ -40,11 +32,7 @@ const HangoutBox = ({
   const boxWrapStyle = isAccepted ? styles.boxWrap : styles.dashedBoxWrap;
 
   const onClickBox = () => {
-    if (isAccepted) {
-      navigate(`/hangout/${id}`);
-    } else {
-      navigate(`/hangout/${id}/request`);
-    }
+    navigate(isAccepted ? `/hangout/${id}` : `/hangout/${id}/request`);
   };
 
   return (
@@ -68,16 +56,18 @@ const HangoutBox = ({
           <div>{location}</div>
         </div>
       </div>
-      <div className={styles.memberInfoWrap}>
-        {members.map((member) => (
-          <UserImage
-            key={member.name}
-            src={member.profileImg}
-            size={22}
-            className={styles.memberImage}
-          />
-        ))}
-      </div>
+      {members && (
+        <div className={styles.memberInfoWrap}>
+          {members.map((member) => (
+            <UserImage
+              key={member.name}
+              src={member.img}
+              size={22}
+              className={styles.memberImage}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
