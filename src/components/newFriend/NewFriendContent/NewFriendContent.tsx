@@ -4,9 +4,16 @@ import InputBar from '@/components/common/InputBar';
 import FooterButton from '@/components/common/FooterButton';
 import SelectUserList from '@/components/common/SelectUserList';
 import * as styles from './NewFriendContent.css';
-import { userDummydata } from '@/dummyData';
 
-const NewFriendContent = () => {
+const NewFriendContent = ({
+  userSearchData,
+  searchUserAsync,
+  requestFriendAsync,
+}: {
+  userSearchData: any[];
+  searchUserAsync: (value: string) => Promise<any>;
+  requestFriendAsync: (id: number) => Promise<any>;
+}) => {
   const description = '친구의 아이디를 검색해보세요';
   const searchPlaceholder = '아이디 입력';
   const footerBtnText = '완료';
@@ -15,6 +22,7 @@ const NewFriendContent = () => {
   const [selectedId, setSelectedId] = useState<number>();
 
   const navigate = useNavigate();
+  const isValid = !!selectedId;
 
   const onSelect = (id: number) => {
     setSelectedId(id);
@@ -25,17 +33,19 @@ const NewFriendContent = () => {
     setSearchVal(inputVal);
   };
 
-  // TODO
+  // 친구 검색 (이름 기준)
   const onSearch = () => {
-    console.log('검색 동작');
-
+    searchUserAsync(searchVal);
     setSelectedId(undefined);
   };
 
+  // 친구 추가 요청
   const onComplete = () => {
-    console.log('완료 동작');
-
-    navigate('/');
+    if (isValid) {
+      requestFriendAsync(selectedId);
+      alert('친구 요청을 성공적으로 보냈습니다.');
+      navigate('/');
+    }
   };
 
   return (
@@ -49,12 +59,16 @@ const NewFriendContent = () => {
           placeholder={searchPlaceholder}
         />
         <div className={styles.listWrapper}>
-          <SelectUserList
-            type="friend"
-            list={userDummydata}
-            selectedIdList={selectedId ? [selectedId] : undefined}
-            onSelect={onSelect}
-          />
+          {userSearchData.length < 1 ? (
+            <div className={styles.searchMessage}>검색 결과가 없습니다</div>
+          ) : (
+            <SelectUserList
+              type="friend"
+              list={userSearchData}
+              selectedIdList={selectedId ? [selectedId] : undefined}
+              onSelect={onSelect}
+            />
+          )}
         </div>
       </div>
       <FooterButton
