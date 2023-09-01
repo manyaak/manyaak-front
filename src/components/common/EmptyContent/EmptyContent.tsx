@@ -13,14 +13,14 @@ const EmptyContent = ({ type }: EmptyContentProps) => {
 
   const ContentData = {
     group: {
-      suggestText: `아직 그룹이 없습니다. \n약속을 만들어 새로운 그룹을 만들어보세요!`,
-      btnText: '약속 잡기',
+      suggestText: `아직 그룹이 없습니다. \n새로운 그룹을 만들어보세요!`,
+      btnText: '그룹 만들기',
       icon: <HangoutOutlineIcon />,
-      onClick: () => navigate('/hangout/new'),
+      onClick: () => navigate('/group/new'),
     },
     friend: {
       suggestText: `아직 친구가 없습니다. \n친구를 검색해서 추가해보세요!`,
-      btnText: '친구 검색',
+      btnText: '친구 추가',
       icon: undefined,
       onClick: () => navigate('/friend/new'),
     },
@@ -37,6 +37,7 @@ const EmptyContent = ({ type }: EmptyContentProps) => {
           sizeType="small"
           backgroundColor={COLORS.primary.yellow}
           labelColor={COLORS.grayscale.gray800}
+          onClick={ContentData[type].onClick}
         />
       </div>
     </div>

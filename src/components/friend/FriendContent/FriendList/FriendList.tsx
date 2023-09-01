@@ -1,6 +1,6 @@
 import ContentBox from '@/components/common/ContentBox';
+import EmptyContent from '@/components/common/EmptyContent';
 import FriendItem, { FriendItemProps } from './FriendItem';
-import EmptyContent from '../../../common/EmptyContent';
 
 interface FriendListProps {
   list: FriendItemProps[];
