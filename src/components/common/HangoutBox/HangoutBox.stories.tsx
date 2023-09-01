@@ -15,11 +15,13 @@ export const Default: Story = {
     location: '숭실대 정보관 204호',
     members: [
       {
-        name: '공소나',
+        id: 1,
+        nickname: '공소나',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
       {
-        name: '공소나2',
+        id: 2,
+        nickname: '공소나2',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
     ],
@@ -33,11 +35,13 @@ export const HangoutBoxWithShadow: Story = {
     location: '숭실대 정보관 204호',
     members: [
       {
-        name: '공소나',
+        id: 1,
+        nickname: '공소나',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
       {
-        name: '공소나2',
+        id: 2,
+        nickname: '공소나2',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
     ],
@@ -52,11 +56,13 @@ export const NotAcceptedHangoutBox: Story = {
     location: '숭실대 정보관 204호',
     members: [
       {
-        name: '공소나',
+        id: 1,
+        nickname: '공소나',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
       {
-        name: '공소나2',
+        id: 2,
+        nickname: '공소나2',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
     ],
