@@ -54,12 +54,16 @@ export function getMonthAndDay(date: Date) {
 
 /**
  * date를 `<input type="datetieme-local" />`의 value로 사용하기 위한 함수
- * @returns `YYYY-MM-DDThh:mm:ss`
+ * @returns `YYYY-MM-DDThh:mm`
  */
 export function getDateTimeLocalString(date: Date) {
-  const offset = date.getTimezoneOffset() * 60000;
-  const localDate = new Date((date as any) - offset);
-  return localDate.toISOString().split('.')[0];
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
 
 /**
