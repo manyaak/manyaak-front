@@ -1,5 +1,6 @@
 import CheckBox from '@/components/common/CheckBox';
 import Profile from '@/components/common/Profile';
+import EmptyContent from '@/components/common/EmptyContent';
 import * as styles from './SelectUserList.css';
 import { FriendInfo, GroupInfo } from '@/types/friend';
 
@@ -28,20 +29,32 @@ const SelectUserList = ({
   onSelect,
 }: SelectUserListProps) => (
   <div className={styles.userList}>
-    {list.map(({ id, name, profileImg }) => (
-      <div className={styles.userItem} key={id} onClick={() => onSelect?.(id)}>
-        {type === 'friend' ? (
-          <Profile type="user" name={name} profileImg={profileImg as string} />
-        ) : (
-          <Profile
-            type="group"
-            name={name}
-            profileImg={profileImg as string[]}
-          />
-        )}
-        <CheckBox checked={selectedIdList?.includes(id)} />
-      </div>
-    ))}
+    {list.length > 0 ? (
+      list.map(({ id, name, profileImg }) => (
+        <div
+          className={styles.userItem}
+          key={id}
+          onClick={() => onSelect?.(id)}
+        >
+          {type === 'friend' ? (
+            <Profile
+              type="user"
+              name={name}
+              profileImg={profileImg as string}
+            />
+          ) : (
+            <Profile
+              type="group"
+              name={name}
+              profileImg={profileImg as string[]}
+            />
+          )}
+          <CheckBox checked={selectedIdList?.includes(id)} />
+        </div>
+      ))
+    ) : (
+      <EmptyContent type={type} />
+    )}
   </div>
 );
 

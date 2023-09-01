@@ -2,28 +2,60 @@ import SelectFriendStep from './SelectFriendStep';
 import SelectDateStep from './SelectDateStep';
 import SelectLocationStep from './SelectLocationStep';
 import CheckStep from './CheckStep';
-import CompleteStep from './CompleteStep';
+import { HangoutDataType, NEW_HANGOUT_STEP_KEY } from './NewHangoutInfo';
 import * as styles from './NewHangoutContent.css';
 
 interface NewHangoutContentProps {
   step: number;
-  setValid: React.Dispatch<React.SetStateAction<boolean>>;
+  hangoutInfo: HangoutDataType;
+  onMoveNextStep: (
+    type: keyof typeof NEW_HANGOUT_STEP_KEY,
+    data?: HangoutDataType[Exclude<typeof type, 'check'>],
+  ) => void;
 }
 
-const NewHangoutContent = ({ step, setValid }: NewHangoutContentProps) => {
+const NewHangoutContent = ({
+  step,
+  hangoutInfo,
+  onMoveNextStep,
+}: NewHangoutContentProps) => {
   // eslint-disable-next-line consistent-return
   const renderContent = () => {
     switch (step) {
       case 1:
-        return <SelectFriendStep setValid={setValid} />;
+        return (
+          <SelectFriendStep
+            onNextStep={(data) =>
+              onMoveNextStep(NEW_HANGOUT_STEP_KEY.selectFriend, data)
+            }
+          />
+        );
       case 2:
-        return <SelectDateStep setValid={setValid} />;
+        return (
+          <SelectDateStep
+            onNextStep={(data) =>
+              onMoveNextStep(NEW_HANGOUT_STEP_KEY.selectDate, data)
+            }
+          />
+        );
       case 3:
-        return <SelectLocationStep setValid={setValid} />;
+        return (
+          <SelectLocationStep
+            onNextStep={(data) =>
+              onMoveNextStep(NEW_HANGOUT_STEP_KEY.selectLocation, data)
+            }
+          />
+        );
       case 4:
-        return <CheckStep />;
-      case 5:
-        return <CompleteStep />;
+        return (
+          <CheckStep
+            hangoutInfo={hangoutInfo}
+            onNextStep={(data) =>
+              onMoveNextStep(NEW_HANGOUT_STEP_KEY.check, data)
+            }
+          />
+        );
+
       default:
     }
   };
