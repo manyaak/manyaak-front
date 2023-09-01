@@ -1,6 +1,6 @@
 export interface MemberType {
   id: number;
-  name: string;
+  nickname: string;
   profileImg?: string;
   email?: string;
   status?: string;

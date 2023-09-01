@@ -37,9 +37,9 @@ const HangoutInfoList = ({ infos }: HangoutInfoListProps) => {
         <InfoSection label="그룹" data={groupName || ''} />
         <div className={styles.groupMembersWrap}>
           {members?.map((user) => (
-            <div key={user.name} className={styles.member}>
+            <div key={user.nickname} className={styles.member}>
               <UserImage src={user.profileImg || ''} />
-              <div className={styles.userName}>{user.name}</div>
+              <div className={styles.userName}>{user.nickname}</div>
             </div>
           ))}
         </div>

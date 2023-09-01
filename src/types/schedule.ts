@@ -5,8 +5,8 @@ export interface ScheduleType {
 
 export interface FriendType {
   id: number;
-  name: string;
-  img: string;
+  nickname: string;
+  profileImg?: string;
   statusMessage?: string | null;
 }
 
