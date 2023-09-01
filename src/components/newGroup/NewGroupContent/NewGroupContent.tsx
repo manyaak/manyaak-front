@@ -3,10 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import InputBar from '@/components/common/InputBar';
 import FooterButton from '@/components/common/FooterButton';
 import SelectUserList from '@/components/common/SelectUserList';
+import { FriendInfo } from '@/types/friend';
 import * as styles from './NewGroupContent.css';
-import { userDummydata } from '@/dummyData';
 
-const NewGroupContent = () => {
+const NewGroupContent = ({
+  userList,
+  createGroupAsync,
+}: {
+  userList: FriendInfo[];
+  createGroupAsync: (name: string, idList: number[]) => Promise<void>;
+}) => {
   const description = '약속을 함께할 친구들을 선택해 그룹을 만들어보세요.';
   const searchPlaceholder = '그룹 이름 입력';
   const footerBtnText = '완료';
@@ -15,6 +21,8 @@ const NewGroupContent = () => {
   const [selectedIdList, setSelectedIdList] = useState<number[]>([]);
 
   const navigate = useNavigate();
+
+  const isValid = selectedIdList.length > 0 && groupName.length > 0;
 
   // toggle
   const onSelect = (id: number) => {
@@ -34,14 +42,13 @@ const NewGroupContent = () => {
     setgroupName(inputVal);
   };
 
-  // TODO: 완료 알림 처리?
   const onComplete = () => {
-    console.log('완료 동작');
-
-    navigate('/');
+    if (isValid) {
+      createGroupAsync(groupName, selectedIdList);
+      alert('그룹 생성을 성공적으로 완료했어요!');
+      navigate('/friend');
+    }
   };
-
-  const isValid = selectedIdList.length > 0 && groupName.length > 0;
 
   return (
     <>
@@ -55,7 +62,7 @@ const NewGroupContent = () => {
         <div className={styles.listWrapper}>
           <SelectUserList
             type="friend"
-            list={userDummydata}
+            list={userList}
             selectedIdList={selectedIdList}
             onSelect={onSelect}
           />
@@ -64,7 +71,7 @@ const NewGroupContent = () => {
       <FooterButton
         label={footerBtnText}
         onClick={onComplete}
-        disabled={!isValid}
+        // disabled={!isValid}
       />
     </>
   );
