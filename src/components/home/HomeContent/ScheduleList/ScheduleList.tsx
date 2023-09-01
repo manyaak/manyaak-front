@@ -4,33 +4,53 @@ import ContentBox from '@/components/common/ContentBox';
 import HangoutBox from '@/components/common/HangoutBox';
 import useMontlyCalendar from '@/hooks/useMontlyCalendar';
 import { isSameDate } from '@/utils/date';
-import { ScheduleInfoType } from '@/types/schedule';
-
 import * as styles from '../HomeContent.css';
 import useApiQuery from '@/hooks/useApiQuery';
 import { api_getSchedules } from '@/apis/schedule';
+import { api_getHangouts } from '@/apis/hangout';
+import { formatDateForHangout } from '@/components/hangout/HangoutContent';
 
 /** 월별 캘린더와 캘린더에서 선택된 날짜에 해당하는 일정(약속 포함)을 보여주는 컴포넌트 */
 const ScheduleList = () => {
   const { year, month, setBeforeMonth, setNextMonth } = useMontlyCalendar();
 
+  const [selectedDay, setSelectedDay] = useState(new Date());
+
   const { data: monthlySchedules } = useApiQuery(api_getSchedules, {
     params: { year, month: month + 1 },
   });
-
-  const [todaySchedules, setTodaySchedules] = useState<ScheduleInfoType[]>([]);
-
-  const onSelectDay = useCallback(
-    (day: Date) => {
-      // TODO day에 해당하는 일정 조회
-      setTodaySchedules(
-        monthlySchedules?.filter((s) =>
-          isSameDate(new Date(s.scheduleDate), day),
-        ) ?? [],
-      );
+  const { data: hangoutData } = useApiQuery(
+    api_getHangouts,
+    {
+      params: { date: formatDateForHangout(selectedDay) },
     },
-    [monthlySchedules],
+    {
+      select: (data) =>
+        data.data.map((item) => ({
+          scheduleId: item.id,
+          scheduleDate: item.startDateTime,
+          time: item.startDateTime,
+          info: item.name,
+          detailAddress: item.placeName,
+          lng: item.longitude,
+          lat: item.latitude,
+          friendList: item.clubMemberInfo.members.map((member) => ({
+            id: member.id,
+            name: member.nickname,
+            img: member.profileImg,
+          })),
+        })),
+    },
   );
+
+  const todaySchedules = [
+    ...(monthlySchedules ?? []),
+    ...(hangoutData ?? []),
+  ].filter((s) => isSameDate(new Date(s.scheduleDate), selectedDay));
+
+  const onSelectDay = useCallback((day: Date) => {
+    setSelectedDay(day);
+  }, []);
 
   return (
     <ContentBox
