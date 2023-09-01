@@ -20,7 +20,6 @@ const DateSelectBox = ({
   setSelectedSchedule,
 }: DateSelectBoxProps) => {
   const onClickCheckbox = () => setInfoVer((prev) => !prev);
-
   const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setSelectedSchedule(
@@ -41,7 +40,7 @@ const DateSelectBox = ({
             type="datetime-local"
             name="start"
             value={
-              selectedSchedule
+              selectedSchedule && selectedSchedule.start
                 ? getDateTimeLocalString(selectedSchedule.start)
                 : ''
             }
@@ -55,10 +54,11 @@ const DateSelectBox = ({
             type="datetime-local"
             name="end"
             value={
-              selectedSchedule
+              selectedSchedule && selectedSchedule.end
                 ? getDateTimeLocalString(selectedSchedule.end)
                 : ''
             }
+            onChange={onChangeDate}
             className={styles.dateInput}
           />
         </div>
