@@ -1,10 +1,10 @@
 import { getHourAndMinute, getMonthAndDay } from '@/utils/date';
-import * as styles from '../HangoutDetailContent.css';
-import { HangoutInfoType } from '@/components/common/HangoutBox/HangoutBox';
+import { HangoutInfoType } from '@/types/hangout';
 import useKakaoMap from '@/hooks/useKakaoMap';
 import UserImage from '@/components/common/UserImage';
-
 import { userDummydata } from '@/dummyData';
+
+import * as styles from '../HangoutDetailContent.css';
 
 const InfoSection = ({ label, data }: { label: string; data: string }) => (
   <div className={styles.infoSection}>

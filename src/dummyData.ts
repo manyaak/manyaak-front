@@ -1,4 +1,5 @@
-import { HangoutInfoType } from './components/common/HangoutBox/HangoutBox';
+import { HangoutInfoType } from './types/hangout';
+import { ScheduleInfoType } from './types/schedule';
 
 export const userDummydata = [
   {
@@ -179,3 +180,51 @@ export const friendDummyData = {
     },
   ],
 };
+
+export const ScheduleDummyData: ScheduleInfoType[] = [
+  {
+    scheduleId: 3,
+    scheduleDate: '2023-08-01T10:44:39.369+00:00',
+    time: '오후 3시',
+    info: '솔챌 식사',
+    detailAddress: '서울특별시 동작구 상도동 사당로 50',
+    lng: 126.960957,
+    lat: 37.492414,
+    friendList: [
+      {
+        id: 2,
+        statusMessage: null,
+        img: '1',
+        name: '일인자',
+      },
+      {
+        id: 3,
+        statusMessage: null,
+        img: '2',
+        name: '이인자',
+      },
+      {
+        id: 1,
+        statusMessage: null,
+        img: 'http://k.kakaocdn.net/dn/bFe99u/btsmd0qfsWk/vLkfmNU6qbO06IDDLxFKkk/img_640x640.jpg',
+        name: '박가현',
+      },
+      {
+        id: 5,
+        statusMessage: null,
+        img: 'http://k.kakaocdn.net/dn/cyE47l/btsoEpQApLy/SH9WMN9GuJUYHwX1FlRLsK/img_640x640.jpg',
+        name: '이정민',
+      },
+    ],
+  },
+  {
+    scheduleId: 4,
+    scheduleDate: '2023-08-02T10:44:39.369+00:00',
+    time: '오후 4시',
+    info: '솔챌 식사2',
+    detailAddress: '서울특별시 동작구 상도동 사당로 50',
+    lng: 126.960957,
+    lat: 37.492414,
+    friendList: [],
+  },
+];
