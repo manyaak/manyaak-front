@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getDateTimeAPIString } from '@/utils/date';
 import PageHeader from '@/components/common/PageHeader';
 import NewHangoutContent, {
   NEW_HANGOUT_STEP_INFO,
@@ -52,8 +53,50 @@ const NewHangoutTab = () => {
   };
 
   // TODO: 약속 생성 API
-  const onMakeHangout = () => {
-    console.log(hangoutInfo);
+  const onMakeHangout = async () => {
+    const filteredData = filterData(hangoutInfo);
+    console.log(filteredData);
+  };
+
+  // API 전송을 위한 데이터 전처리
+  const filterData = (data: HangoutDataType) => {
+    // 친구 선택 데이터
+    const clubId =
+      data.selectFriend?.type === 'group'
+        ? data.selectFriend?.selectedId
+        : undefined;
+
+    const friendList =
+      data.selectFriend?.type === 'friend'
+        ? [data.selectFriend.selectedId]
+        : undefined;
+
+    // 날짜 선택 데이터
+    const startDateTime =
+      data.selectDate?.start && getDateTimeAPIString(data.selectDate.start);
+    const endDateTime =
+      data.selectDate?.end && getDateTimeAPIString(data.selectDate.end);
+
+    // 장소 선택 데이터
+    const placeName = data.selectLocation?.placeInfo.place_name;
+    const addressName = data.selectLocation?.placeInfo.address_name;
+    const latitude = data.selectLocation?.placeInfo.x;
+    const longitude = data.selectLocation?.placeInfo.y;
+
+    // 약속 이름
+    const hangoutName = data.selectLocation?.hangoutName;
+
+    return {
+      clubId,
+      friendList,
+      startDateTime,
+      endDateTime,
+      placeName,
+      addressName,
+      latitude,
+      longitude,
+      hangoutName,
+    };
   };
 
   return (

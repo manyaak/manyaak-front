@@ -67,6 +67,20 @@ export function getDateTimeLocalString(date: Date) {
 }
 
 /**
+ * date를 API 전송을 위해 전처리하는 함수
+ * @returns `YYYY/MM/DD hh:mm`
+ */
+export function getDateTimeAPIString(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  return `${year}/${month}/${day} ${hours}:${minutes}`;
+}
+
+/**
  * 2개의 날짜가 같은 날짜인지 확인하는 함수
  * @returns 두 날짜가 같은 날짜인지 여부 boolean
  */
