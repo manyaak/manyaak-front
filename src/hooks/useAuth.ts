@@ -5,17 +5,21 @@ import { shallow } from 'zustand/shallow';
 
 interface AuthToken {
   accessToken?: string;
+  refreshToken?: string;
 }
 
 interface AuthTokenStore extends AuthToken {
-  setToken: (accessToken: string | undefined) => void;
+  setToken: (token: Partial<AuthToken>) => void;
 }
 
-const useAuthTokenStore = create<AuthTokenStore>()((set) => ({
-  setToken: (accessToken) => set((state) => ({ ...state, accessToken })),
-}));
-
 const KEY = 'auth-token';
+
+const storedAuthToken = localStorage.getItem(KEY);
+
+const useAuthTokenStore = create<AuthTokenStore>()((set) => ({
+  ...(storedAuthToken ? JSON.parse(storedAuthToken) : {}),
+  setToken: (token) => set((state) => ({ ...state, ...token })),
+}));
 
 /**
  * access token 등 인증 관련 정보를 사용하는 custom hook
@@ -24,44 +28,33 @@ const useAuth = () => {
   const authToken = useAuthTokenStore(
     (state) => ({
       accessToken: state.accessToken,
+      refreshToken: state.refreshToken,
     }),
     shallow,
   );
   const setToken = useAuthTokenStore((state) => state.setToken);
 
-  const isLogined = authToken.accessToken !== undefined;
+  const isLogined =
+    authToken.accessToken !== undefined && authToken.refreshToken !== undefined;
 
   const updateAuthToken = useCallback(
-    (accessToken: string) => {
-      localStorage.setItem(KEY, JSON.stringify({ accessToken }));
-      setToken(accessToken);
+    (accessToken: string, refreshToken: string) => {
+      localStorage.setItem(KEY, JSON.stringify({ accessToken, refreshToken }));
+      setToken({ accessToken, refreshToken });
     },
     [setToken],
   );
 
   const clearAuthToken = useCallback(() => {
     localStorage.removeItem(KEY);
-    setToken(undefined);
+    setToken({ accessToken: undefined, refreshToken: undefined });
   }, [setToken]);
-
-  const restoreAuthTokenFromStorage = useCallback(() => {
-    const storedAuthToken = localStorage.getItem(KEY);
-    if (storedAuthToken !== null) {
-      const newAuthToken = JSON.parse(storedAuthToken);
-      if (newAuthToken.accessToken) {
-        setToken(newAuthToken.accessToken);
-      } else {
-        clearAuthToken();
-      }
-    }
-  }, [setToken, clearAuthToken]);
 
   return {
     authToken,
     isLogined,
     updateAuthToken,
     clearAuthToken,
-    restoreAuthTokenFromStorage,
   };
 };
 
