@@ -35,7 +35,7 @@ export const api_getHangouts = getApi('GET', '/api/hangout', {
         members: {
           id: number;
           email: string;
-          nickname: string;
+          name: string;
           profileImg: string;
           status: string;
         }[];

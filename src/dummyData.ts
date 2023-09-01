@@ -4,27 +4,27 @@ import { ScheduleInfoType } from './types/schedule';
 export const userDummydata = [
   {
     id: 1,
-    nickname: '공소나',
+    name: '공소나',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
     id: 2,
-    nickname: '이강현',
+    name: '이강현',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
     id: 3,
-    nickname: '고광서',
+    name: '고광서',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
     id: 4,
-    nickname: '박가현',
+    name: '박가현',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
   {
     id: 5,
-    nickname: '이정민',
+    name: '이정민',
     profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
   },
 ];
@@ -195,27 +195,27 @@ export const ScheduleDummyData: ScheduleInfoType[] = [
         id: 2,
         statusMessage: null,
         profileImg: '1',
-        nickname: '일인자',
+        name: '일인자',
       },
       {
         id: 3,
         statusMessage: null,
         profileImg: '2',
-        nickname: '이인자',
+        name: '이인자',
       },
       {
         id: 1,
         statusMessage: null,
         profileImg:
           'http://k.kakaocdn.net/dn/bFe99u/btsmd0qfsWk/vLkfmNU6qbO06IDDLxFKkk/img_640x640.jpg',
-        nickname: '박가현',
+        name: '박가현',
       },
       {
         id: 5,
         statusMessage: null,
         profileImg:
           'http://k.kakaocdn.net/dn/cyE47l/btsoEpQApLy/SH9WMN9GuJUYHwX1FlRLsK/img_640x640.jpg',
-        nickname: '이정민',
+        name: '이정민',
       },
     ],
   },

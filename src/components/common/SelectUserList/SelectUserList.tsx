@@ -36,13 +36,14 @@ const SelectUserList = ({
           key={id}
           onClick={() => onSelect?.(id)}
         >
-          {type === 'friend' ? (
+          {type === 'friend' && (
             <Profile
               type="user"
               name={name}
               profileImg={profileImg as string}
             />
-          ) : (
+          )}
+          {type === 'group' && (
             <Profile
               type="group"
               name={name}

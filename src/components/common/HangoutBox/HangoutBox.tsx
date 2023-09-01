@@ -61,7 +61,7 @@ const HangoutBox = ({
           {members.map((member) => (
             <UserImage
               key={member.id}
-              src={member.nickname}
+              src={member.name}
               size={22}
               className={styles.memberImage}
             />

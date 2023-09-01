@@ -5,7 +5,7 @@ export interface ScheduleType {
 
 export interface FriendType {
   id: number;
-  nickname: string;
+  name: string;
   profileImg?: string;
   statusMessage?: string | null;
 }

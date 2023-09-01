@@ -36,7 +36,7 @@ const ScheduleList = () => {
           lat: item.latitude,
           friendList: item.clubMemberInfo.members.map((member) => ({
             id: member.id,
-            nickname: member.nickname,
+            name: member.nickname,
             profileImg: member.profileImg,
           })),
         })),

@@ -19,7 +19,7 @@ const HangoutDetailTab = () => {
 
   const membersData = data?.clubMemberInfo.members?.map((member: any) => ({
     id: member.id,
-    nickname: member.nickname,
+    name: member.name,
     profileImg: member.profileImg,
     email: member.email,
     status: member.status,

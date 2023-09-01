@@ -16,12 +16,12 @@ export const Default: Story = {
     members: [
       {
         id: 1,
-        nickname: '공소나',
+        name: '공소나',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
       {
         id: 2,
-        nickname: '공소나2',
+        name: '공소나2',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
     ],
@@ -36,12 +36,12 @@ export const HangoutBoxWithShadow: Story = {
     members: [
       {
         id: 1,
-        nickname: '공소나',
+        name: '공소나',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
       {
         id: 2,
-        nickname: '공소나2',
+        name: '공소나2',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
     ],
@@ -57,12 +57,12 @@ export const NotAcceptedHangoutBox: Story = {
     members: [
       {
         id: 1,
-        nickname: '공소나',
+        name: '공소나',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
       {
         id: 2,
-        nickname: '공소나2',
+        name: '공소나2',
         profileImg: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
       },
     ],
