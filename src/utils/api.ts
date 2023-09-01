@@ -63,7 +63,7 @@ const fetchApi = async <Result, Request extends ApiRequest>(
   requestInput: ApiRequestInput<Request>,
   accessToken?: string,
 ): Promise<Result> => {
-  const baseUrl = apiInfo.baseUrl ?? '여기에 서버 url'; // TODO
+  const baseUrl = apiInfo.baseUrl ?? 'https://jmleeex.co.kr';
   const url = `${baseUrl}${apiInfo.endpoint}`;
 
   try {
