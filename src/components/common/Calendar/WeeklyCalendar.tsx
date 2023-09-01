@@ -11,12 +11,18 @@ interface WeeklyCalendarProps {
   /** 0~11 */
   month: number;
   week: number;
+  onSelectDay: (day: Date) => void;
 }
 
 /**
  * 주간 캘린더 컴포넌트
  */
-const WeeklyCalendar = ({ year, month, week }: WeeklyCalendarProps) => {
+const WeeklyCalendar = ({
+  year,
+  month,
+  week,
+  onSelectDay,
+}: WeeklyCalendarProps) => {
   const selectedDayRef = useRef<Date | null>(null);
 
   const renderWeek: RenderWeek = useCallback(
@@ -37,9 +43,13 @@ const WeeklyCalendar = ({ year, month, week }: WeeklyCalendarProps) => {
 
   const renderDay = useCallback(
     (renderDayProps: RenderDayProps) => (
-      <StyledDay {...renderDayProps} selectedDayRef={selectedDayRef} />
+      <StyledDay
+        {...renderDayProps}
+        selectedDayRef={selectedDayRef}
+        selectedDayHandler={onSelectDay}
+      />
     ),
-    [],
+    [onSelectDay],
   );
 
   return (

@@ -1,4 +1,4 @@
-import { HangoutInfoType } from '@/components/common/HangoutBox/HangoutBox';
+import { HangoutInfoType } from '@/types/hangout';
 import Footer, { FooterButtonInfo } from './Footer';
 import HangoutInfoList from './HangoutInfoList';
 
