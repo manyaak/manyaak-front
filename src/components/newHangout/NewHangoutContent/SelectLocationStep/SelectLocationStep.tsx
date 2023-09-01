@@ -3,23 +3,27 @@ import { useEffect, useState } from 'react';
 import InputBar from '@/components/common/InputBar';
 import SelectLocationTab from './SelectLocationTab';
 import SelectLocationInfo from './SelectLocationInfo';
-import { SelectedPlaceInfoType } from './SelectLocationMap';
+import FooterButton from '@/components/common/FooterButton';
+import { SelectedPlaceInfoType } from '@/types/hangout';
 import * as styles from './SelectLocationStep.css';
+import { HangoutDataType, NEW_HANGOUT_STEP_KEY } from '../NewHangoutInfo';
 
 interface SelectLocationStepProps {
-  setValid: React.Dispatch<React.SetStateAction<boolean>>;
+  onNextStep: (
+    data?: HangoutDataType[typeof NEW_HANGOUT_STEP_KEY.selectLocation],
+  ) => void;
 }
 
-// TODO: 약속 이름, 장소 데이터 저장
-const SelectLocationStep = ({ setValid }: SelectLocationStepProps) => {
+const SelectLocationStep = ({ onNextStep }: SelectLocationStepProps) => {
   const [hangoutName, setHangoutName] = useState('');
   const [selectedPlaceInfo, setSelectedPlaceInfo] =
     useState<SelectedPlaceInfoType>();
   const [showSelectLocationTab, setShowSelectLocationTab] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
-    const isValid = !!hangoutName && !!selectedPlaceInfo;
-    setValid(isValid);
+    const valid = !!hangoutName && !!selectedPlaceInfo;
+    setIsValid(valid);
   }, [hangoutName, selectedPlaceInfo]);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +38,24 @@ const SelectLocationStep = ({ setValid }: SelectLocationStepProps) => {
   const onConfirmSelectLocation = (placeInfo: SelectedPlaceInfoType) => {
     setSelectedPlaceInfo(placeInfo);
     setShowSelectLocationTab(false);
+  };
+
+  const onClickNextBtn = () => {
+    if (isValid) {
+      const data = {
+        hangoutName: hangoutName as string,
+        placeInfo: selectedPlaceInfo as SelectedPlaceInfoType,
+      };
+      onNextStep(data);
+    }
+  };
+
+  const onClickSkipBtn = () => {
+    // 초기화
+    setHangoutName('');
+    setSelectedPlaceInfo(undefined);
+
+    onNextStep();
   };
 
   return (
@@ -60,6 +82,7 @@ const SelectLocationStep = ({ setValid }: SelectLocationStepProps) => {
           )}
         </div>
       </div>
+      <FooterButton onClick={onClickNextBtn} disabled={!isValid} label="다음" />
       {showSelectLocationTab && (
         <SelectLocationTab
           onConfirm={onConfirmSelectLocation}

@@ -72,7 +72,7 @@ const fetchApi = async <Result, Request extends ApiRequest>(
       {}) as ApiRequestInputBasic;
 
     const authorizationHeader = accessToken
-      ? { Authorization: `Bearer ${accessToken}` }
+      ? { Authorization: accessToken }
       : undefined;
 
     const pathString =
@@ -115,6 +115,7 @@ const fetchApi = async <Result, Request extends ApiRequest>(
         ...authorizationHeader,
         ...parsedRequestInput.headers,
       },
+      mode: 'cors',
     });
 
     let result;

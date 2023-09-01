@@ -1,7 +1,4 @@
-import SelectLocationMap, {
-  SelectLocationMapProps,
-  SelectedPlaceInfoType,
-} from './SelectLocationMap';
+import SelectLocationMap, { SelectLocationMapProps } from './SelectLocationMap';
 
-export type { SelectLocationMapProps, SelectedPlaceInfoType };
+export type { SelectLocationMapProps };
 export default SelectLocationMap;

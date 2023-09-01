@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from 'react';
 import InputBar from '@/components/common/InputBar';
 import FooterButton from '@/components/common/FooterButton';
+import { SelectedPlaceInfoType } from '@/types/hangout';
 import SelectLocationInfo from '../SelectLocationInfo';
 import * as styles from './SelectLocationMap.css';
 
@@ -15,21 +16,6 @@ const MARKER_WIDTH = 29;
 const MARKER_HEIGHT = 42;
 const OVER_MARKER_WIDTH = 35;
 const OVER_MARKER_HEIGHT = 50;
-
-export interface SelectedPlaceInfoType {
-  address_name: string;
-  category_group_code: string;
-  category_group_name: string;
-  category_name: string;
-  distance: string;
-  id: string;
-  phone: string;
-  place_name: string;
-  place_url: string;
-  road_address_name: string;
-  x: string;
-  y: string;
-}
 
 export interface SelectLocationMapProps {
   onConfirm: (placeInfo: SelectedPlaceInfoType) => void;

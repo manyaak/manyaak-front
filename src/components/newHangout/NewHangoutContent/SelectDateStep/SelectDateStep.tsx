@@ -1,9 +1,11 @@
-import { useCallback, useState } from 'react';
-import { CalenderHeader, MontlyCalendar } from '@/components/common/Calendar';
+import { useCallback, useEffect, useState } from 'react';
 import { getHourAndMinute, isSameDate } from '@/utils/date';
-import { ScheduleType } from '@/types/schedule';
 import useMontlyCalendar from '@/hooks/useMontlyCalendar';
+import { CalenderHeader, MontlyCalendar } from '@/components/common/Calendar';
+import FooterButton from '@/components/common/FooterButton';
 import DateSelectBox from './DateSelectBox';
+import { ScheduleType } from '@/types/schedule';
+import { HangoutDataType, NEW_HANGOUT_STEP_KEY } from '../NewHangoutInfo';
 import * as styles from './SelectDateStep.css';
 
 const DummySchedules = [
@@ -14,10 +16,12 @@ const DummySchedules = [
 ];
 
 interface SelectDateStepProps {
-  setValid: React.Dispatch<React.SetStateAction<boolean>>;
+  onNextStep: (
+    data?: HangoutDataType[typeof NEW_HANGOUT_STEP_KEY.selectDate],
+  ) => void;
 }
 
-const SelectDateStep = ({ setValid }: SelectDateStepProps) => {
+const SelectDateStep = ({ onNextStep }: SelectDateStepProps) => {
   const { year, month, setBeforeMonth, setNextMonth } = useMontlyCalendar();
 
   // 멤버 일정 보기 유무
@@ -30,6 +34,13 @@ const SelectDateStep = ({ setValid }: SelectDateStepProps) => {
   const [selectedSchedule, setSelectedSchedule] = useState<ScheduleType | null>(
     null,
   );
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    if (selectedSchedule?.start && selectedSchedule?.end) {
+      setIsValid(true);
+    }
+  }, [selectedSchedule, setIsValid]);
 
   const onSelectDay = useCallback((day: Date) => {
     setFilteredSchedules(
@@ -39,7 +50,15 @@ const SelectDateStep = ({ setValid }: SelectDateStepProps) => {
 
   const onSelectSchedule = (schedule: ScheduleType) => {
     setSelectedSchedule(schedule);
-    setValid(true);
+    setIsValid(true);
+  };
+
+  const onClickNextBtn = () => {
+    if (isValid) {
+      const data = selectedSchedule as ScheduleType;
+
+      onNextStep(data);
+    }
   };
 
   return (
@@ -77,6 +96,7 @@ const SelectDateStep = ({ setValid }: SelectDateStepProps) => {
         selectedSchedule={selectedSchedule}
         setSelectedSchedule={setSelectedSchedule}
       />
+      <FooterButton onClick={onClickNextBtn} disabled={!isValid} label="다음" />
     </>
   );
 };

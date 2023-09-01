@@ -1,5 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { COLORS } from '@/constants/styles';
+import { MAIN_LAYOUT_INFO, SUB_LAYOUT_INFO } from './layoutInfo';
 
 export const wrapperBase = style({
   margin: '0 auto',
@@ -10,10 +11,10 @@ export const wrapperBase = style({
 });
 
 export const wrapper = styleVariants({
-  withBar: [wrapperBase, { backgroundColor: COLORS.grayscale.gray50 }],
+  withBar: [wrapperBase, { backgroundColor: MAIN_LAYOUT_INFO.backgroundColor }],
   withoutBar: [
     wrapperBase,
-    { backgroundColor: COLORS.grayscale.white, padding: '0 20px' },
+    { backgroundColor: SUB_LAYOUT_INFO.backgroundColor, padding: '0 20px' },
   ],
 });
 

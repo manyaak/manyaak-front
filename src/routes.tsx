@@ -9,6 +9,7 @@ import NewHangoutTab from './pages/hangout/newHangout';
 import FriendScheduleContentTab from './pages/friend/friendDetail';
 import NewFriendTab from './pages/friend/newFriend';
 import NewGroupTab from './pages/friend/newGroup';
+import MyPage from './pages/mypage';
 
 const routes = [
   {
@@ -33,7 +34,7 @@ const routes = [
       },
       {
         path: 'mypage',
-        element: <div>MyPage Tab!</div>,
+        element: <MyPage />,
       },
     ],
   },
