@@ -16,7 +16,7 @@ const FriendTab = () => {
   const groupList = clubList?.map((club: any) => ({
     id: club.id,
     name: club.clubName,
-    profileImg: club.clubMemberList.map(
+    profileImg: club.members.map(
       (member: FriendInfo) => member.profileImg ?? '',
     ),
   }));
