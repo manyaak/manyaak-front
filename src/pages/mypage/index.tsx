@@ -1,11 +1,11 @@
 import MainHeader from '@/components/common/MainHeader';
 import { ReactComponent as SettingIcon } from '@/assets/icons/SettingIcon.svg';
 import { useLogout } from '@/hooks/useAuth';
-
-import * as styles from './mypage.css';
 import ContentBox from '@/components/common/ContentBox';
 import TextButton from '@/components/common/TextButton';
 import { COLORS } from '@/constants/styles';
+
+import * as styles from './mypage.css';
 
 const MyPage = () => {
   const logout = useLogout();
