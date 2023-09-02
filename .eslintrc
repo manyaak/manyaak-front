@@ -17,7 +17,8 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": ["tsconfig.json"]
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
@@ -27,6 +28,51 @@
     "react/jsx-no-bind": "off",
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "default",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": [
+          "class",
+          "enum",
+          "interface",
+          "typeAlias",
+          "typeParameter"
+        ],
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": ["enumMember"],
+        "format": ["UPPER_CASE"]
+      },
+      {
+        "selector": ["objectLiteralProperty"],
+        "format": null
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase"],
+        "prefix": ["api_"],
+        "filter": "^api_"
+      }
+    ],
+    "react/require-default-props": "off",
+    "import/order": "warn",
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
   }
 }
