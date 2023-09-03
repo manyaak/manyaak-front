@@ -194,25 +194,27 @@ export const ScheduleDummyData: ScheduleInfoType[] = [
       {
         id: 2,
         statusMessage: null,
-        img: '1',
+        profileImg: '1',
         name: '일인자',
       },
       {
         id: 3,
         statusMessage: null,
-        img: '2',
+        profileImg: '2',
         name: '이인자',
       },
       {
         id: 1,
         statusMessage: null,
-        img: 'http://k.kakaocdn.net/dn/bFe99u/btsmd0qfsWk/vLkfmNU6qbO06IDDLxFKkk/img_640x640.jpg',
+        profileImg:
+          'http://k.kakaocdn.net/dn/bFe99u/btsmd0qfsWk/vLkfmNU6qbO06IDDLxFKkk/img_640x640.jpg',
         name: '박가현',
       },
       {
         id: 5,
         statusMessage: null,
-        img: 'http://k.kakaocdn.net/dn/cyE47l/btsoEpQApLy/SH9WMN9GuJUYHwX1FlRLsK/img_640x640.jpg',
+        profileImg:
+          'http://k.kakaocdn.net/dn/cyE47l/btsoEpQApLy/SH9WMN9GuJUYHwX1FlRLsK/img_640x640.jpg',
         name: '이정민',
       },
     ],

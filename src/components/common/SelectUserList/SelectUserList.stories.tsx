@@ -9,12 +9,12 @@ export default {
 
 type Story = StoryObj<typeof SelectUserList>;
 
-export const WithFriend: Story = {
-  args: {
-    type: 'friend',
-    list: userDummydata,
-  },
-};
+// export const WithFriend: Story = {
+//   args: {
+//     type: 'friend',
+//     list: userDummydata,
+//   },
+// };
 
 export const WithGroup: Story = {
   args: {

@@ -60,8 +60,8 @@ const HangoutBox = ({
         <div className={styles.memberInfoWrap}>
           {members.map((member) => (
             <UserImage
-              key={member.nickname}
-              src={member.profileImg}
+              key={member.id}
+              src={member.name}
               size={22}
               className={styles.memberImage}
             />

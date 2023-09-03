@@ -91,8 +91,8 @@ const NewHangoutTab = () => {
     // 장소 선택 데이터
     const placeName = data.selectLocation?.placeInfo.place_name;
     const address = data.selectLocation?.placeInfo.address_name;
-    const latitude = Number(data.selectLocation?.placeInfo.y);
-    const longitude = Number(data.selectLocation?.placeInfo.x);
+    const latitude = data.selectLocation?.placeInfo.y;
+    const longitude = data.selectLocation?.placeInfo.x;
 
     // 약속 이름
     const name = data.selectLocation?.hangoutName;
